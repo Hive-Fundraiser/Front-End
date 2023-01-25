@@ -6,15 +6,20 @@ import App from "../../App";
 
 const Navbar = () => {
     return (
-        <header className={styles.header}>
-            <div className={styles.mainContainer}>
-                <p>Hive</p>
-                <div className={styles.listContainer}>
-                    {/*<Link to="/cart"><button>search</button> </Link>*/}
-                    <Link to="/Login"><button>LogIn</button> </Link>
-                    <Link to="/Signup"><button>SignUp</button> </Link>
-
+        <header className={ styles.header }>
+            <div className={ styles.mainContainer }>
+                <p className={ styles.hive }>Hive</p>
+                <div>
+                    {/*<Link to="/cart"><button>search</button> </Link>*/ }
+                    <Link to="/Login" className={ styles.lists }>
+                        <button className={styles.p1}>LogIn</button>
+                    </Link>
+                    <Link to="/Signup" className={ styles.lists }>
+                        <button className={styles.p2}>SignUp</button>
+                    </Link>
                 </div>
+
+
             </div>
         </header>
     );

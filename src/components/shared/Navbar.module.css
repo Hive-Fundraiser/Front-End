@@ -1,9 +1,52 @@
 .header{
 
-}
-.mainContainer{
+    background-color: #ffffff;
+    padding: 0  25px;
+    height: 4em;
+    border-bottom: black solid 1px;
 
 }
-.listContainer{
+.mainContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.lists{
+    display: inline;
+}
+.hive{
+    display: inline;
+}
+.p2{
+    background-color: #58c5ce;
+    border: none;
+    color: white;
+    padding: 10px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 12px;
+    margin: 0 8px;
+
+}
+.p2:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+
+}
+.p1{
+    background-color: transparent;
+
+    color: black;
+    padding: 10px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 12px;
+    border: 2px solid #000000;
+    margin: 0 8px;
+}
+.p1:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 
 }
