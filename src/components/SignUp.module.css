@@ -1,24 +1,112 @@
 .container{
-
+    display: flex;
+    justify-content: center;
+    background-color: #ffffff;
+    min-height: 100vh;
+    align-items: center;
 }
 .formContainer{
-
+    border: 2px solid silver;
+    width: fit-content;
+    padding: 50px;
+    margin: 50px;
+    border-radius: 10px;
+    height: fit-content;
+    background-color: #fff;
 }
 .header{
-
+    text-align: center;
+    margin-bottom: 60px;
+    font-size: 1.8rem;
+    color: #000000;
 }
 .formField{
-
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    height: 75px;
 }
 .formInput{
+    width: 300px;
+    height: 30px;
+    border-radius: 5px;
+    padding: 0px 10px;
+    transition: all 0.2s ease-in;
+    background-color: #d5d5d5;
+}
+.formInput::placeholder{
+    font-weight: bold;
+    color: black;
+}
 
+.formInput:focus,
+.uncompleted:focus {
+    outline: none;
+    line-height: 30px;
+    height: 30px;
+    border: 1px solid #1a73e8;
+    background-color: #d5d5d5;
+}
+.formField span {
+    height: 10px;
+    text-align: left;
+    margin-top: 5px;
+    width: fit-content;
+    font-size: 0.7rem;
+    color: red;
+    line-height: 10px;
+    padding: 2px 3px;
+    border-radius: 3px;
+
+}
+.formField::placeholder{
+    font-weight: bold;
+    color: black;
 }
 .formButtons{
-
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+.formButtons button {
+    background-color: #72cee3;
+    padding: 10px 20px;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.1s ease-in;
+    cursor: pointer;
+}
+.formButtons button:hover {
+    background-color: #004aaa;
 }
 .lists{
+    color: #000000;
+    text-decoration: none;
+    transition: all 0.1s ease-in;
+    font-weight: 700;
+    margin-bottom: 25px;
+    border-bottom: solid black 1px;
+}
+.lists:hover{
+    color: #3c85ce;
 
 }
 .listContainer{
 
+}
+.uncompleted{
+    width: 300px;
+    height: 30px;
+    border-radius: 5px;
+    padding: 0px 10px;
+    transition: all 0.2s ease-in;
+    background-color: #d5d5d5;
+}
+.uncompleted::placeholder{
+    font-weight: bold;
+    color: black;
 }

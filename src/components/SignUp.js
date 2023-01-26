@@ -47,34 +47,37 @@ const SignUp = () => {
                 <h2 className={ styles.header }>Sign Up</h2>
                 <div className={ styles.formField }>
 
-                    <input type="text" name="name" className={ styles.formInput } onFocus={ focusHandler }
+                    <input type="text" name="name"
+                           className={ ( errors.name && touch.name ) ? styles.uncompleted : styles.formInput }
+                           onFocus={ focusHandler }
                            onChange={ changeHandler } value={ data.name } placeholder="name"/>
                     { errors.name && touch.name && <span>{ errors.name }</span> }
 
                 </div>
                 <div className={ styles.formField }>
-                    <input type="text" name="email" className={ styles.formInput } onFocus={ focusHandler }
+                    <input type="text" name="email"
+                           className={ ( errors.email && touch.email ) ? styles.uncompleted : styles.formInput }
+                           onFocus={ focusHandler }
                            onChange={ changeHandler } value={ data.email } placeholder="email"/>
                     { errors.email && touch.email && <span>{ errors.email }</span> }
 
                 </div>
                 <div className={ styles.formField }>
-                    <input type="password" name="password" className={ styles.formInput } onFocus={ focusHandler }
+                    <input type="password" name="password"
+                           className={ ( errors.password && touch.password ) ? styles.uncompleted : styles.formInput }
+                           onFocus={ focusHandler }
                            onChange={ changeHandler } value={ data.password } placeholder="password"/>
                     { errors.password && touch.password && <span>{ errors.password }</span> }
 
                 </div>
                 <div className={ styles.formButtons }>
-
-                        <button type="submit">Sign Up</button>
-
-
+                    <button type="submit">Sign Up</button>
                     <div className={ styles.listContainer }>
-
+                        <Link to="/Login" className={ styles.lists }>
+                            <span>Do you have an account? Log In</span>
+                        </Link>
                     </div>
-                    <Link to="/Login" className={ styles.lists }>
-                        <span>Do you have an account? Log In</span>
-                    </Link>
+
                 </div>
 
             </form>
