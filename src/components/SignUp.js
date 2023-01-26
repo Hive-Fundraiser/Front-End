@@ -21,10 +21,10 @@ const SignUp = () => {
     } , [ data , touch ] )
     const submitHandler = ( event ) => {
         event.preventDefault ();
-        if ( ! Object.keys ( event ).length ) {
-            notify ( "you signed up successfully" , "success" )
+        if ( ! Object.keys ( errors ).length ) {
+            notify ( "ثبت نام با موفقیت انجام شد" , "success" )
         } else {
-            notify ( "invalid data!" , "error" )
+            notify ( "ورودی ها معتبر نیست! کامل وارد کنید" , "error" )
             setTouch ( {
                 name : true ,
                 email : true ,
@@ -34,7 +34,7 @@ const SignUp = () => {
     }
     const focusHandler = ( event ) => {
         console.log ( event )
-        setTouch ( { ... touch , [ event.target.name ] : true } )
+        setTouch ( {  [ event.target.name ] : true } )
 
     }
     const changeHandler = ( event ) => {
