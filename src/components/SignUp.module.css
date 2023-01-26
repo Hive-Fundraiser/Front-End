@@ -6,13 +6,15 @@
     align-items: center;
 }
 .formContainer{
-    border: 2px solid silver;
+    border: 1px solid #000000;
     width: fit-content;
-    padding: 50px;
+    padding: 20px 40px;
     margin: 50px;
-    border-radius: 10px;
+    border-radius: 20px;
     height: fit-content;
     background-color: #fff;
+    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+
 }
 .header{
     text-align: center;
@@ -24,19 +26,20 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
-    height: 75px;
+    height: 50px;
 }
 .formInput{
     width: 300px;
     height: 30px;
-    border-radius: 5px;
-    padding: 0px 10px;
+    border-radius: 14px;
+    padding: 5px 10px;
     transition: all 0.2s ease-in;
-    background-color: #d5d5d5;
+    background-color: #F3F2F2;
+    border: none;
 }
 .formInput::placeholder{
-    font-weight: bold;
-    color: black;
+
+    color: #A3A3A3;
 }
 
 .formInput:focus,
@@ -44,19 +47,21 @@
     outline: none;
     line-height: 30px;
     height: 30px;
-    border: 1px solid #1a73e8;
-    background-color: #d5d5d5;
+    border: none;
+    background-color: #F3F2F2;
+    padding: 5px 10px;
+
 }
 .formField span {
     height: 10px;
     text-align: left;
-    margin-top: 5px;
+    margin-top: 3px;
     width: fit-content;
     font-size: 0.7rem;
     color: red;
-    line-height: 10px;
-    padding: 2px 3px;
-    border-radius: 3px;
+    line-height: 7px;
+    padding: 0px 3px;
+
 
 }
 .formField::placeholder{
@@ -68,15 +73,16 @@
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
+    padding: 4px 0;
 }
 .formButtons button {
-    background-color: #72cee3;
-    padding: 10px 20px;
+    background-color: #00A1B5;
+    padding: 10px 40px;
     color: #fff;
-    border-radius: 5px;
+    border-radius: 8px;
     border: none;
-    font-size: 0.875rem;
-    font-weight: 500;
+    font-size: 1.3rem;
+
     transition: all 0.1s ease-in;
     cursor: pointer;
 }
@@ -88,7 +94,7 @@
     text-decoration: none;
     transition: all 0.1s ease-in;
     font-weight: 700;
-    margin-bottom: 25px;
+    padding: 5px 0;
     border-bottom: solid black 1px;
 }
 .lists:hover{
@@ -96,17 +102,19 @@
 
 }
 .listContainer{
-
+margin-top: 12px;
 }
 .uncompleted{
     width: 300px;
     height: 30px;
-    border-radius: 5px;
-    padding: 0px 10px;
+    border-radius: 14px;
+    padding: 5px 10px;
+
     transition: all 0.2s ease-in;
-    background-color: #d5d5d5;
+    background-color: #F3F2F2;
+    border: none;
 }
 .uncompleted::placeholder{
     font-weight: bold;
-    color: black;
+    color: #A3A3A3;
 }

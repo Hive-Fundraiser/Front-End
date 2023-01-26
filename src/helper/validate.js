@@ -1,21 +1,21 @@
 export const validate = ( data ) => {
     const errors = {};
     if ( ! data.name.trim () ) {
-        errors.name = "Username Required"
+        errors.name = "نام کاربری ضروری است"
     } else {
         delete errors.name
     }
     if ( ! data.email ) {
-        errors.email = "Email required";
+        errors.email = "ایمیل ضروری است";
     } else if ( ! /\S+@\S+\.\S+/.test ( data.email ) ) {
-        errors.email = "Email address is incorrect"
+        errors.email = "آدرس ایمیل درست نیست"
     } else {
         delete errors.email;
     }
     if ( ! data.password ) {
-        errors.password = "Password is required"
+        errors.password = "رمز عبور ضروری است"
     } else if ( data.password.length < 6 ) {
-        errors.password = "Password is less than 6"
+        errors.password = "رمز عبوری کمتر از 6 حرف است"
     } else {
         delete errors.password
     }

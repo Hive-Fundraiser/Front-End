@@ -44,13 +44,13 @@ const SignUp = () => {
     return (
         <div className={ styles.container }>
             <form onSubmit={ submitHandler } className={ styles.formContainer }>
-                <h2 className={ styles.header }>Sign Up</h2>
+                <h2 className={ styles.header }>ثبت نام</h2>
                 <div className={ styles.formField }>
 
                     <input type="text" name="name"
                            className={ ( errors.name && touch.name ) ? styles.uncompleted : styles.formInput }
                            onFocus={ focusHandler }
-                           onChange={ changeHandler } value={ data.name } placeholder="name"/>
+                           onChange={ changeHandler } value={ data.name } placeholder="نام کاربری"/>
                     { errors.name && touch.name && <span>{ errors.name }</span> }
 
                 </div>
@@ -58,7 +58,7 @@ const SignUp = () => {
                     <input type="text" name="email"
                            className={ ( errors.email && touch.email ) ? styles.uncompleted : styles.formInput }
                            onFocus={ focusHandler }
-                           onChange={ changeHandler } value={ data.email } placeholder="email"/>
+                           onChange={ changeHandler } value={ data.email } placeholder="ایمیل"/>
                     { errors.email && touch.email && <span>{ errors.email }</span> }
 
                 </div>
@@ -66,15 +66,15 @@ const SignUp = () => {
                     <input type="password" name="password"
                            className={ ( errors.password && touch.password ) ? styles.uncompleted : styles.formInput }
                            onFocus={ focusHandler }
-                           onChange={ changeHandler } value={ data.password } placeholder="password"/>
+                           onChange={ changeHandler } value={ data.password } placeholder="رمز عبور"/>
                     { errors.password && touch.password && <span>{ errors.password }</span> }
 
                 </div>
                 <div className={ styles.formButtons }>
-                    <button type="submit">Sign Up</button>
+                    <button type="submit">ثبت نام</button>
                     <div className={ styles.listContainer }>
                         <Link to="/Login" className={ styles.lists }>
-                            <span>Do you have an account? Log In</span>
+                            <span>حساب کاربری دارید؟ وارد شوید.</span>
                         </Link>
                     </div>
 
