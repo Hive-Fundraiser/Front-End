@@ -65,9 +65,9 @@ const SignUp = () => {
 
                 </div>
                 <div className={ styles.formButtons }>
-                    <Link to="/">
+
                         <button type="submit">Sign Up</button>
-                    </Link>
+
 
                     <div className={ styles.listContainer }>
 
