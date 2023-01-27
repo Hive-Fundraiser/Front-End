@@ -25,7 +25,7 @@ const ForgetPassword = () => {
         if ( ! Object.keys ( errors ).length ) {
             notify ( "ایمیل ارسال شد." , "info" )
             setTimeout ( () => {
-                navigate ( "/" );
+                navigate ( "/ResetPass" );
             } , 2000 );
 
         } else {
@@ -47,14 +47,20 @@ const ForgetPassword = () => {
     return (
         <div className={ styles.container }>
             <form onSubmit={ submitHandler } className={ styles.formContainer }>
-                <h2 className={ styles.header }>فراموشی رمز عبور</h2>
+                <h2 className={ styles.header }>فراموشی رمزعبور</h2>
                 <div className={ styles.formField }>
-                    <p>ایمیل خود را وارد کنید</p>
+                    <p className={styles.ParEmail}>ایمیل خود را وارد کنید</p>
                     <input type="text" name="email"
                            className={ ( errors.email && touch.email ) ? styles.uncompleted : styles.formInput }
                            onFocus={ focusHandler }
                            onChange={ changeHandler } value={ data.email } placeholder="ایمیل"/>
-                            { errors.email && touch.email && <span>{ errors.email }</span> }
+
+
+                </div>
+                <div className={ styles.formButtons }>
+                    <button type="submit">ارسال کد</button>
+
+
 
                 </div>
             </form>
