@@ -1,5 +1,5 @@
 import React , { useEffect , useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link ,  useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 import styles from "./SignUp.module.css"
 import { notify } from "../helper/toast";
@@ -8,6 +8,7 @@ import { validate } from "../helper/validate";
 
 
 const SignUp = () => {
+    const navigate = useNavigate();
     const [ data , setData ] = useState ( {
         name : "" ,
         email : "" ,
@@ -16,13 +17,18 @@ const SignUp = () => {
     const [ touch , setTouch ] = useState ( {} )
     const [ errors , setErrors ] = useState ( {} )
     useEffect ( () => {
-        setErrors ( validate ( data ) )
+        setErrors ( validate ( data,"signup" ) )
         console.log ( errors )
     } , [ data , touch ] )
     const submitHandler = ( event ) => {
         event.preventDefault ();
         if ( ! Object.keys ( errors ).length ) {
             notify ( "ثبت نام با موفقیت انجام شد" , "success" )
+            setTimeout(() => {
+                navigate("/");
+            }, 2000);
+
+
         } else {
             notify ( "ورودی ها معتبر نیست! کامل وارد کنید" , "error" )
             setTouch ( {
@@ -41,6 +47,9 @@ const SignUp = () => {
         setData ( { ... data , [ event.target.name ] : event.target.value } )
         console.log ( data.name )
     }
+
+
+
     return (
         <div className={ styles.container }>
             <form onSubmit={ submitHandler } className={ styles.formContainer }>
@@ -71,13 +80,11 @@ const SignUp = () => {
 
                 </div>
                 <div className={ styles.formButtons }>
-                    {data.name.length && data.password.length && data.email.length?<Link to="/">
-                        <button type="submit">ثبت نام</button>
-                    </Link>  :<button type="submit">ثبت نام</button> }
+                   <button type="submit">ثبت نام</button>
 
 
                     <div className={ styles.listContainer }>
-                        <Link to="/Login" className={ styles.lists }>
+                        <Link to="/Login" className={ styles.lists } >
                             <span>حساب کاربری دارید؟ وارد شوید.</span>
                         </Link>
                     </div>
