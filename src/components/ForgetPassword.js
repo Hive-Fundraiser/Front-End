@@ -1,5 +1,5 @@
 import React , { useEffect , useState } from 'react';
-import { Link , useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 
 import styles from "./ForgetPassword.module.css"
 import { validate } from "../helper/validate";
@@ -11,13 +11,12 @@ import { ToastContainer } from 'react-toastify';
 const ForgetPassword = () => {
     const navigate = useNavigate ();
     const [ data , setData ] = useState ( {
-        name : "" ,
-        password : ""
+        email : ""
     } )
     const [ touch , setTouch ] = useState ( {} )
     const [ errors , setErrors ] = useState ( {} )
     useEffect ( () => {
-        setErrors ( validate ( data , "signup" ) )
+        setErrors ( validate ( data , "ResetPass" ) )
         console.log ( errors )
     } , [ data , touch ] )
     const submitHandler = ( event ) => {
@@ -31,7 +30,7 @@ const ForgetPassword = () => {
         } else {
             notify ( "ایمیل غلط میبایشد" , "error" )
             setTouch ( {
-                email : true ,
+                email : true
             } )
         }
     }
@@ -42,7 +41,7 @@ const ForgetPassword = () => {
     }
     const changeHandler = ( event ) => {
         setData ( { ... data , [ event.target.name ] : event.target.value } )
-        console.log ( data.name )
+
     }
     return (
         <div className={ styles.container }>
@@ -59,8 +58,6 @@ const ForgetPassword = () => {
                 </div>
                 <div className={ styles.formButtons }>
                     <button type="submit">ارسال کد</button>
-
-
 
                 </div>
             </form>
