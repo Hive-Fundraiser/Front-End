@@ -1,0 +1,26 @@
+.steps_parent{
+        padding: calc(2vw + 0.5rem);
+}
+.top{
+    margin-bottom: calc(2vw + 0.5rem);
+    padding-right: calc(1.2vw + 0.3rem);
+}
+.top h5{
+    font-size: calc(0.9vw + 0.2rem);
+    font-weight: 400;
+}
+.top h2{
+    font-size: calc(1.2vw + 0.3rem);
+    font-weight: bold;
+}
+.steps_numbers{
+    width: calc(65vw + 5rem);
+}
+.steps{
+    display: flex;
+    gap: calc(15vw + 4.5rem);
+}
+.step{
+    font-size: calc(1vw + 0.3rem);
+    font-weight: bold;
+}
