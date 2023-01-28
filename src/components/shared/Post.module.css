@@ -1,0 +1,22 @@
+.post{
+    padding: calc(0.7vw + 0.3rem);
+    cursor: pointer;
+    border-radius: 10px;
+}
+.parent{
+    width: 100%;
+    padding: calc(0.3vw + 0.1rem);
+    transition: all ease 0.3s;
+}
+.image{
+    width: 100%;
+}
+.parent:hover{
+    scale: 1.05;
+}
+.title{
+    font-size: calc(1vw + 0.3rem);
+}
+.description{
+    font-size: calc(0.7vw + 0.2rem);
+}
