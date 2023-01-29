@@ -14,7 +14,7 @@ export const validate = ( data ) => {
     }
     if ( ! data.password ) {
         errors.password = "رمز عبور ضروری است"
-    } else if ( data.password.length < 6 ) {
+    } else if ( data.password.length < 2 ) {
         errors.password = "رمز عبوری کمتر از 6 حرف است"
     } else {
         delete errors.password
