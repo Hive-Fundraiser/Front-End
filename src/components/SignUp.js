@@ -34,7 +34,7 @@ const SignUp = () => {
     }
     const focusHandler = ( event ) => {
         console.log ( event )
-        setTouch ( {  [ event.target.name ] : true } )
+        setTouch ( {...touch,  [ event.target.name ] : true } )
 
     }
     const changeHandler = ( event ) => {
@@ -71,7 +71,11 @@ const SignUp = () => {
 
                 </div>
                 <div className={ styles.formButtons }>
-                    <button type="submit">ثبت نام</button>
+                    {data.name.length && data.password.length && data.email.length?<Link to="/">
+                        <button type="submit">ثبت نام</button>
+                    </Link>  :<button type="submit">ثبت نام</button> }
+
+
                     <div className={ styles.listContainer }>
                         <Link to="/Login" className={ styles.lists }>
                             <span>حساب کاربری دارید؟ وارد شوید.</span>
