@@ -1,0 +1,14 @@
+.parent{
+    display: flex;
+    padding: calc(2vw + 1rem);
+}
+.right{
+    flex: 1;
+    padding-left: calc(1vw + 0.5rem);
+    display: flex;
+    flex-wrap: wrap;
+}
+.left{
+    flex: 1;
+    padding-right: calc(1vw + 0.5rem);
+}
