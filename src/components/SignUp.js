@@ -17,7 +17,7 @@ const SignUp = () => {
     const [ errors , setErrors ] = useState ( {} )
     useEffect ( () => {
         setErrors ( validate ( data ) )
-        console.log ( errors )
+
     } , [ data , touch ] )
     const submitHandler = ( event ) => {
         event.preventDefault ();
@@ -33,13 +33,13 @@ const SignUp = () => {
         }
     }
     const focusHandler = ( event ) => {
-        console.log ( event )
+
         setTouch ( {  [ event.target.name ] : true } )
 
     }
     const changeHandler = ( event ) => {
         setData ( { ... data , [ event.target.name ] : event.target.value } )
-        console.log ( data.name )
+
     }
     return (
         <div className={ styles.container }>

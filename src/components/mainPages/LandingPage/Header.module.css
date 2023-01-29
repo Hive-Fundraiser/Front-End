@@ -24,7 +24,8 @@
     font-weight: bold;
     text-align: center;
 }
-.start_parent button{
+
+.buttonHeader{
     font-size: calc(1vw + 0.2rem);
     padding: calc(1vw + 0.2rem);
     color: white;
@@ -33,6 +34,10 @@
     outline: 0;
     border: none;
     cursor: pointer;
+}
+.buttonHeader:hover{
+    box-shadow: 3px 5px 4px 0px rgba(0,0,0,0.25);
+
 }
 .left{
     display: flex;

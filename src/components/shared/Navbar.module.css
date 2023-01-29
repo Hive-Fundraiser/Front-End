@@ -31,7 +31,7 @@
     display: inline;
 }
 .p2{
-    background-color: #58c5ce;
+    background-color: #22B8E8;
     border: none;
     color: white;
     padding: calc(0.7vw + 0.03rem) calc(1.3vw + 0.8rem);
@@ -44,7 +44,8 @@
     font-size: calc(0.9vw + 0.15rem);
 }
 .p2:hover{
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    box-shadow: 3px 5px 4px 0px rgba(0,0,0,0.25);
+
 
 }
 .p1{
@@ -61,6 +62,7 @@
     font-size: calc(0.9vw + 0.15rem);
 }
 .p1:hover{
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    box-shadow: 3px 5px 4px 0px rgba(0,0,0,0.25);
+
 
 }

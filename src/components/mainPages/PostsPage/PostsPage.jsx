@@ -1,5 +1,10 @@
+import React from "react";
+
 const PostsPage = () => {
-  return <div>posts page</div>;
+  return(
+
+   <p>salam posts</p>
+)
 };
 
 export default PostsPage;
