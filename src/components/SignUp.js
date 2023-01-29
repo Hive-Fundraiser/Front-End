@@ -1,5 +1,5 @@
 import React , { useEffect , useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 import styles from "./SignUp.module.css"
 import { notify } from "../helper/toast";
@@ -8,6 +8,7 @@ import { validate } from "../helper/validate";
 
 
 const SignUp = () => {
+    const navigate = useNavigate();
     const [ data , setData ] = useState ( {
         name : "" ,
         email : "" ,
@@ -23,6 +24,9 @@ const SignUp = () => {
         event.preventDefault ();
         if ( ! Object.keys ( errors ).length ) {
             notify ( "ثبت نام با موفقیت انجام شد" , "success" )
+            setTimeout(() => {
+                navigate("/");
+            }, 2000);
         } else {
             notify ( "ورودی ها معتبر نیست! کامل وارد کنید" , "error" )
             setTouch ( {
