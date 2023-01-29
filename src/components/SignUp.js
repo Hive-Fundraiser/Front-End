@@ -5,6 +5,7 @@ import styles from "./SignUp.module.css"
 import { notify } from "../helper/toast";
 import { ToastContainer } from 'react-toastify';
 import { validate } from "../helper/validate";
+import axios from "axios";
 
 
 const SignUp = () => {
@@ -17,12 +18,28 @@ const SignUp = () => {
     const [ errors , setErrors ] = useState ( {} )
     useEffect ( () => {
         setErrors ( validate ( data ) )
-        console.log ( errors )
+
     } , [ data , touch ] )
-    const submitHandler = ( event ) => {
+    const submitHandler = async ( event ) => {
         event.preventDefault ();
         if ( ! Object.keys ( errors ).length ) {
             notify ( "ثبت نام با موفقیت انجام شد" , "success" )
+            const response = await axios.post (
+                'http://127.0.0.1:8000//auth/jwt/create' ,
+                {
+                    name : data.name ,
+                    email : data.email ,
+                    password : data.password
+                } ,
+                {
+                    headers : {
+                        'Content-Type' : 'application/json' ,
+                        "Access-Control-Allow-Origin" : "null"
+                    }
+                }
+            )
+            console.log ( response.data )
+
         } else {
             notify ( "ورودی ها معتبر نیست! کامل وارد کنید" , "error" )
             setTouch ( {
@@ -33,13 +50,13 @@ const SignUp = () => {
         }
     }
     const focusHandler = ( event ) => {
-        console.log ( event )
-        setTouch ( {...touch,  [ event.target.name ] : true } )
+
+        setTouch ( { ... touch , [ event.target.name ] : true } )
 
     }
     const changeHandler = ( event ) => {
         setData ( { ... data , [ event.target.name ] : event.target.value } )
-        console.log ( data.name )
+
     }
     return (
         <div className={ styles.container }>
@@ -71,9 +88,7 @@ const SignUp = () => {
 
                 </div>
                 <div className={ styles.formButtons }>
-                    {data.name.length && data.password.length && data.email.length?<Link to="/">
-                        <button type="submit">ثبت نام</button>
-                    </Link>  :<button type="submit">ثبت نام</button> }
+                    <button type="submit">ثبت نام</button>
 
 
                     <div className={ styles.listContainer }>
