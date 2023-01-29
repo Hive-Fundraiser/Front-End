@@ -5,8 +5,8 @@ import LogIn from "./components/LogIn";
 import SignUp from "./components/SignUp";
 import Navbar from "./components/shared/Navbar";
 import Landing from "./components/mainPages/LandingPage/Landing";
-
-
+import PostsPage from "./components/mainPages/PostsPage/PostsPage";
+import ForgetPassword from "./components/ForgetPassword";
 function App () {
     return (
         <div>
@@ -14,7 +14,9 @@ function App () {
             <Routes>
                 <Route path="/" element={ <Landing/> }/>
                 <Route path="/Signup" element={ <SignUp/> }/>
+                <Route path="/ForgetPassword" element={ <ForgetPassword/> }/>
                 <Route path="/Login" element={ <LogIn/> }/>
+                <Route path="/Posts" element={ <PostsPage/> }/>
             </Routes>
 
 
