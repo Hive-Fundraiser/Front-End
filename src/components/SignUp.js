@@ -5,6 +5,7 @@ import styles from "./SignUp.module.css"
 import { notify } from "../helper/toast";
 import { ToastContainer } from 'react-toastify';
 import { validate } from "../helper/validate";
+import axios from "axios";
 
 
 const SignUp = () => {
@@ -19,10 +20,21 @@ const SignUp = () => {
         setErrors ( validate ( data ) )
         console.log ( errors )
     } , [ data , touch ] )
-    const submitHandler = ( event ) => {
+    const submitHandler = async ( event ) => {
         event.preventDefault ();
         if ( ! Object.keys ( errors ).length ) {
             notify ( "ثبت نام با موفقیت انجام شد" , "success" )
+            const send = {
+                name:data.name,
+            email:data.email ,
+            password:data.password
+            }
+            const response = await axios.post (
+                'http://127.0.0.1:8000//auth/jwt/create',
+                    send,
+                { headers : { 'Content-Type' : 'application/json' } }
+            )
+            console.log ( response.data )
         } else {
             notify ( "ورودی ها معتبر نیست! کامل وارد کنید" , "error" )
             setTouch ( {
@@ -33,13 +45,13 @@ const SignUp = () => {
         }
     }
     const focusHandler = ( event ) => {
-        console.log ( event )
+
         setTouch ( {  [ event.target.name ] : true } )
 
     }
     const changeHandler = ( event ) => {
         setData ( { ... data , [ event.target.name ] : event.target.value } )
-        console.log ( data.name )
+
     }
     return (
         <div className={ styles.container }>
