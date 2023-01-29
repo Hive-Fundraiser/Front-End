@@ -4,7 +4,8 @@ import { Route , Routes } from "react-router-dom";
 import LogIn from "./components/LogIn";
 import SignUp from "./components/SignUp";
 import Navbar from "./components/shared/Navbar";
-import Landing from "./components/Landing";
+import Landing from "./components/mainPages/LandingPage/Landing";
+
 
 function App () {
     return (
