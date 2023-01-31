@@ -17,7 +17,7 @@ const SignUp = () => {
     const [ touch , setTouch ] = useState ( {} )
     const [ errors , setErrors ] = useState ( {} )
     useEffect ( () => {
-        setErrors ( validate ( data ) )
+        setErrors ( validate ( data,"signup" ) )
         console.log ( errors )
     } , [ data , touch ] )
     const submitHandler = async ( event ) => {
