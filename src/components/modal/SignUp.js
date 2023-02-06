@@ -114,8 +114,9 @@ const SignUp = ({open}) => {
                     </div>
 
                 </form>
-                <ToastContainer/>
+
             </div>
+
         </>,
         document.getElementById("portal")
     );
