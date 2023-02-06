@@ -2,9 +2,9 @@ import React , { useEffect , useState } from 'react';
 import { Link } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 import styles from "./SignUp.module.css"
-import { notify } from "../helper/toast";
+import { notify } from "../../helper/toast";
 import { ToastContainer } from 'react-toastify';
-import { validate } from "../helper/validate";
+import { validate } from "../../helper/validate";
 import axios from "axios";
 
 
