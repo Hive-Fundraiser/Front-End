@@ -26,7 +26,7 @@ const Navbar = () => {
                     {/*<Link to="/cart"><button>search</button> </Link>*/ }
                     <div style={ BUTTON_WRAPPER_STYLES } className={ styles.lists }>
                         <button className={ styles.p2 } onClick={ () => setIsOpen ( true ) }>ثبت نام</button>
-                        <SignUp open={ isOpen }>
+                        <SignUp open={ isOpen } closeModal={()=>setIsOpen(false)}>
 
                         </SignUp>
                     </div>
