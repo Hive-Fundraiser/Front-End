@@ -1,39 +1,55 @@
 import React , { useEffect , useState } from 'react';
 import ReactDOM from "react-dom/client";
 import { createPortal } from 'react-dom';
-import styles from "../deleted/SignUp.module.css";
+import styles from "../../components/modal/SignUp.module.css";
 import { Link } from "react-router-dom";
 import { validate } from "../../helper/validate";
 import { notify } from "../../helper/toast";
 import axios from "axios";
 import { ToastContainer } from "react-toastify";
-
+import Login from "./Login/Login";
+import cancel from "../../images/close.svg"
 const MODAL_STYLES = {
     position : "fixed" ,
     top : "50%" ,
     left : "50%" ,
-    bottom : "50%",
+    bottom : "50%" ,
     transform : "translate(-50%, 50%)" ,
     backgroundColor : "#FFF" ,
-    zIndex : 10000,
-    display:"flex",
-    alignItems:"center",
-    justifyContent:"center",
+    zIndex : 10000 ,
+    display : "flex" ,
+    alignItems : "center" ,
+    justifyContent : "center" ,
 
+}
+const MODAL_STYLES_HIDDEN = {
+    opacity : 0
 }
 const OVERLAY_STYLES = {
-    position : "fixed",
-    top:0,
-    left:0,
-    right:0,
-    bottom:0,
-    backgroundColor : "rgba(0,0,0,.7)",
+    position : "fixed" ,
+    top : 0 ,
+    left : 0 ,
+    right : 0 ,
+    bottom : 0 ,
+    backgroundColor : "rgba(0,0,0,.7)" ,
     zIndex : 10000
 }
+const OVERLAY_STYLES_LOGINED_CLICKED = {
+    position : "fixed" ,
+    top : 0 ,
+    left : 0 ,
+    right : 0 ,
+    bottom : 0 ,
+    backgroundColor : "rgba(0,0,0,0.1)" ,
+    zIndex : 10000
+}
+const BUTTON_WRAPPER_LOGIN_STYLES = {
+    position : "relative" ,
+    zIndex : 1
+}
+const SignUp = ( { open , closeModal } ) => {
 
-const SignUp = ({open}) => {
-
-
+    const [ isOpenLogin , setIsOpenLogin ] = useState ( false )
     const [ data , setData ] = useState ( {
         name : "" ,
         email : "" ,
@@ -42,7 +58,7 @@ const SignUp = ({open}) => {
     const [ touch , setTouch ] = useState ( {} )
     const [ errors , setErrors ] = useState ( {} )
     useEffect ( () => {
-        setErrors ( validate ( data,"signup" ) )
+        setErrors ( validate ( data , "signup" ) )
         console.log ( errors )
     } , [ data , touch ] )
     const submitHandler = async ( event ) => {
@@ -62,21 +78,24 @@ const SignUp = ({open}) => {
     }
     const focusHandler = ( event ) => {
 
-        setTouch ( {  [ event.target.name ] : true } )
+        setTouch ( { [ event.target.name ] : true } )
 
     }
     const changeHandler = ( event ) => {
         setData ( { ... data , [ event.target.name ] : event.target.value } )
 
     }
-    if ( !open ){
+    if ( ! open ) {
         return null
     }
     return createPortal (
         <>
-            <div style={ OVERLAY_STYLES }/>
-            <div style={ MODAL_STYLES }>
+            <div style={ isOpenLogin ? OVERLAY_STYLES_LOGINED_CLICKED : OVERLAY_STYLES }/>
+            <div style={ isOpenLogin ? MODAL_STYLES_HIDDEN : MODAL_STYLES }>
                 <form onSubmit={ submitHandler } className={ styles.formContainer }>
+
+<img className={styles.closeButton} src={cancel} onClick={() => closeModal ( false )} alt="che khabar?"/>
+
                     <h2 className={ styles.header }>ثبت نام</h2>
                     <div className={ styles.formField }>
 
@@ -105,9 +124,16 @@ const SignUp = ({open}) => {
                     </div>
                     <div className={ styles.formButtons }>
                         <button type="submit">ثبت نام</button>
-                        <div className={ styles.listContainer }>
+                        <div className={ styles.listContainer } style={ BUTTON_WRAPPER_LOGIN_STYLES }>
 
-                                <span>حساب کاربری دارید؟ وارد شوید.</span>
+
+
+                            <span
+                                onClick={ () => setIsOpenLogin ( true ) } className={ styles.loginP }>حساب کاربری دارید؟ وارد شوید.</span>
+
+                            <Login open={ isOpenLogin }>
+
+                            </Login>
 
                         </div>
 
@@ -117,8 +143,8 @@ const SignUp = ({open}) => {
 
             </div>
 
-        </>,
-        document.getElementById("portal")
+        </> ,
+        document.getElementById ( "portal" )
     );
 }
 
