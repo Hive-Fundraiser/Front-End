@@ -1,10 +1,6 @@
-export const validate = ( data ) => {
+export const validate = ( data , type ) => {
     const errors = {};
-    if ( ! data.name.trim () ) {
-        errors.name = "نام کاربری ضروری است"
-    } else {
-        delete errors.name
-    }
+
     if ( ! data.email ) {
         errors.email = "ایمیل ضروری است";
     } else if ( ! /\S+@\S+\.\S+/.test ( data.email ) ) {
@@ -14,10 +10,17 @@ export const validate = ( data ) => {
     }
     if ( ! data.password ) {
         errors.password = "رمز عبور ضروری است"
-    } else if ( data.password.length < 2 ) {
+    } else if ( data.password.length < 6) {
         errors.password = "رمز عبوری کمتر از 6 حرف است"
     } else {
         delete errors.password
+    }
+    if ( type === "signup" ) {
+        if ( ! data.name.trim () ) {
+            errors.name = "نام کاربری ضروری است"
+        } else {
+            delete errors.name
+        }
     }
     return errors;
 }

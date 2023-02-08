@@ -2,8 +2,8 @@ import React , { useEffect , useState } from 'react';
 import { Link , useNavigate } from 'react-router-dom';
 
 import styles from "./LogIn.module.css"
-import { validate } from "../helper/validate";
-import { notify } from "../helper/toast";
+import { validate } from "../../helper/validate";
+import { notify } from "../../helper/toast";
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 
@@ -56,7 +56,7 @@ const LogIn = () => {
                     <input type="text" name="name"
                            className={ ( errors.name && touch.name ) ? styles.uncompleted : styles.formInput }
                            onFocus={ focusHandler }
-                           onChange={ changeHandler } value={ data.name } placeholder="نام کاربری/ایمیل"/>
+                           onChange={ changeHandler } value={ data.name } placeholder="ایمیل"/>
 
                 </div>
                 <div className={ styles.formField }>

@@ -1,13 +1,19 @@
 .container{
     display: flex;
     justify-content: center;
-    background-color: #ffffff;
     min-height: 100vh;
     align-items: center;
+    position : fixed;
+    top : 50%;
+    left : 50%;
+    transform : translate(-50%, 50%);
+    background-color : white;
+    z-index : 10000
 }
 .formContainer{
     border: 1px solid #000000;
     width: fit-content;
+
     padding: 20px 40px;
     margin: 50px;
     border-radius: 20px;
@@ -21,12 +27,13 @@
     margin-bottom: 60px;
     font-size: 1.8rem;
     color: #000000;
+    padding-top: 5px;
 }
 .formField{
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
-    height: 55px;
+    height: 44px;
 }
 .formInput{
     width: 300px;
@@ -73,7 +80,8 @@
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
-    padding: 4px 0;
+    padding: 4px 0 25px 0;
+
 }
 .formButtons button {
     background-color: #00A1B5;
@@ -102,7 +110,7 @@
 
 }
 .listContainer{
-margin-top: 12px;
+    margin-top: 12px;
 }
 .uncompleted{
     width: 300px;
