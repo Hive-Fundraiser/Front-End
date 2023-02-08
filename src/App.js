@@ -3,6 +3,7 @@ import React from 'react';
 import { Route , Routes } from "react-router-dom";
 import Landing from "./components/mainPages/LandingPage/Landing";
 import PostsPage from "./components/mainPages/PostsPage/PostsPage";
+import ProfilePage from './components/mainPages/ProfilePage/ProfilePage';
 
 function App () {
     return (

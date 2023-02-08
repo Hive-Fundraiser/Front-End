@@ -1,5 +1,5 @@
 .header{
-    padding: calc(0.4vw + 0.05rem);
+    padding: calc(0.2vw + 0.05rem);
     background-color: #ffffff;
     border-bottom: black solid 1px;
 }
@@ -21,6 +21,9 @@
 }
 .brand_logo{
     width: calc(4.5vw + 1.3rem);
+}
+.search_icon{
+    width: calc(2.5vw + 0.5rem);
 }
 .lists{
     display: flex;

@@ -1,0 +1,90 @@
+.menu{
+    height: 100vh;
+    /* padding: calc(1.2vw + 0.4rem); */
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: #FAFAFA;
+}
+.top{
+    display: flex;
+    justify-content: space-between;
+    padding: calc(1.3vw + 0.25rem) calc(1.7vw + 0.34rem);
+    padding-bottom: calc(1.7vw + 0.2rem);
+    border-bottom: solid #ADADAD calc(0.1vw + 0.04rem);
+}
+.top_title{
+    font-size: calc(1.1vw + 0.3rem);
+    margin-top: calc(0.4vw + 0.06rem);
+}
+.closeMenu{
+    width: calc(1.4vw + 0.25rem);
+}
+.center{
+    height: 100%;
+    padding: calc(1vw + 0.3rem);
+    border-bottom: solid #ADADAD calc(0.1vw + 0.04rem);
+}
+.center_title{
+    font-size: calc(1.1vw + 0.3rem);
+}
+.center_note{
+    font-size: calc(1.1vw + 0.3rem);
+    margin: calc(0.4vw + 0.05rem) 0 calc(1vw + 0.1rem) 0;
+    display: block;
+}
+.bottom{
+    padding: calc(1vw + 0.3rem);
+    display: flex;
+    justify-content: center;
+    margin-bottom: calc(1.3vw + 0.15rem);
+    gap: calc(1vw + 0.1rem);
+}
+.background{
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+    background-color: rgba(0,0,0,0.3);
+    position: fixed;
+    top: 0;
+}
+.type { 
+    min-width: calc(6.5vw + 1rem);
+    /* display: flex; */
+    display: inline-block;
+    padding: calc(0.35vw + 0.04rem) 0;
+    border: solid calc(0.09vw + 0.01rem) #808080;
+    border-radius: 40px;
+    text-align: center;
+    font-size: calc(0.95vw + 0.1rem);
+    margin: calc(0.2vw + 0.025rem) calc(0.4vw + 0.025rem);
+}
+.see_more{
+    font-size: calc(0.9vw + 0.095rem);
+    margin-right: calc(0.5vw + 0.03rem);
+    border-bottom: solid #969696 calc(0.01vw + 0.005rem);
+}
+.reset_btn{
+    width: calc(5vw + 0.8rem);
+    font-size: calc(0.9vw + 0.25rem);
+    padding: calc(0.4vw + 0.045rem);
+    border-radius: 10px;
+    border: rgba(0,0,0,0.5) solid calc(0.05vw + 0.005rem);
+    background-color: white;
+}
+.see_result_btn{
+    width: calc(5vw + 0.8rem);
+    font-size: calc(0.9vw + 0.25rem);
+    padding: calc(0.4vw + 0.045rem);
+    border-radius: 10px;
+    border: 0;
+    background-color: #008748;
+    color: white;
+
+}
