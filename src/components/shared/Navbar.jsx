@@ -19,7 +19,11 @@ const Navbar = () => {
           </Link>
 
           <Link to="/Posts" className={styles.lists}>
-            <img src={Search} alt="search icon" />
+            <img
+              src={Search}
+              className={styles.search_icon}
+              alt="search icon"
+            />
           </Link>
         </div>
         <div className={styles.left}>
