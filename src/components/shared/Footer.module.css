@@ -1,7 +1,8 @@
 .footer_parent{
     display: flex;
     flex-direction: column;
-    padding-top: calc(1.8vw + 0.45rem);
+    padding-top: calc(0.5vw + 0.01rem);
+    border-top: solid rgba(0,0,0,0.5) calc(0.1vw + 0.02rem);
 }
 .top{
     display: flex;

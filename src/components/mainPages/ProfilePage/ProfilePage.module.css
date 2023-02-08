@@ -1,0 +1,10 @@
+.profile_page{
+    display: flex;
+    justify-content: center;
+}
+.title{
+    position: fixed;
+    top: calc(2vw + 0.5rem);
+    left: 24vw;
+    font-size: calc(2vw + 0.7rem);
+}

@@ -1,0 +1,93 @@
+.container{
+    padding-top: calc(4.5vw + 2rem);
+    display: flex;
+    background: linear-gradient(45deg, #B3E9FF, #E3E9FF);
+    flex: 2;
+    min-height: 100vh;
+}
+.container form {
+    position: relative;
+    height: fit-content;
+}
+.inner_parent{
+    min-height: calc(23.5vw + 7.5rem);
+    background-color: white;
+    padding: calc(3vw + 0.5rem);
+    padding-left: calc(16vw + 4.5rem);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border: solid rgb(18 198 238 / 40%) calc(0.15vw + 0.01rem);
+    border-right: none;
+}
+.input_parent{
+    display: flex;
+    flex-direction: column;
+    padding: calc(1vw + 0.5rem);
+    gap: calc(0.3vw + 0.05rem);
+}
+.input_parent label{
+    font-size: calc(1.2vw + 0.3rem);
+    font-weight: bold;
+}
+.input_parent input{
+    border: 0;
+    background-color: #F2F6FF;
+    padding: calc(1vw + 0.2rem);
+    border-radius: 5px;
+    font-size: calc(1vw + 0.3rem);
+}
+.input_parent input:focus-visible{
+    outline: 0;
+}
+.profile_pic_parent{
+    display: flex;
+    align-items: center;
+    gap: calc(1vw + 0.3rem);
+    padding: calc(1.4vw + 0.6rem);
+}
+.profile_pic_parent label{
+    font-size: calc(1.2vw + 0.3rem);
+    font-weight: bold;
+}
+/* B3E9FF    E3E9FF */
+.upload_button{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: calc(0.3vw + 0.04rem);
+}
+.upload_button span{
+    font-size: calc(1.2vw + 0.3rem);
+}
+.upload_button img{
+    width: calc(2.4vw + 0.3rem);
+}
+.change_password_outer_parent{
+    padding-top: calc(6.5vw + 0.8rem);
+}
+.change_password_parent {
+    display: flex;
+    align-items: flex-start;
+    gap: calc(0.3vw + 0.05rem);
+    justify-content: center;
+    transform: translateX(calc(10vw + 3.5rem));    
+}
+.change_password_parent label{
+    font-size: calc(1.2vw + 0.3rem);
+    font-weight: bold;
+}
+.change_password_parent img{
+    width: calc(1.9vw + 0.2rem);
+}
+.submit_button{
+    position: absolute;
+    left: calc(1vw + 0.1rem);
+    bottom: calc(-3.4vw - 0.4rem);
+    width: calc(6vw + 0.9rem);
+    font-size: calc(1.3vw + 0.4rem);
+    padding: calc(0.6vw + 0.05rem);
+    border-radius: 10px;
+    border: 0;
+    background-color: #00B4E3;
+    color: white;
+}
