@@ -32,6 +32,7 @@
     border: 0;
     border-radius: 20px;
     background-color: #D9D9D9;
+    cursor: pointer;
 }
 .category_btn.active{
     color: white;

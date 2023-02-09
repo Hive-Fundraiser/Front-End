@@ -19,6 +19,9 @@
     padding-bottom: calc(1.7vw + 0.2rem);
     border-bottom: solid #ADADAD calc(0.1vw + 0.04rem);
 }
+.imgTop{
+    cursor: pointer;
+}
 .top_title{
     font-size: calc(1.1vw + 0.3rem);
     margin-top: calc(0.4vw + 0.06rem);
@@ -87,4 +90,7 @@
     background-color: #008748;
     color: white;
 
+}
+.filters{
+    cursor: pointer;
 }

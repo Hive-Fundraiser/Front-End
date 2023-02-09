@@ -38,7 +38,7 @@ const Menu = (props) => {
         <div className={styles.menu}>
           <div className={styles.top}>
             <span className={styles.top_title}>فیلتر ها</span>
-            <img src={Close} alt="close button" onClick={closeMenu} />
+            <img src={Close} alt="close button" onClick={closeMenu} className={styles.imgTop} />
           </div>
           {/* <hr /> */}
           <div className={styles.center}>

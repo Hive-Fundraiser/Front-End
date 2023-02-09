@@ -1,0 +1,60 @@
+@font-face {
+    font-family: 'byekan';
+    font-weight: normal;
+    font-style: normal;
+}
+.header
+{
+    width: 100%;
+    height: 80px;
+    border-bottom: 2px solid rgb(157, 154, 154);
+    position: relative;
+    padding-top: 10px;
+    box-sizing: border-box;
+    display: flex;
+    font-family: "byekan";
+}
+.header-img
+{
+    width: 190px;
+    height: auto;
+    position: absolute;
+    left: 0px;
+    top: 0;
+}
+.div-profile-img
+{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid rgb(157, 154, 154) ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    margin-right: 20px;
+    
+   
+}
+.profile-img
+{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+ .title-description
+ {
+    position: relative;
+    margin-right: 10px;
+    font-weight: 400;
+    font-size: 17px;
+
+ }
+ .search-icon
+ {
+    width: 30px;
+    height: 30px;
+    margin-right: 40px;
+    position: relative;
+    margin-top: 15px;
+ }

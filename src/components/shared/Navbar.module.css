@@ -12,6 +12,7 @@
 .left{
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 .right{
     gap: calc(0.9vw + 0.2rem);
