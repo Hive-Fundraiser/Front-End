@@ -1,4 +1,4 @@
-import React , { useState } from "react";
+import React , { useContext , useState } from "react";
 import { Link , useNavigate } from "react-router-dom";
 
 import styles from "./Navbar.module.css";
@@ -6,6 +6,8 @@ import Search from "./../../images/Navbar/search.svg";
 import Logo from "./../../images/Navbar/logo.svg";
 import SignUp from "../modal/SignUp";
 import Login from "../modal/Login/Login";
+import { DataContext , DataProvider } from "../../helper/test";
+
 
 const BUTTON_WRAPPER_STYLES = {
     position : "relative" ,
@@ -17,41 +19,46 @@ const BUTTON_WRAPPER_LOGIN_STYLES = {
 };
 
 const Navbar = () => {
-    const navigate = useNavigate();
+    const navigate = useNavigate ();
     const [ isOpen , setIsOpen ] = useState ( false );
-    const [ isOpenLogin , setIsOpenLogin ] = useState ( false );
+    const { isOpenLogin , setIsOpenLogin } = useContext ( DataContext );
+
     const clickHandler = () => {
-    navigate("/");
+        navigate ( "/" );
     }
     return (
-        <header className={ styles.header }>
-            <div className={ styles.mainContainer }>
-                <div className={ styles.right }>
-                    {/*<Link to="/cart"><button>search</button> </Link>*/ }
-                    <div style={ BUTTON_WRAPPER_STYLES } className={ styles.lists }>
-                        <button className={ styles.p2 } onClick={ () => setIsOpen ( true ) }>
-                            ثبت نام
-                        </button>
-                        <SignUp open={ isOpen } closeModal={ () => setIsOpen ( false ) }></SignUp>
-                    </div>
 
-                    <div style={ BUTTON_WRAPPER_LOGIN_STYLES } className={ styles.lists }>
-                        <button className={ styles.p1 } onClick={ () => setIsOpenLogin ( true ) }>
-                            ورود
-                        </button>
-                        <Login open={ isOpenLogin }></Login>
-                    </div>
+            <header className={ styles.header }>
+                <div className={ styles.mainContainer }>
+                    <div className={ styles.right }>
+                        {/*<Link to="/cart"><button>search</button> </Link>*/ }
+                        <div style={ BUTTON_WRAPPER_STYLES } className={ styles.lists }>
+                            <button className={ styles.p2 } onClick={ () => setIsOpen ( true ) }>
+                                ثبت نام
+                            </button>
+                            <SignUp open={ isOpen } closeModal={ () => setIsOpen ( false ) }></SignUp>
+                        </div>
 
-                    <Link to="/Posts" className={ styles.lists }>
-                        <img src={ Search } alt="search icon"/>
-                    </Link>
+                        <div style={ BUTTON_WRAPPER_LOGIN_STYLES } className={ styles.lists }>
+                            <button className={ styles.p1 } onClick={ () => setIsOpenLogin ( true ) }>
+                                ورود
+                            </button>
+
+                            <Login open={ isOpenLogin } closeModal={ () => setIsOpenLogin ( false ) }></Login>
+
+                        </div>
+
+                        <Link to="/Posts" className={ styles.lists }>
+                            <img src={ Search } alt="search icon"/>
+                        </Link>
+                    </div>
+                    <div className={ styles.left } onClick={ clickHandler }>
+                        <span className={ styles.brand_title }>Hive</span>
+                        <img className={ styles.brand_logo } src={ Logo } alt="brand logo"/>
+                    </div>
                 </div>
-                <div className={ styles.left } onClick={ clickHandler }>
-                    <span className={ styles.brand_title }>Hive</span>
-                    <img className={ styles.brand_logo } src={ Logo } alt="brand logo"/>
-                </div>
-            </div>
-        </header>
+            </header>
+
     );
 };
 

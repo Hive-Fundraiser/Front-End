@@ -5,8 +5,10 @@ import Landing from "./components/mainPages/LandingPage/Landing";
 import PostsPage from "./components/mainPages/PostsPage/PostsPage";
 import ProfilePage from './components/mainPages/ProfilePage/ProfilePage';
 import Base from "./components/mainPages/PostPage/Base";
+import { DataProvider } from "./helper/test";
 function App () {
     return (
+        <DataProvider>
         <div>
 
             <Routes>
@@ -17,6 +19,7 @@ function App () {
 
 
         </div>
+        </DataProvider>
     );
 }
 

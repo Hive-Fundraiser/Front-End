@@ -1,56 +1,52 @@
-.container{
-    display: flex;
-    justify-content: center;
-    min-height: 100vh;
-    align-items: center;
-    position : fixed;
-    top : 50%;
-    left : 50%;
-    transform : translate(-50%, 50%);
-    background-color : white;
-    z-index : 10000
-}
+
 .formContainer{
     border: 1px solid #000000;
     width: fit-content;
-    display: flex;
-    flex-direction: column;
-    padding: 20px 40px;
+    padding: 10px 40px 45px 40px;
     margin: 50px;
     border-radius: 20px;
     height: fit-content;
     background-color: #fff;
     box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+    display: flex;
+    flex-direction: column;
     position: relative;
 
 }
 .header{
     text-align: center;
-    margin-bottom: 60px;
-    font-size: 1.8rem;
+    margin-bottom: 40px;
+    font-size: 1.6rem;
     color: #000000;
     padding-top: 5px;
 }
 .formField{
     display: flex;
     flex-direction: column;
-    margin-bottom: 10px;
-    height: 44px;
+    margin-bottom: 2px;
+    height: 50px;
 }
 .formInput{
     width: 300px;
     height: 30px;
     border-radius: 14px;
-    padding: 5px 10px;
+    padding: 12px 10px;
     transition: all 0.2s ease-in;
     background-color: #F3F2F2;
     border: none;
 }
 .formInput::placeholder{
-
     color: #A3A3A3;
 }
-
+.ParEmail{
+    font-weight: 400;
+    font-style: normal;
+    font-size: 15px;
+    line-height: 15px;
+    color: black;
+    text-align: right;
+    margin-bottom: 8px;
+}
 .formInput:focus,
 .uncompleted:focus {
     outline: none;
@@ -58,21 +54,10 @@
     height: 30px;
     border: none;
     background-color: #F3F2F2;
-    padding: 5px 10px;
+    padding: 12px 10px;
 
 }
-.formField span {
-    height: 10px;
-    text-align: left;
-    margin-top: 3px;
-    width: fit-content;
-    font-size: 0.7rem;
-    color: red;
-    line-height: 7px;
-    padding: 0px 3px;
 
-
-}
 .formField::placeholder{
 
     color: black;
@@ -83,18 +68,19 @@
     align-items: center;
     flex-direction: column;
     padding: 4px 0 25px 0;
-
 }
 .formButtons button {
     background-color: #00A1B5;
-    padding: 10px 40px;
+    padding: 5px 30px;
     color: #fff;
     border-radius: 8px;
     border: none;
     font-size: 1.3rem;
-
+    margin-top: 40px;
     transition: all 0.1s ease-in;
     cursor: pointer;
+    width: 164px;
+    height: 48px;
 }
 .formButtons button:hover {
     background-color: #004aaa;
@@ -118,14 +104,13 @@
     width: 300px;
     height: 30px;
     border-radius: 14px;
-    padding: 5px 10px;
+    padding: 12px 10px;
 
     transition: all 0.2s ease-in;
     background-color: #F3F2F2;
     border: none;
 }
 .uncompleted::placeholder{
-
     color: #A3A3A3;
 }
 .loginP{
@@ -146,16 +131,4 @@
     position: absolute;
     top: 2px;
     right: 2px;
-}
-.formFieldOpenForget{
-    display: none;
-}
-.ParEmail{
-    font-weight: 400;
-    font-style: normal;
-    font-size: 15px;
-    line-height: 15px;
-    color: black;
-    text-align: right;
-    margin-bottom: 8px;
 }
