@@ -21,9 +21,7 @@ const MODAL_STYLES = {
     justifyContent : "center" ,
 
 }
-const MODAL_STYLES_HIDDEN = {
-    opacity : 0
-}
+
 const OVERLAY_STYLES = {
     position : "fixed" ,
     top : 0 ,
@@ -31,21 +29,9 @@ const OVERLAY_STYLES = {
     right : 0 ,
     bottom : 0 ,
     backgroundColor : "rgba(0,0,0,.7)" ,
-    zIndex : 10000
+    zIndex : 89
 }
-const OVERLAY_STYLES_LOGINED_CLICKED = {
-    position : "fixed" ,
-    top : 0 ,
-    left : 0 ,
-    right : 0 ,
-    bottom : 0 ,
-    backgroundColor : "transparent" ,
-    zIndex : 10000
-}
-const BUTTON_WRAPPER_LOGIN_STYLES = {
-    position : "relative" ,
-    zIndex : 1
-}
+
 const Email = ( open , closePassModal ) => {
     const navigate = useNavigate ();
     const { isPassOpen , setIsPassOpen } = useContext ( Data2Context )

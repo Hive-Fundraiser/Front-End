@@ -29,7 +29,7 @@ const OVERLAY_STYLES = {
     left : 0 ,
     right : 0 ,
     bottom : 0 ,
-    backgroundColor : "rgba(0,0,0,.7)" ,
+    backgroundColor : "rgba(0,0,0,.2)" ,
     zIndex : 10000
 }
 const OVERLAY_FORGET_PASSWORD_CLICKED = {
@@ -38,8 +38,8 @@ const OVERLAY_FORGET_PASSWORD_CLICKED = {
     left : 0 ,
     right : 0 ,
     bottom : 0 ,
-    backgroundColor : "transparent" ,
-    zIndex : 10000
+    backgroundColor : "rgba(0,0,0,.3)" ,
+    zIndex : 89
 }
 const BUTTON_WRAPPER_FORGET_PASSWORD_STYLES = {
     position : "relative" ,
