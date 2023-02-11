@@ -8,6 +8,7 @@ import { ToastContainer } from "react-toastify";
 import cancel from "../../../images/close.svg";
 import Email from "../emailGet/Email";
 import { DataContext } from "../../../helper/test";
+import { Data2Context } from "../../../context/forgetPassContext"
 
 const MODAL_STYLES = {
     position : "fixed" ,
@@ -31,10 +32,26 @@ const OVERLAY_STYLES = {
     backgroundColor : "rgba(0,0,0,.7)" ,
     zIndex : 10000
 }
+const OVERLAY_FORGET_PASSWORD_CLICKED = {
+    position : "fixed" ,
+    top : 0 ,
+    left : 0 ,
+    right : 0 ,
+    bottom : 0 ,
+    backgroundColor : "transparent" ,
+    zIndex : 10000
+}
+const BUTTON_WRAPPER_FORGET_PASSWORD_STYLES = {
+    position : "relative" ,
+    zIndex : 1
+}
+const MODAL_STYLES_HIDDEN = {
+    display : "none"
+}
 
 const Login = ( { open , closeModal , closeLoginModel } ) => {
     const navigate = useNavigate ();
-    const [ isPassOpen , setIsPassOpen ] = useState ( false )
+    const { isPassOpen , setIsPassOpen } = useContext ( Data2Context )
     const { isOpenLogin , setIsOpenLogin } = useContext ( DataContext )
     let login = "ورود"
     let forgetPass = "ارسال کد"
@@ -74,13 +91,10 @@ const Login = ( { open , closeModal , closeLoginModel } ) => {
         console.log ( data.name )
     }
     const closeHandler = () => {
-        if ( isPassOpen ) {
-            setIsPassOpen ( false )
-        } else {
-            closeModal ( false )
-            closeLoginModel ( false )
 
-        }
+        closeModal ( false )
+        closeLoginModel ( false )
+
     }
     const forgetPasswordClickHandler = () => {
         setIsPassOpen ( true );
@@ -90,36 +104,37 @@ const Login = ( { open , closeModal , closeLoginModel } ) => {
     }
     return createPortal (
         <>
-            <div style={ OVERLAY_STYLES }/>
-            <div style={ MODAL_STYLES }>
+            <div style={ isPassOpen ? OVERLAY_FORGET_PASSWORD_CLICKED : OVERLAY_STYLES }/>
+            <div style={ isPassOpen ? MODAL_STYLES_HIDDEN : MODAL_STYLES }>
                 <form onSubmit={ submitHandler } className={ styles.formContainer }>
                     <img className={ styles.closeButton } src={ cancel }
                          onClick={ closeHandler }
                          alt="che khabar?"/>
-                    { isPassOpen ? <h2 className={ styles.header }>فراموشی رمزعبور</h2> :
-                        <h2 className={ styles.header }>ورود</h2> }
+                    <h2 className={ styles.header }>ورود</h2>
                     <div className={ styles.formField }>
-                        <p className={ isPassOpen ? styles.ParEmail : styles.formFieldOpenForget }>ایمیل خود را وارد
-                            کنید</p>
+
                         <input type="text" name="email"
                                className={ ( errors.email && touch.email ) ? styles.uncompleted : styles.formInput }
                                onFocus={ focusHandler }
                                onChange={ changeHandler } value={ data.email } placeholder="ایمیل"/>
 
                     </div>
-                    <div className={ isPassOpen ? styles.formFieldOpenForget : styles.formField }>
+                    <div className={ styles.formField }>
                         <input type="password" name="password"
                                className={ ( errors.password && touch.password ) ? styles.uncompleted : styles.formInput }
                                onFocus={ focusHandler }
                                onChange={ changeHandler } value={ data.password } placeholder="رمز عبور"/>
                     </div>
                     <div className={ styles.formButtons }>
-                        <button type="submit">{ isPassOpen ? forgetPass : login }</button>
+                        <button type="submit">{ login }</button>
 
-                        <div className={ isPassOpen ? styles.formFieldOpenForget : styles.listContainer }>
+                        <div className={ styles.listContainer }>
 
-                            <span onClick={ forgetPasswordClickHandler } className={ styles.loginP }>رمز عبور خود را فراموش کرده ام.</span>
+                            <span onClick={ forgetPasswordClickHandler } className={ styles.loginP }
+                                  style={ BUTTON_WRAPPER_FORGET_PASSWORD_STYLES }>رمز عبور خود را فراموش کرده ام.</span>
+                            <Email open={ isPassOpen } closePassModal={ () => setIsPassOpen ( false ) }>
 
+                            </Email>
                         </div>
 
                     </div>
