@@ -1,10 +1,12 @@
-import React , { useEffect , useState } from 'react';
+import React , { useContext , useEffect , useState } from 'react';
 import { createPortal } from 'react-dom';
 import cancel from "../../../images/close.svg";
 import { Link , useNavigate } from "react-router-dom";
 import { validate } from "../../../helper/validate";
 import { notify } from "../../../helper/toast";
 import styles from "./Email.module.css";
+import { Data2Context } from "../../../context/forgetPassContext";
+import { DataContext } from "../../../helper/test";
 
 const MODAL_STYLES = {
     position : "fixed" ,
@@ -19,9 +21,7 @@ const MODAL_STYLES = {
     justifyContent : "center" ,
 
 }
-const MODAL_STYLES_HIDDEN = {
-    opacity : 0
-}
+
 const OVERLAY_STYLES = {
     position : "fixed" ,
     top : 0 ,
@@ -29,23 +29,13 @@ const OVERLAY_STYLES = {
     right : 0 ,
     bottom : 0 ,
     backgroundColor : "rgba(0,0,0,.7)" ,
-    zIndex : 10000
+    zIndex : 89
 }
-const OVERLAY_STYLES_LOGINED_CLICKED = {
-    position : "fixed" ,
-    top : 0 ,
-    left : 0 ,
-    right : 0 ,
-    bottom : 0 ,
-    backgroundColor : "transparent" ,
-    zIndex : 10000
-}
-const BUTTON_WRAPPER_LOGIN_STYLES = {
-    position : "relative" ,
-    zIndex : 1
-}
-const Email = ( open , closeModal ) => {
+
+const Email = ( open , closePassModal ) => {
     const navigate = useNavigate ();
+    const { isPassOpen , setIsPassOpen } = useContext ( Data2Context )
+    const { isOpenLogin , setIsOpenLogin } = useContext ( DataContext )
     const [ data , setData ] = useState ( {
         email : "" ,
 
@@ -82,7 +72,8 @@ const Email = ( open , closeModal ) => {
 
     }
    const closeHandler = () => {
-
+    setIsPassOpen(false)
+    setIsOpenLogin(false)
     }
     if ( ! open ) {
         return null
@@ -93,7 +84,7 @@ const Email = ( open , closeModal ) => {
             <div style={ MODAL_STYLES }>
                 <form onSubmit={ submitHandler } className={ styles.formContainer }>
                     <div>
-                        <img className={ styles.closeButton } src={ cancel } onClick={ () => closeModal ( false ) }
+                        <img className={ styles.closeButton } src={ cancel } onClick={ closeHandler }
                              alt="che khabar?"/>
                     </div>
 

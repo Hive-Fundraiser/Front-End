@@ -24,7 +24,7 @@ const Footer = () => {
         </div>
         <div className={styles.left}>
           <div className={styles.left_top}>
-            <span>Hive</span>
+            <span className={styles.left_top_span}>Hive</span>
             <img src={Logo} alt="brand logo" />
           </div>
           <div className={styles.left_bottom}>
