@@ -1,4 +1,4 @@
-import React , { useEffect , useState } from 'react';
+import React , { useContext , useEffect , useState } from 'react';
 import ReactDOM from "react-dom/client";
 import { createPortal } from 'react-dom';
 import styles from "../../components/modal/SignUp.module.css";
@@ -9,6 +9,9 @@ import axios from "axios";
 import { ToastContainer } from "react-toastify";
 import Login from "./Login/Login";
 import cancel from "../../images/close.svg"
+import { DataContext } from "../../helper/test";
+import { DataProvider } from "../../helper/test";
+
 const MODAL_STYLES = {
     position : "fixed" ,
     top : "50%" ,
@@ -23,7 +26,7 @@ const MODAL_STYLES = {
 
 }
 const MODAL_STYLES_HIDDEN = {
-    opacity : 0
+    display : "none"
 }
 const OVERLAY_STYLES = {
     position : "fixed" ,
@@ -34,13 +37,13 @@ const OVERLAY_STYLES = {
     backgroundColor : "rgba(0,0,0,.7)" ,
     zIndex : 10000
 }
-const OVERLAY_STYLES_LOGINED_CLICKED = {
+const OVERLAY_STYLE_LOGIN_CLICKED = {
     position : "fixed" ,
     top : 0 ,
     left : 0 ,
     right : 0 ,
     bottom : 0 ,
-    backgroundColor : "rgba(0,0,0,0.1)" ,
+    backgroundColor : "transparent" ,
     zIndex : 10000
 }
 const BUTTON_WRAPPER_LOGIN_STYLES = {
@@ -49,7 +52,7 @@ const BUTTON_WRAPPER_LOGIN_STYLES = {
 }
 const SignUp = ( { open , closeModal } ) => {
 
-    const [ isOpenLogin , setIsOpenLogin ] = useState ( false )
+    const { isOpenLogin , setIsOpenLogin } = useContext ( DataContext )
     const [ data , setData ] = useState ( {
         name : "" ,
         email : "" ,
@@ -85,16 +88,23 @@ const SignUp = ( { open , closeModal } ) => {
         setData ( { ... data , [ event.target.name ] : event.target.value } )
 
     }
+    const loginClickHandler = () => {
+        setIsOpenLogin ( true );
+    }
+
     if ( ! open ) {
         return null
     }
     return createPortal (
         <>
-            <div style={ isOpenLogin ? OVERLAY_STYLES_LOGINED_CLICKED : OVERLAY_STYLES }/>
+
+
+            <div style={ isOpenLogin?  OVERLAY_STYLE_LOGIN_CLICKED:OVERLAY_STYLES }/>
             <div style={ isOpenLogin ? MODAL_STYLES_HIDDEN : MODAL_STYLES }>
                 <form onSubmit={ submitHandler } className={ styles.formContainer }>
 
-<img className={styles.closeButton} src={cancel} onClick={() => closeModal ( false )} alt="che khabar?"/>
+                    <img className={ styles.closeButton } src={ cancel }
+                         onClick={ () => closeModal ( false ) } alt="che khabar?"/>
 
                     <h2 className={ styles.header }>ثبت نام</h2>
                     <div className={ styles.formField }>
@@ -129,11 +139,12 @@ const SignUp = ( { open , closeModal } ) => {
 
 
                             <span
-                                onClick={ () => setIsOpenLogin ( true ) } className={ styles.loginP }>حساب کاربری دارید؟ وارد شوید.</span>
+                                onClick={ loginClickHandler }
+                                className={ styles.loginP }>حساب کاربری دارید؟ وارد شوید.</span>
 
-                            <Login open={ isOpenLogin }>
+                                <Login open={ isOpenLogin } closeLoginModel={ () => setIsOpenLogin ( false ) }>
 
-                            </Login>
+                                </Login>
 
                         </div>
 

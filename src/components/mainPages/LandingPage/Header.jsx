@@ -1,8 +1,19 @@
 import styles from "./Header.module.css";
 import Hands from "./../../../images/LandingPage/hands.svg";
 import { Link } from "react-router-dom";
+import SignUp from "../../modal/SignUp";
+import React , { useState } from "react";
 
+const BUTTON_WRAPPER_STYLES = {
+    position : "relative" ,
+    zIndex : 1 ,
+};
+const BUTTON_WRAPPER_LOGIN_STYLES = {
+    position : "relative" ,
+    zIndex : 1 ,
+};
 const Header = () => {
+    const [ isOpen , setIsOpen ] = useState ( false );
     let welcomeText = (
         <p>
             { " " }
@@ -15,11 +26,11 @@ const Header = () => {
     return (
         <div className={ styles.header_parent }>
             <div className={ styles.right }>
-                <div className={ styles.start_parent }>
+                <div className={ styles.start_parent } style={ BUTTON_WRAPPER_STYLES }>
                     { welcomeText }
-                    <Link to="/Signup">
-                        <button className={styles.buttonHeader}>{ start }</button>
-                    </Link>
+
+                    <button className={ styles.buttonHeader } onClick={ () => setIsOpen ( true ) }>{ start }</button>
+                    <SignUp open={ isOpen } closeModal={ () => setIsOpen ( false ) }></SignUp>
 
                 </div>
             </div>
