@@ -37,7 +37,7 @@ const OVERLAY_STYLES = {
     backgroundColor : "rgba(0,0,0,.7)" ,
     zIndex : 10000
 }
-const OVERLAY_STYLES_LOGINED_CLICKED = {
+const OVERLAY_STYLE_LOGIN_CLICKED = {
     position : "fixed" ,
     top : 0 ,
     left : 0 ,
@@ -99,7 +99,7 @@ const SignUp = ( { open , closeModal } ) => {
         <>
 
 
-            <div style={ isOpenLogin ? OVERLAY_STYLES_LOGINED_CLICKED : OVERLAY_STYLES }/>
+            <div style={ isOpenLogin?  OVERLAY_STYLE_LOGIN_CLICKED:OVERLAY_STYLES }/>
             <div style={ isOpenLogin ? MODAL_STYLES_HIDDEN : MODAL_STYLES }>
                 <form onSubmit={ submitHandler } className={ styles.formContainer }>
 

@@ -47,6 +47,7 @@
 }
 .left_top span{
     font-size: calc(1.4vw + 0.5rem);
+    cursor: pointer;
 }
 .left_top img{
     width: calc(4vw + 1.2rem);
@@ -59,4 +60,7 @@
     text-align: center;
     direction: ltr;
     font-size: calc(0.85vw + 0.3rem);
+}
+.left_top_span:hover{
+    color: rgba(249,175,27,255);
 }
