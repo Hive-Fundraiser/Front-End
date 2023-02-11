@@ -1,11 +1,13 @@
-import React , { useEffect , useState } from 'react';
+import React , { useContext , useEffect , useState } from 'react';
 import { Link , useNavigate } from "react-router-dom";
 import { validate } from "../../../helper/validate";
 import { notify } from "../../../helper/toast";
 import { createPortal } from 'react-dom';
-import styles from "../../deleted/LogIn.module.css";
+import styles from "../Login/Login.module.css";
 import { ToastContainer } from "react-toastify";
-
+import cancel from "../../../images/close.svg";
+import Email from "../emailGet/Email";
+import { DataContext } from "../../../helper/test";
 
 const MODAL_STYLES = {
     position : "fixed" ,
@@ -29,8 +31,13 @@ const OVERLAY_STYLES = {
     backgroundColor : "rgba(0,0,0,.7)" ,
     zIndex : 10000
 }
-const Login = ( { open } ) => {
+
+const Login = ( { open , closeModal , closeLoginModel } ) => {
     const navigate = useNavigate ();
+    const [ isPassOpen , setIsPassOpen ] = useState ( false )
+    const { isOpenLogin , setIsOpenLogin } = useContext ( DataContext )
+    let login = "ورود"
+    let forgetPass = "ارسال کد"
     const [ data , setData ] = useState ( {
         name : "" ,
         password : ""
@@ -66,6 +73,18 @@ const Login = ( { open } ) => {
         setData ( { ... data , [ event.target.name ] : event.target.value } )
         console.log ( data.name )
     }
+    const closeHandler = () => {
+        if ( isPassOpen ) {
+            setIsPassOpen ( false )
+        } else {
+            closeModal ( false )
+            closeLoginModel ( false )
+
+        }
+    }
+    const forgetPasswordClickHandler = () => {
+        setIsPassOpen ( true );
+    }
     if ( ! open ) {
         return null
     }
@@ -74,28 +93,33 @@ const Login = ( { open } ) => {
             <div style={ OVERLAY_STYLES }/>
             <div style={ MODAL_STYLES }>
                 <form onSubmit={ submitHandler } className={ styles.formContainer }>
-                    <h2 className={ styles.header }>ورود</h2>
+                    <img className={ styles.closeButton } src={ cancel }
+                         onClick={ closeHandler }
+                         alt="che khabar?"/>
+                    { isPassOpen ? <h2 className={ styles.header }>فراموشی رمزعبور</h2> :
+                        <h2 className={ styles.header }>ورود</h2> }
                     <div className={ styles.formField }>
-
-                        <input type="text" name="name"
-                               className={ ( errors.name && touch.name ) ? styles.uncompleted : styles.formInput }
+                        <p className={ isPassOpen ? styles.ParEmail : styles.formFieldOpenForget }>ایمیل خود را وارد
+                            کنید</p>
+                        <input type="text" name="email"
+                               className={ ( errors.email && touch.email ) ? styles.uncompleted : styles.formInput }
                                onFocus={ focusHandler }
-                               onChange={ changeHandler } value={ data.name } placeholder="ایمیل"/>
+                               onChange={ changeHandler } value={ data.email } placeholder="ایمیل"/>
 
                     </div>
-                    <div className={ styles.formField }>
+                    <div className={ isPassOpen ? styles.formFieldOpenForget : styles.formField }>
                         <input type="password" name="password"
                                className={ ( errors.password && touch.password ) ? styles.uncompleted : styles.formInput }
                                onFocus={ focusHandler }
                                onChange={ changeHandler } value={ data.password } placeholder="رمز عبور"/>
                     </div>
                     <div className={ styles.formButtons }>
-                        <button type="submit">ورود</button>
+                        <button type="submit">{ isPassOpen ? forgetPass : login }</button>
 
-                        <div className={ styles.listContainer }>
-                            <Link to="/ForgetPassword" className={ styles.lists }>
-                                <span>رمز عبور خود را فراموش کرده ام.</span>
-                            </Link>
+                        <div className={ isPassOpen ? styles.formFieldOpenForget : styles.listContainer }>
+
+                            <span onClick={ forgetPasswordClickHandler } className={ styles.loginP }>رمز عبور خود را فراموش کرده ام.</span>
+
                         </div>
 
                     </div>
