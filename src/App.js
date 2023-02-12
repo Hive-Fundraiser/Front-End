@@ -7,7 +7,7 @@ import ProfilePage from './components/mainPages/ProfilePage/ProfilePage';
 import Base from "./components/mainPages/PostPage/Base";
 import { DataProvider } from "./helper/test";
 import { Data2Provider } from "./context/forgetPassContext";
-
+import BaseOfNotFound from "./components/PageNotFound/BaseOfNotFound";
 function App () {
     return (
 
@@ -20,6 +20,7 @@ function App () {
                         <Route path="/" element={ <Landing/> }/>
                         <Route path="/page" element={ <Base/> }/>
                         <Route path="/Posts" element={ <PostsPage/> }/>
+                        <Route path="/*"  element={ <BaseOfNotFound/> }/>
                     </Routes>
                 </Data2Provider>
             </DataProvider>
