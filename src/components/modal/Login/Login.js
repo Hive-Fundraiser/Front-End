@@ -58,7 +58,7 @@ const Login = ( { open , closeModal , closeLoginModel } ) => {
     const { isOpenLogin , setIsOpenLogin } = useContext ( DataContext )
     const { isOpen , setIsOpen } = useContext ( SignUpContext );
     let login = "ورود"
-    let forgetPass = "ارسال کد"
+
     const [ data , setData ] = useState ( {
         email : "" ,
         password : ""
