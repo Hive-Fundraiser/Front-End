@@ -1,7 +1,7 @@
 import React , { useEffect , useState,createContext } from "react";
 import { getCharity } from "../services/api";
 
-const CharityContext = createContext ();
+export const CharityContext = createContext ();
 
 const CharityProvider = ( { children } ) => {
     const [ charity , setCharity ] = useState ( [] );
