@@ -1,5 +1,5 @@
 .vertical_navbar{
-    padding-top: calc(4.5vw + 2rem);
+    padding-top: calc(3vw + 0.3rem);
     flex: 1;
     display: flex;
     justify-content: flex-end;
@@ -12,7 +12,7 @@
     justify-content: flex-end;
     border: solid rgb(18 198 238 / 40%) calc(0.15vw + 0.01rem);
     border-left: 0;
-    height: calc(23.5vw + 7.5rem);
+    height: calc(29.2vw + 9rem);
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 }
@@ -22,20 +22,41 @@
     padding-top: calc(5vw + 0.9rem);
     align-items: center;
 }
-.profile{
+.profile_parent{
     position: absolute;
-    width: calc(6.5vw + 0.6rem);
-    top: calc(0.4vw + 0.08rem);
+    width: fit-content;
+    top: calc(0.4vw + 0.01rem);
     left: 0;
     transform: translateX(-50%);
     z-index: 1;
+}
+.profile{
+    width: calc(6.5vw + 0.6rem);
     border-radius: 50%;
 }
+.change_profile_pic_parent{
+    position: absolute;
+    top: calc(5.5vw + 0.45rem);
+    left: calc(4vw + 0.4rem);
+}
+.upload_btn{
+    border-radius: 50%;
+    height: fit-content;
+    display: flex;
+    overflow: hidden;
+}
+.upload_btn img{
+    width: calc(1.2vw + 0.2rem);
+    height: calc(1.2vw + 0.2rem);
+    background-color: #00ADE0;
+    padding: calc(0.3vw + 0.05rem);
+}
 .list{
-    font-size: calc(1.2vw + 0.3rem);
+    font-size: calc(1vw + 0.3rem);
     list-style: none;
     padding: calc(1vw + 0.1rem);
     color: #CECECE;
+    cursor: default;
 }
 .active{
     color: white;
