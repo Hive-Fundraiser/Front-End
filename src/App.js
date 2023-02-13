@@ -9,7 +9,10 @@ import { DataProvider } from "./helper/test";
 import { Data2Provider } from "./context/forgetPassContext";
 import BaseOfNotFound from "./components/PageNotFound/BaseOfNotFound";
 import CharityProvider from "./context/CharityProvider"
-import SignUp from "./components/deleted/SignUp";
+
+
+import MyFundraise from "./components/mainPages/Fundraise/MyFundraise";
+import NewFundraise from "./components/mainPages/Fundraise/NewFundraise";
 function App () {
     return (
         <CharityProvider>
@@ -24,7 +27,8 @@ function App () {
                         <Routes>
                             <Route path="/" element={ <Landing/> }/>
                             <Route path="/page" element={ <Base/> }/>
-                            <Route path="/signUp" element={ <SignUp/> }/>
+                            <Route path="/Myfundraise" element={<MyFundraise />} />
+                            <Route path="NewFundraise" element={<NewFundraise />} />
                             <Route path="/Posts" element={ <PostsPage/> }/>
                             <Route path="/*" element={ <BaseOfNotFound/> }/>
                         </Routes>

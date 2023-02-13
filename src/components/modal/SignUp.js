@@ -65,13 +65,10 @@ const SignUp = ( { open , closeModal } ) => {
     } , [ data , touch ] )
     const submitHandler = async ( event ) => {
         event.preventDefault ();
-        await axios.post("https://hive.iran.liara.run/auth/users/",data)
-            .then(function ( response ){
-                console.log(response)
-            })
-            .catch(function ( error ){
-                console.log(error)
-            })
+        console.log(data)
+        const response =  await axios.post("https://hive.iran.liara.run/auth/users/",data)
+        console.log(response)
+
 
 
     }
@@ -109,15 +106,15 @@ const SignUp = ( { open , closeModal } ) => {
                                className={ ( errors.username && touch.username ) ? styles.uncompleted : styles.formInput }
                                onFocus={ focusHandler }
                                onChange={ changeHandler } value={ data.username } placeholder="نام کاربری"/>
-                        { errors.username && touch.username && <span>{ errors.username }</span> }
+                        { errors.username && <span>{ errors.username }</span> }
 
                     </div>
                     <div className={ styles.formField }>
-                        <input type="text" name="email"
+                        <input type="email" name="email"
                                className={ ( errors.email && touch.email ) ? styles.uncompleted : styles.formInput }
                                onFocus={ focusHandler }
                                onChange={ changeHandler } value={ data.email } placeholder="ایمیل"/>
-                        { errors.email && touch.email && <span>{ errors.email }</span> }
+                        { errors.email && <span>{ errors.email }</span> }
 
                     </div>
 
@@ -126,7 +123,7 @@ const SignUp = ( { open , closeModal } ) => {
                                className={ ( errors.password && touch.password ) ? styles.uncompleted : styles.formInput }
                                onFocus={ focusHandler }
                                onChange={ changeHandler } value={ data.password } placeholder="رمز عبور"/>
-                        { errors.password && touch.password && <span>{ errors.password }</span> }
+                        { errors.password && <span>{ errors.password }</span> }
 
                     </div>
                     <div className={ styles.formButtons }>

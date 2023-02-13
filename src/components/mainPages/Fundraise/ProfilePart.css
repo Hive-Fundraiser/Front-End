@@ -1,0 +1,47 @@
+.profile-root {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 25px;
+  max-width: 275px;
+  width: 275px;
+  padding-right: 20px;
+  position: relative;
+  /* background-color: red; */
+}
+
+.image {
+  border-radius: 100px;
+  width: 152px;
+  height: 150px;
+  margin-bottom: 37px;
+  left: -75px;
+  position: relative;
+}
+.profile-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 219px;
+  height: 100%;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 28px;
+  text-align: center;
+  color: #ffffff;
+}
+.profile-menu-header {
+  padding-bottom: 63px;
+  border-bottom: 1px solid #ffffff;
+}
+.profile-menu-item {
+  display: flex;
+  flex-direction: column;
+  row-gap: 49px;
+  margin-top: 34px;
+  align-items: center;
+}
+.profile-menu-item-deactive {
+  cursor: pointer;
+  color: #cecece;
+}

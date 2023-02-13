@@ -9,6 +9,7 @@ import cancel from "../../../images/close.svg";
 import Email from "../emailGet/Email";
 import { DataContext } from "../../../helper/test";
 import { Data2Context } from "../../../context/forgetPassContext"
+import axios from "axios";
 
 const MODAL_STYLES = {
     position : "fixed" ,
@@ -56,7 +57,7 @@ const Login = ( { open , closeModal , closeLoginModel } ) => {
     let login = "ورود"
     let forgetPass = "ارسال کد"
     const [ data , setData ] = useState ( {
-        name : "" ,
+        email : "" ,
         password : ""
     } )
     const [ touch , setTouch ] = useState ( {} )
@@ -64,21 +65,10 @@ const Login = ( { open , closeModal , closeLoginModel } ) => {
     useEffect ( () => {
 
     } , [ data , touch ] )
-    const submitHandler = ( event ) => {
+    const submitHandler = async ( event ) => {
         event.preventDefault ();
-        if ( ! Object.keys ( errors ).length ) {
-            notify ( "ورود با موفقیت انجام شد!" , "success" )
-            setTimeout ( () => {
-                navigate ( "/" );
-            } , 2000 );
-
-        } else {
-            notify ( "نام کاربری یا رمز عبور غلط میباشد." , "error" )
-            setTouch ( {
-                name : true ,
-                password : true
-            } )
-        }
+        const response = await axios.post ( "https://hive.iran.liara.run/auth/jwt/create/" , data )
+        console.log ( response )
     }
     const focusHandler = ( event ) => {
         console.log ( event )
@@ -90,9 +80,9 @@ const Login = ( { open , closeModal , closeLoginModel } ) => {
         console.log ( data.name )
     }
     const closeHandler = () => {
+    setIsPassOpen(false)
+    setIsOpenLogin(false)
 
-        closeModal ( false )
-        closeLoginModel ( false )
 
     }
     const forgetPasswordClickHandler = () => {
