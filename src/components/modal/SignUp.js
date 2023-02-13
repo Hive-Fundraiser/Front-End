@@ -54,30 +54,38 @@ const SignUp = ( { open , closeModal } ) => {
 
     const { isOpenLogin , setIsOpenLogin } = useContext ( DataContext )
     const [ data , setData ] = useState ( {
-        name : "" ,
+        username : "" ,
         email : "" ,
         password : ""
     } )
     const [ touch , setTouch ] = useState ( {} )
     const [ errors , setErrors ] = useState ( {} )
     useEffect ( () => {
-        setErrors ( validate ( data , "signup" ) )
-        console.log ( errors )
+console.log(options.body)
     } , [ data , touch ] )
+
+    const headers = {
+        'Content-Type' : 'application/json' ,
+    };
+    const options = {
+        method : 'POST' ,
+        headers : headers ,
+        body : JSON.stringify( {
+            email : data.email ,
+            username : data.username,
+            password : data.password
+        } ),
+    };
     const submitHandler = async ( event ) => {
         event.preventDefault ();
-        if ( ! Object.keys ( errors ).length ) {
-            notify ( "ثبت نام با موفقیت انجام شد" , "success" )
+        fetch ( 'https://hive.iran.liara.run/auth/users/' , options )
+            .then ( ( response ) => {
+                console.log ( response.json ()+"salam" )
 
-
-        } else {
-            notify ( "ورودی ها معتبر نیست! کامل وارد کنید" , "error" )
-            setTouch ( {
-                name : true ,
-                email : true ,
-                password : true
             } )
-        }
+            .catch ( ( error ) => {
+                console.error ( 'There was a problem with the fetch operation:' , error );
+            } );
     }
     const focusHandler = ( event ) => {
 
@@ -99,7 +107,7 @@ const SignUp = ( { open , closeModal } ) => {
         <>
 
 
-            <div style={ isOpenLogin?  OVERLAY_STYLE_LOGIN_CLICKED:OVERLAY_STYLES }/>
+            <div style={ isOpenLogin ? OVERLAY_STYLE_LOGIN_CLICKED : OVERLAY_STYLES }/>
             <div style={ isOpenLogin ? MODAL_STYLES_HIDDEN : MODAL_STYLES }>
                 <form onSubmit={ submitHandler } className={ styles.formContainer }>
 
@@ -109,11 +117,11 @@ const SignUp = ( { open , closeModal } ) => {
                     <h2 className={ styles.header }>ثبت نام</h2>
                     <div className={ styles.formField }>
 
-                        <input type="text" name="name"
-                               className={ ( errors.name && touch.name ) ? styles.uncompleted : styles.formInput }
+                        <input type="text" name="username"
+                               className={ ( errors.username && touch.username ) ? styles.uncompleted : styles.formInput }
                                onFocus={ focusHandler }
-                               onChange={ changeHandler } value={ data.name } placeholder="نام کاربری"/>
-                        { errors.name && touch.name && <span>{ errors.name }</span> }
+                               onChange={ changeHandler } value={ data.username } placeholder="نام کاربری"/>
+                        { errors.username && touch.username && <span>{ errors.username }</span> }
 
                     </div>
                     <div className={ styles.formField }>
@@ -142,9 +150,9 @@ const SignUp = ( { open , closeModal } ) => {
                                 onClick={ loginClickHandler }
                                 className={ styles.loginP }>حساب کاربری دارید؟ وارد شوید.</span>
 
-                                <Login open={ isOpenLogin } closeLoginModel={ () => setIsOpenLogin ( false ) }>
+                            <Login open={ isOpenLogin } closeLoginModel={ () => setIsOpenLogin ( false ) }>
 
-                                </Login>
+                            </Login>
 
                         </div>
 
