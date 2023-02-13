@@ -6,7 +6,8 @@ import post_2 from "./../../../images/LandingPage/SelectedPosts/post_2.svg";
 import post_3 from "./../../../images/LandingPage/SelectedPosts/post_3.svg";
 import post_4 from "./../../../images/LandingPage/SelectedPosts/post_4.svg";
 import Post from "./../../shared/Post";
-
+import { useContext } from "react";
+import { CharityContext } from "../../../context/CharityProvider";
 const posts = [
   {
     id: 0,
@@ -45,6 +46,7 @@ const posts = [
   },
 ];
 const SelectedPosts = (props) => {
+  const posts = useContext(CharityContext);
   const set = (posts, start, end, width) => {
     return posts
       .slice(start, end)
