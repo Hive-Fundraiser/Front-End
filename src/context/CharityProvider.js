@@ -8,7 +8,6 @@ const CharityProvider = ( { children } ) => {
     useEffect ( () => {
         const fetchAPI = async () => {
             setCharity ( await getCharity () );
-            console.log ( charity )
         }
         fetchAPI ();
     } , [] )
