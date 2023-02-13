@@ -62,8 +62,7 @@ const Login = ( { open , closeModal , closeLoginModel } ) => {
     const [ touch , setTouch ] = useState ( {} )
     const [ errors , setErrors ] = useState ( {} )
     useEffect ( () => {
-        setErrors ( validate ( data , "login" ) )
-        console.log ( errors )
+
     } , [ data , touch ] )
     const submitHandler = ( event ) => {
         event.preventDefault ();

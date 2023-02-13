@@ -61,17 +61,19 @@ const SignUp = ( { open , closeModal } ) => {
     const [ touch , setTouch ] = useState ( {} )
     const [ errors , setErrors ] = useState ( {} )
     useEffect ( () => {
-        console.log ( data )
+    console.log(data)
     } , [ data , touch ] )
     const submitHandler = async ( event ) => {
         event.preventDefault ();
-        // const response = await axios.post("https://hive.iran.liara.run/auth/users/",{
-        //     email:data.email,
-        //     username:data.username,
-        //     password:data.password
-        // })
-        //  console.log(data)
-        //  console.log(response)
+        await axios.post("https://hive.iran.liara.run/auth/users/",data)
+            .then(function ( response ){
+                console.log(response)
+            })
+            .catch(function ( error ){
+                console.log(error)
+            })
+
+
     }
     const focusHandler = ( event ) => {
 
