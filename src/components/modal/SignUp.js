@@ -83,6 +83,7 @@ const SignUp = ( { open , closeModal } ) => {
                     email : "" ,
                     password : ""
                 } )
+                setErrors({})
             } )
             .catch ( error => setErrors ( error.response.data ) )
 
@@ -101,9 +102,24 @@ const SignUp = ( { open , closeModal } ) => {
         setIsOpenLogin ( true );
     }
     const overlayHandler = () => {
+        setData ( {
+            username : "" ,
+            email : "" ,
+            password : ""
+        } )
+        setErrors({})
         setIsOpen(false)
         setIsOpenLogin(false)
 
+    }
+   const cancelImageHandler = ()=>{
+        setIsOpen(false)
+       setData ( {
+           username : "" ,
+           email : "" ,
+           password : ""
+       } )
+       setErrors({})
     }
     if ( ! open ) {
         return null
@@ -118,7 +134,7 @@ const SignUp = ( { open , closeModal } ) => {
                 <form onSubmit={ submitHandler } className={ styles.formContainer }>
 
                     <img className={ styles.closeButton } src={ cancel }
-                         onClick={ () => closeModal ( false ) } alt="che khabar?"/>
+                         onClick={ cancelImageHandler } alt="cancel"/>
 
                     <h2 className={ styles.header }>ثبت نام</h2>
                     <div className={ styles.formField }>
