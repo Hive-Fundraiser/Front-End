@@ -13,6 +13,7 @@ import { SigunUpProvider } from "./context/SignUpContext"
 import { DakhelProvider } from "./context/DakhelContext";
 import MyFundraise from "./components/mainPages/Fundraise/MyFundraise";
 import NewFundraise from "./components/mainPages/Fundraise/NewFundraise";
+import EmailConfiguration from "./components/email/EmailConfiguration"
 
 function App () {
     return (
@@ -35,6 +36,7 @@ function App () {
                                     <Route path="/profile" element={ <ProfilePage/> }/>
                                     <Route path="NewFundraise" element={ <NewFundraise/> }/>
                                     <Route path="/Posts" element={ <PostsPage/> }/>
+                                    <Route path="/EmailConfirmation" element={ <EmailConfiguration/> }/>
                                     <Route path="/*" element={ <BaseOfNotFound/> }/>
                                 </Routes>
                             </Data2Provider>
