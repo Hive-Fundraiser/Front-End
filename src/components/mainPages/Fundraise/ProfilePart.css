@@ -45,3 +45,6 @@
   cursor: pointer;
   color: #cecece;
 }
+.profile-menu-item-active{
+  cursor: pointer;
+}
