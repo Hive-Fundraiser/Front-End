@@ -11,6 +11,10 @@ import Login from "./Login/Login";
 import cancel from "../../images/close.svg"
 import { DataContext } from "../../helper/test";
 import { DataProvider } from "../../helper/test";
+import { SignUpContext } from "../../context/SignUpContext";
+
+import { DakhelContext } from "../../context/DakhelContext";
+import { Data2Context } from "../../context/forgetPassContext";
 
 const MODAL_STYLES = {
     position : "fixed" ,
@@ -51,33 +55,42 @@ const BUTTON_WRAPPER_LOGIN_STYLES = {
     zIndex : 1
 }
 const SignUp = ( { open , closeModal } ) => {
-
+    const { isOpen , setIsOpen } = useContext ( SignUpContext );
     const { isOpenLogin , setIsOpenLogin } = useContext ( DataContext )
+    const { isIn , setIsIn } = useContext ( DakhelContext );
+    const { isPassOpen , setIsPassOpen } = useContext ( Data2Context )
+    // MAIN DATA
     const [ data , setData ] = useState ( {
-        name : "" ,
+        username : "" ,
         email : "" ,
         password : ""
     } )
     const [ touch , setTouch ] = useState ( {} )
     const [ errors , setErrors ] = useState ( {} )
     useEffect ( () => {
-        setErrors ( validate ( data , "signup" ) )
-        console.log ( errors )
+        console.log ( data )
     } , [ data , touch ] )
     const submitHandler = async ( event ) => {
         event.preventDefault ();
-        if ( ! Object.keys ( errors ).length ) {
-            notify ( "ثبت نام با موفقیت انجام شد" , "success" )
-
-
-        } else {
-            notify ( "ورودی ها معتبر نیست! کامل وارد کنید" , "error" )
-            setTouch ( {
-                name : true ,
-                email : true ,
-                password : true
+        console.log ( data )
+        await axios.post ( "https://hive.iran.liara.run/auth/users/" , data )
+            .then ( response => {
+                console.log ( response )
+                console.log ( response.status )
+                localStorage.setItem ( "username" , response.data.username )
+                localStorage.setItem ( "id" , response.data.id )
+                setIsOpen ( false )
+                setIsIn ( true )
+                setData ( {
+                    username : "" ,
+                    email : "" ,
+                    password : ""
+                } )
+                setErrors({})
             } )
-        }
+            .catch ( error => setErrors ( error.response.data ) )
+
+
     }
     const focusHandler = ( event ) => {
 
@@ -91,7 +104,29 @@ const SignUp = ( { open , closeModal } ) => {
     const loginClickHandler = () => {
         setIsOpenLogin ( true );
     }
+    const overlayHandler = () => {
+        setData ( {
+            username : "" ,
+            email : "" ,
+            password : ""
+        } )
+        setErrors({})
+        setIsOpen(false)
+        setIsOpenLogin(false)
+        setIsPassOpen(false)
 
+    }
+   const cancelImageHandler = ()=>{
+        setIsOpen(false)
+       setIsOpenLogin(false)
+       setIsPassOpen(false)
+       setData ( {
+           username : "" ,
+           email : "" ,
+           password : ""
+       } )
+       setErrors({})
+    }
     if ( ! open ) {
         return null
     }
@@ -99,37 +134,39 @@ const SignUp = ( { open , closeModal } ) => {
         <>
 
 
-            <div style={ isOpenLogin?  OVERLAY_STYLE_LOGIN_CLICKED:OVERLAY_STYLES }/>
+            <div style={ isOpenLogin ? OVERLAY_STYLE_LOGIN_CLICKED : OVERLAY_STYLES }
+                 onClick={ overlayHandler }/>
             <div style={ isOpenLogin ? MODAL_STYLES_HIDDEN : MODAL_STYLES }>
                 <form onSubmit={ submitHandler } className={ styles.formContainer }>
 
                     <img className={ styles.closeButton } src={ cancel }
-                         onClick={ () => closeModal ( false ) } alt="che khabar?"/>
+                         onClick={ cancelImageHandler } alt="cancel"/>
 
                     <h2 className={ styles.header }>ثبت نام</h2>
                     <div className={ styles.formField }>
 
-                        <input type="text" name="name"
-                               className={ ( errors.name && touch.name ) ? styles.uncompleted : styles.formInput }
+                        <input type="text" name="username"
+                               className={ ( errors.username && touch.username ) ? styles.uncompleted : styles.formInput }
                                onFocus={ focusHandler }
-                               onChange={ changeHandler } value={ data.name } placeholder="نام کاربری"/>
-                        { errors.name && touch.name && <span>{ errors.name }</span> }
+                               onChange={ changeHandler } value={ data.username } placeholder="نام کاربری"/>
+                        { errors.username && <span>{ errors.username }</span> }
 
                     </div>
                     <div className={ styles.formField }>
-                        <input type="text" name="email"
+                        <input type="email" name="email"
                                className={ ( errors.email && touch.email ) ? styles.uncompleted : styles.formInput }
                                onFocus={ focusHandler }
                                onChange={ changeHandler } value={ data.email } placeholder="ایمیل"/>
-                        { errors.email && touch.email && <span>{ errors.email }</span> }
+                        { errors.email && <span>{ errors.email }</span> }
 
                     </div>
+
                     <div className={ styles.formField }>
                         <input type="password" name="password"
                                className={ ( errors.password && touch.password ) ? styles.uncompleted : styles.formInput }
                                onFocus={ focusHandler }
                                onChange={ changeHandler } value={ data.password } placeholder="رمز عبور"/>
-                        { errors.password && touch.password && <span>{ errors.password }</span> }
+                        { errors.password && <span>{ errors.password }</span> }
 
                     </div>
                     <div className={ styles.formButtons }>
@@ -142,9 +179,9 @@ const SignUp = ( { open , closeModal } ) => {
                                 onClick={ loginClickHandler }
                                 className={ styles.loginP }>حساب کاربری دارید؟ وارد شوید.</span>
 
-                                <Login open={ isOpenLogin } closeLoginModel={ () => setIsOpenLogin ( false ) }>
+                            <Login open={ isOpenLogin } closeLoginModel={ () => setIsOpenLogin ( false ) }>
 
-                                </Login>
+                            </Login>
 
                         </div>
 

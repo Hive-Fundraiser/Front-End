@@ -7,6 +7,7 @@ import { notify } from "../../../helper/toast";
 import styles from "./Email.module.css";
 import { Data2Context } from "../../../context/forgetPassContext";
 import { DataContext } from "../../../helper/test";
+import { SignUpContext } from "../../../context/SignUpContext";
 
 const MODAL_STYLES = {
     position : "fixed" ,
@@ -36,6 +37,7 @@ const Email = ( open , closePassModal ) => {
     const navigate = useNavigate ();
     const { isPassOpen , setIsPassOpen } = useContext ( Data2Context )
     const { isOpenLogin , setIsOpenLogin } = useContext ( DataContext )
+    const { isOpen , setIsOpen } = useContext ( SignUpContext );
     const [ data , setData ] = useState ( {
         email : "" ,
 
@@ -48,19 +50,7 @@ const Email = ( open , closePassModal ) => {
     } , [ data , touch ] )
     const submitHandler = ( event ) => {
         event.preventDefault ();
-        if ( ! Object.keys ( errors ).length ) {
-            notify ( "ورود با موفقیت انجام شد!" , "success" )
-            setTimeout ( () => {
-                navigate ( "/" );
-            } , 2000 );
 
-        } else {
-            notify ( "نام کاربری یا رمز عبور غلط میباشد." , "error" )
-            setTouch ( {
-                email : true ,
-
-            } )
-        }
     }
     const focusHandler = ( event ) => {
 
@@ -74,18 +64,23 @@ const Email = ( open , closePassModal ) => {
    const closeHandler = () => {
     setIsPassOpen(false)
     setIsOpenLogin(false)
+       setIsOpen(false)
+       setData({
+           email : ""
+       })
+       setErrors({})
     }
     if ( ! open ) {
         return null
     }
     return createPortal (
         <>
-            <div style={ OVERLAY_STYLES }/>
+            <div style={ OVERLAY_STYLES } onClick={closeHandler}/>
             <div style={ MODAL_STYLES }>
                 <form onSubmit={ submitHandler } className={ styles.formContainer }>
                     <div>
                         <img className={ styles.closeButton } src={ cancel } onClick={ closeHandler }
-                             alt="che khabar?"/>
+                             alt="cancel"/>
                     </div>
 
                     <h2 className={ styles.header }>فراموشی رمزعبور</h2>

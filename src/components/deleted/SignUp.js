@@ -17,36 +17,21 @@ const SignUp = () => {
     const [ touch , setTouch ] = useState ( {} )
     const [ errors , setErrors ] = useState ( {} )
     useEffect ( () => {
-        setErrors ( validate ( data,"signup" ) )
-        console.log ( errors )
+
     } , [ data , touch ] )
     const submitHandler = async ( event ) => {
         event.preventDefault ();
-        if ( ! Object.keys ( errors ).length ) {
-            notify ( "ثبت نام با موفقیت انجام شد" , "success" )
-            const send = {
-                name:data.name,
-            email:data.email ,
-            password:data.password
-            }
-            const response = await axios.post (
-                'http://127.0.0.1:8000//auth/jwt/create',
-                    send,
-                { headers : { 'Content-Type' : 'application/json' } }
-            )
-            console.log ( response.data )
-        } else {
-            notify ( "ورودی ها معتبر نیست! کامل وارد کنید" , "error" )
-            setTouch ( {
-                name : true ,
-                email : true ,
-                password : true
+        await axios.post ( "https://hive.iran.liara.run/auth/users/" , data )
+            .then ( function ( response ) {
+                console.log ( response )
             } )
-        }
+            .catch ( function ( error ) {
+                console.log ( error )
+            } )
     }
     const focusHandler = ( event ) => {
 
-        setTouch ( {  [ event.target.name ] : true } )
+        setTouch ( { [ event.target.name ] : true } )
 
     }
     const changeHandler = ( event ) => {
