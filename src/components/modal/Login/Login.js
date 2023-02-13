@@ -10,6 +10,8 @@ import Email from "../emailGet/Email";
 import { DataContext } from "../../../helper/test";
 import { Data2Context } from "../../../context/forgetPassContext"
 import axios from "axios";
+import 'react-toastify/dist/ReactToastify.css';
+import { SignUpContext } from "../../../context/SignUpContext";
 
 const MODAL_STYLES = {
     position : "fixed" ,
@@ -54,8 +56,9 @@ const Login = ( { open , closeModal , closeLoginModel } ) => {
     const navigate = useNavigate ();
     const { isPassOpen , setIsPassOpen } = useContext ( Data2Context )
     const { isOpenLogin , setIsOpenLogin } = useContext ( DataContext )
+    const { isOpen , setIsOpen } = useContext ( SignUpContext );
     let login = "ورود"
-    let forgetPass = "ارسال کد"
+
     const [ data , setData ] = useState ( {
         email : "" ,
         password : ""
@@ -67,11 +70,25 @@ const Login = ( { open , closeModal , closeLoginModel } ) => {
     } , [ data , touch ] )
     const submitHandler = async ( event ) => {
         event.preventDefault ();
-        const response = await axios.post ( "https://hive.iran.liara.run/auth/jwt/create/" , data )
-        console.log ( response )
+        await axios.post ( "https://hive.iran.liara.run/auth/jwt/create/" , data )
+            .then ( response => {
+                console.log ( response )
+                console.log ( response.status )
+                // localStorage.setItem ( "token" , response.data.username )
+                setData ( {
+                    email : "" ,
+                    password : ""
+                } )
+                notify("ورود موفقیت آمیز بود" , "success")
+            } )
+
+            .catch ( error => {
+                setErrors ( error.response.data )
+                notify ( "ایمیل یا رمزعبور غلط میباشد" , "error" )
+            } )
+
     }
     const focusHandler = ( event ) => {
-        console.log ( event )
         setTouch ( { ... touch , [ event.target.name ] : true } )
 
     }
@@ -80,25 +97,41 @@ const Login = ( { open , closeModal , closeLoginModel } ) => {
         console.log ( data.name )
     }
     const closeHandler = () => {
-    setIsPassOpen(false)
-    setIsOpenLogin(false)
+        setData ( {
+            email : "" ,
+            password : ""
+        } )
+        setErrors ( {} )
+        setIsOpen ( false )
+        setIsPassOpen ( false )
+        setIsOpenLogin ( false )
 
 
     }
     const forgetPasswordClickHandler = () => {
         setIsPassOpen ( true );
     }
+    const cancelImageHandler = () => {
+        setIsOpen ( false )
+        setIsOpenLogin ( false )
+        setIsPassOpen ( false )
+        setData ( {
+            email : "" ,
+            password : ""
+        } )
+        setErrors ( {} )
+    }
     if ( ! open ) {
         return null
     }
     return createPortal (
         <>
-            <div style={ isPassOpen ? OVERLAY_FORGET_PASSWORD_CLICKED : OVERLAY_STYLES }/>
+            <div style={ isPassOpen ? OVERLAY_FORGET_PASSWORD_CLICKED : OVERLAY_STYLES } onClick={ closeHandler }/>
             <div style={ isPassOpen ? MODAL_STYLES_HIDDEN : MODAL_STYLES }>
                 <form onSubmit={ submitHandler } className={ styles.formContainer }>
                     <img className={ styles.closeButton } src={ cancel }
-                         onClick={ closeHandler }
-                         alt="che khabar?"/>
+                         onClick={ cancelImageHandler }
+                         alt="cancel"/>
                     <h2 className={ styles.header }>ورود</h2>
                     <div className={ styles.formField }>
 
@@ -131,6 +164,7 @@ const Login = ( { open , closeModal , closeLoginModel } ) => {
 
 
             </div>
+
         </> ,
         document.getElementById ( "portal" )
     );

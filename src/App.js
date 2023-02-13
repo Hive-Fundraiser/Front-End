@@ -9,32 +9,38 @@ import { DataProvider } from "./helper/test";
 import { Data2Provider } from "./context/forgetPassContext";
 import BaseOfNotFound from "./components/PageNotFound/BaseOfNotFound";
 import CharityProvider from "./context/CharityProvider"
-
-
+import { SigunUpProvider } from "./context/SignUpContext"
+import { DakhelProvider } from "./context/DakhelContext";
 import MyFundraise from "./components/mainPages/Fundraise/MyFundraise";
 import NewFundraise from "./components/mainPages/Fundraise/NewFundraise";
+
 function App () {
     return (
         <CharityProvider>
 
 
             <div>
+                <SigunUpProvider>
+                    <DakhelProvider>
 
-                <DataProvider>
-                    <Data2Provider>
+
+                        <DataProvider>
+                            <Data2Provider>
 
 
-                        <Routes>
-                            <Route path="/" element={ <Landing/> }/>
-                            <Route path="/page" element={ <Base/> }/>
-                            <Route path="/Myfundraise" element={<MyFundraise />} />
-                            <Route path="NewFundraise" element={<NewFundraise />} />
-                            <Route path="/Posts" element={ <PostsPage/> }/>
-                            <Route path="/*" element={ <BaseOfNotFound/> }/>
-                        </Routes>
-                    </Data2Provider>
-                </DataProvider>
-
+                                <Routes>
+                                    <Route path="/" element={ <Landing/> }/>
+                                    <Route path="/page" element={ <Base/> }/>
+                                    <Route path="/Myfundraise" element={ <MyFundraise/> }/>
+                                    <Route path="/profile" element={ <ProfilePage/> }/>
+                                    <Route path="NewFundraise" element={ <NewFundraise/> }/>
+                                    <Route path="/Posts" element={ <PostsPage/> }/>
+                                    <Route path="/*" element={ <BaseOfNotFound/> }/>
+                                </Routes>
+                            </Data2Provider>
+                        </DataProvider>
+                    </DakhelProvider>
+                </SigunUpProvider>
             </div>
         </CharityProvider>
     );

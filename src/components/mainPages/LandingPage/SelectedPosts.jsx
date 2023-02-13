@@ -16,7 +16,7 @@ const SelectedPosts = (props) => {
       .slice(start, end)
       .map((post) => (
         <Post
-            key={post.raiser_id}
+
           img={post.img}
           title={post.title}
 

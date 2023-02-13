@@ -16,7 +16,7 @@ function Body()
                         <h2>50 تومان </h2><sub>از 100 تومان هدف جمع شده است . </sub>
                         <br/>
                         <input className='range' type='range' readOnly />
-                       <p className='p'>12 هزار بخش</p>
+                       <p className='p'>12 هزار بخشش</p>
                        <div className='button-controll'>
                        <a href='#'><button className='button-1'>اشتراک گذاری</button></a>
                        <br/>
