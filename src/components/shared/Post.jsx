@@ -11,7 +11,7 @@ const Post = ({ img, title, description, width }) => {
       <div className={styles.parent}>
         <img className={styles.image} src={img} alt={title}  />
         <h3 className={styles.title}>{title}</h3>
-        <p className={styles.description}>{description}</p>
+
       </div>
     </div>
   );
