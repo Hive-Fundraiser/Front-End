@@ -54,30 +54,24 @@ const SignUp = ( { open , closeModal } ) => {
 
     const { isOpenLogin , setIsOpenLogin } = useContext ( DataContext )
     const [ data , setData ] = useState ( {
-        name : "" ,
         email : "" ,
+        username : "" ,
         password : ""
     } )
     const [ touch , setTouch ] = useState ( {} )
     const [ errors , setErrors ] = useState ( {} )
     useEffect ( () => {
-        setErrors ( validate ( data , "signup" ) )
-        console.log ( errors )
+        console.log(data)
     } , [ data , touch ] )
     const submitHandler = async ( event ) => {
         event.preventDefault ();
-        if ( ! Object.keys ( errors ).length ) {
-            notify ( "ثبت نام با موفقیت انجام شد" , "success" )
-
-
-        } else {
-            notify ( "ورودی ها معتبر نیست! کامل وارد کنید" , "error" )
-            setTouch ( {
-                name : true ,
-                email : true ,
-                password : true
-            } )
-        }
+       // const response = await axios.post("https://hive.iran.liara.run/auth/users/",{
+       //     email:data.email,
+       //     username:data.username,
+       //     password:data.password
+       // })
+       //  console.log(data)
+       //  console.log(response)
     }
     const focusHandler = ( event ) => {
 
@@ -107,21 +101,22 @@ const SignUp = ( { open , closeModal } ) => {
                          onClick={ () => closeModal ( false ) } alt="che khabar?"/>
 
                     <h2 className={ styles.header }>ثبت نام</h2>
-                    <div className={ styles.formField }>
 
-                        <input type="text" name="name"
-                               className={ ( errors.name && touch.name ) ? styles.uncompleted : styles.formInput }
-                               onFocus={ focusHandler }
-                               onChange={ changeHandler } value={ data.name } placeholder="نام کاربری"/>
-                        { errors.name && touch.name && <span>{ errors.name }</span> }
-
-                    </div>
                     <div className={ styles.formField }>
                         <input type="text" name="email"
                                className={ ( errors.email && touch.email ) ? styles.uncompleted : styles.formInput }
                                onFocus={ focusHandler }
                                onChange={ changeHandler } value={ data.email } placeholder="ایمیل"/>
                         { errors.email && touch.email && <span>{ errors.email }</span> }
+
+                    </div>
+                    <div className={ styles.formField }>
+
+                        <input type="text" name="username"
+                               className={ ( errors.username && touch.username ) ? styles.uncompleted : styles.formInput }
+                               onFocus={ focusHandler }
+                               onChange={ changeHandler } value={ data.username } placeholder="نام کاربری"/>
+                        { errors.username && touch.username && <span>{ errors.username }</span> }
 
                     </div>
                     <div className={ styles.formField }>
