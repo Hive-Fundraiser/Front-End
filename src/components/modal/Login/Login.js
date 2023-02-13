@@ -72,14 +72,17 @@ const Login = ( { open , closeModal , closeLoginModel } ) => {
         event.preventDefault ();
         await axios.post ( "https://hive.iran.liara.run/auth/jwt/create/" , data )
             .then ( response => {
-                console.log ( response )
-                console.log ( response.status )
-                // localStorage.setItem ( "token" , response.data.username )
+                localStorage.setItem ( "token" , response.data.access )
                 setData ( {
                     email : "" ,
                     password : ""
                 } )
                 notify("ورود موفقیت آمیز بود" , "success")
+                setErrors ( {} )
+                setIsOpen ( false )
+                setIsPassOpen ( false )
+                setIsOpenLogin ( false )
+                window.location.reload();
             } )
 
             .catch ( error => {
