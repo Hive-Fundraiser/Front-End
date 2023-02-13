@@ -7,6 +7,7 @@ import "./index.css";
 const MyFundraise = () => {
   return (
     <div>
+        <Navbar/>
       <div className="root">
         <div className="blue" />
         <div className="white" />

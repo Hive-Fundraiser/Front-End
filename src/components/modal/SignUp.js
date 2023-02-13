@@ -11,7 +11,9 @@ import Login from "./Login/Login";
 import cancel from "../../images/close.svg"
 import { DataContext } from "../../helper/test";
 import { DataProvider } from "../../helper/test";
+import { SignUpContext } from "../../context/SignUpContext";
 
+import { DakhelContext } from "../../context/DakhelContext";
 const MODAL_STYLES = {
     position : "fixed" ,
     top : "50%" ,
@@ -51,8 +53,10 @@ const BUTTON_WRAPPER_LOGIN_STYLES = {
     zIndex : 1
 }
 const SignUp = ( { open , closeModal } ) => {
-
+    const { isOpen, setIsOpen} = useContext(SignUpContext);
     const { isOpenLogin , setIsOpenLogin } = useContext ( DataContext )
+    const {isIn, setIsIn} = useContext(DakhelContext);
+    // MAIN DATA
     const [ data , setData ] = useState ( {
         username : "" ,
         email : "" ,
@@ -66,8 +70,22 @@ const SignUp = ( { open , closeModal } ) => {
     const submitHandler = async ( event ) => {
         event.preventDefault ();
         console.log(data)
-        const response =  await axios.post("https://hive.iran.liara.run/auth/users/",data)
-        console.log(response)
+        await axios.post("https://hive.iran.liara.run/auth/users/",data)
+            .then(response => {
+                console.log(response)
+                console.log(response.status)
+                localStorage.setItem("username",response.data.username)
+                setIsOpen(false)
+                setIsIn(true)
+                setData({
+                    username : "" ,
+                    email : "" ,
+                    password : ""
+                })
+            })
+            .catch(error => setErrors(error.response.data))
+
+
 
 
 

@@ -1,12 +1,16 @@
-import React, { useContext, useState } from "react";
+import React , { useContext , useEffect , useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+import 'react-toastify/dist/ReactToastify.css';
 import styles from "./Navbar.module.css";
 import Search from "./../../images/Navbar/search.svg";
 import Logo from "./../../images/Navbar/logo.svg";
 import SignUp from "../modal/SignUp";
 import Login from "../modal/Login/Login";
 import { DataContext, DataProvider } from "../../helper/test";
+import { SignUpContext } from "../../context/SignUpContext";
+import { DakhelContext } from "../../context/DakhelContext";
+import { notify } from "../../helper/toast";
+import { ToastContainer } from "react-toastify";
 
 const BUTTON_WRAPPER_STYLES = {
   position: "relative",
@@ -19,9 +23,16 @@ const BUTTON_WRAPPER_LOGIN_STYLES = {
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const [isOpen, setIsOpen] = useState(false);
+  const {isOpen, setIsOpen} = useContext(SignUpContext);
   const { isOpenLogin, setIsOpenLogin } = useContext(DataContext);
+  const {isIn, setIsIn} = useContext(DakhelContext);
 
+  useEffect ( () => {
+    if ( isIn ) {
+      notify ( "ثبت نام موفقیت آمیز بود! ایمیل خود را تایید کنید" , "info" )
+      setIsIn ( false )
+    }
+  } , [ isIn ] )
   const clickHandler = () => {
     navigate("/");
   };
@@ -61,7 +72,9 @@ const Navbar = () => {
           <img className={styles.brand_logo} src={Logo} alt="brand logo" />
         </div>
       </div>
+      <ToastContainer/>
     </header>
+
   );
 };
 

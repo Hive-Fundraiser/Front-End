@@ -5,19 +5,20 @@ import ProfilePart from "./ProfilePart";
 import "./index.css";
 
 const NewFundraise = () => {
-  return (
-    <div>
-      <div className="root">
-        <div className="blue" />
-        <div className="white" />
-        <div className="header-text">Hive</div>
-        <div className="main">
-          <ProfilePart />
-          <NewFundraisePanel />
+    return (
+        <div>
+            <Navbar/>
+            <div className="root">
+                <div className="blue"/>
+                <div className="white"/>
+                <div className="header-text">Hive</div>
+                <div className="main">
+                    <ProfilePart/>
+                    <NewFundraisePanel/>
+                </div>
+            </div>
+            <Footer/>
         </div>
-      </div>
-      <Footer />
-    </div>
-  );
+    );
 };
 export default NewFundraise;

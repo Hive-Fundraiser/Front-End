@@ -6,12 +6,16 @@ import SelectedPosts from "./SelectedPosts";
 import Steps from "./Steps";
 import Trust from './Trust';
 import { CharityContext } from "../../../context/CharityProvider";
+import { DakhelContext } from "../../../context/DakhelContext";
+import { notify } from "../../../helper/toast";
+import { ToastContainer } from "react-toastify";
 
 const Landing = () => {
-    const charity = useContext(CharityContext);
-    useEffect(()=>{
+    const charity = useContext ( CharityContext );
+    const { isIn , setIsIn } = useContext ( DakhelContext );
+    useEffect ( () => {
 
-    },[])
+    }  )
     return (
         <div>
             <Navbar/>
@@ -20,6 +24,7 @@ const Landing = () => {
             <Trust/>
             <SelectedPosts/>
             <Footer/>
+
         </div>
     )
 }
