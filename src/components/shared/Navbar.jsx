@@ -29,7 +29,8 @@ const Navbar = () => {
 
   useEffect ( () => {
     if ( isIn ) {
-      notify ( "ثبت نام موفقیت آمیز بود! ایمیل خود را تایید کنید" , "info" )
+      notify ( "ثبت نام موفقیت آمیز بود!" +
+          " ایمیل خود را تایید کنید" , "info" )
       setIsIn ( false )
     }
   } , [ isIn ] )
@@ -72,7 +73,7 @@ const Navbar = () => {
           <img className={styles.brand_logo} src={Logo} alt="brand logo" />
         </div>
       </div>
-      <ToastContainer/>
+      <ToastContainer className={styles.Toast}/>
     </header>
 
   );

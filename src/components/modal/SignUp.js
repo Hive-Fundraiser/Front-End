@@ -14,6 +14,7 @@ import { DataProvider } from "../../helper/test";
 import { SignUpContext } from "../../context/SignUpContext";
 
 import { DakhelContext } from "../../context/DakhelContext";
+
 const MODAL_STYLES = {
     position : "fixed" ,
     top : "50%" ,
@@ -53,9 +54,9 @@ const BUTTON_WRAPPER_LOGIN_STYLES = {
     zIndex : 1
 }
 const SignUp = ( { open , closeModal } ) => {
-    const { isOpen, setIsOpen} = useContext(SignUpContext);
+    const { isOpen , setIsOpen } = useContext ( SignUpContext );
     const { isOpenLogin , setIsOpenLogin } = useContext ( DataContext )
-    const {isIn, setIsIn} = useContext(DakhelContext);
+    const { isIn , setIsIn } = useContext ( DakhelContext );
     // MAIN DATA
     const [ data , setData ] = useState ( {
         username : "" ,
@@ -65,28 +66,25 @@ const SignUp = ( { open , closeModal } ) => {
     const [ touch , setTouch ] = useState ( {} )
     const [ errors , setErrors ] = useState ( {} )
     useEffect ( () => {
-    console.log(data)
+        console.log ( data )
     } , [ data , touch ] )
     const submitHandler = async ( event ) => {
         event.preventDefault ();
-        console.log(data)
-        await axios.post("https://hive.iran.liara.run/auth/users/",data)
-            .then(response => {
-                console.log(response)
-                console.log(response.status)
-                localStorage.setItem("username",response.data.username)
-                setIsOpen(false)
-                setIsIn(true)
-                setData({
+        console.log ( data )
+        await axios.post ( "https://hive.iran.liara.run/auth/users/" , data )
+            .then ( response => {
+                console.log ( response )
+                console.log ( response.status )
+                localStorage.setItem ( "username" , response.data.username )
+                setIsOpen ( false )
+                setIsIn ( true )
+                setData ( {
                     username : "" ,
                     email : "" ,
                     password : ""
-                })
-            })
-            .catch(error => setErrors(error.response.data))
-
-
-
+                } )
+            } )
+            .catch ( error => setErrors ( error.response.data ) )
 
 
     }
@@ -102,7 +100,11 @@ const SignUp = ( { open , closeModal } ) => {
     const loginClickHandler = () => {
         setIsOpenLogin ( true );
     }
+    const overlayHandler = () => {
+        setIsOpen(false)
+        setIsOpenLogin(false)
 
+    }
     if ( ! open ) {
         return null
     }
@@ -110,7 +112,8 @@ const SignUp = ( { open , closeModal } ) => {
         <>
 
 
-            <div style={ isOpenLogin ? OVERLAY_STYLE_LOGIN_CLICKED : OVERLAY_STYLES }/>
+            <div style={ isOpenLogin ? OVERLAY_STYLE_LOGIN_CLICKED : OVERLAY_STYLES }
+                 onClick={ overlayHandler }/>
             <div style={ isOpenLogin ? MODAL_STYLES_HIDDEN : MODAL_STYLES }>
                 <form onSubmit={ submitHandler } className={ styles.formContainer }>
 

@@ -10,7 +10,7 @@ import Email from "../emailGet/Email";
 import { DataContext } from "../../../helper/test";
 import { Data2Context } from "../../../context/forgetPassContext"
 import axios from "axios";
-
+import 'react-toastify/dist/ReactToastify.css';
 const MODAL_STYLES = {
     position : "fixed" ,
     top : "50%" ,
@@ -67,8 +67,22 @@ const Login = ( { open , closeModal , closeLoginModel } ) => {
     } , [ data , touch ] )
     const submitHandler = async ( event ) => {
         event.preventDefault ();
-        const response = await axios.post ( "https://hive.iran.liara.run/auth/jwt/create/" , data )
-        console.log ( response )
+        await axios.post ( "https://hive.iran.liara.run/auth/jwt/create/" , data )
+            .then ( response => {
+                console.log ( response )
+                console.log ( response.status )
+                localStorage.setItem ( "token" , response.data.username )
+                setData ( {
+                    username : "" ,
+                    email : "" ,
+                    password : ""
+                } )
+            } )
+            .catch ( error => {
+                setErrors ( error.response.data )
+                notify ( "ایمیل یا رمزعبور غلط میباشد" , "error" )
+            } )
+
     }
     const focusHandler = ( event ) => {
         console.log ( event )
@@ -80,8 +94,8 @@ const Login = ( { open , closeModal , closeLoginModel } ) => {
         console.log ( data.name )
     }
     const closeHandler = () => {
-    setIsPassOpen(false)
-    setIsOpenLogin(false)
+        setIsPassOpen ( false )
+        setIsOpenLogin ( false )
 
 
     }
@@ -131,6 +145,7 @@ const Login = ( { open , closeModal , closeLoginModel } ) => {
 
 
             </div>
+
         </> ,
         document.getElementById ( "portal" )
     );
