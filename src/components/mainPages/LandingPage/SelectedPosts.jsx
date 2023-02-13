@@ -44,8 +44,8 @@ const posts = [
     width: 50,
   },
 ];
-const SelectedPosts = () => {
-  const setPosts = (posts, start, end) => {
+const SelectedPosts = (props) => {
+  const set = (posts, start, end, width) => {
     return posts
       .slice(start, end)
       .map((post) => (
@@ -53,17 +53,42 @@ const SelectedPosts = () => {
           img={post.img}
           title={post.title}
           description={post.description}
-          width={post.width}
+          width={width}
         />
       ));
   };
-
-  return (
-    <div className={styles.parent}>
-      <div className={styles.right}>{setPosts(posts, 1, posts.length)}</div>
-      <div className={styles.left}>{setPosts(posts, 0, 1)}</div>
-    </div>
-  );
+  const setPosts = (posts) => {
+    return (
+      <div className={styles.parent}>
+        <div className={styles.type1_right}>{set(posts, 0, 4, 50)}</div>
+        <div className={styles.type1_left}>{set(posts, 4, 5, 100)}</div>
+      </div>
+    );
+  };
+  const handlePosts = (posts) => {
+    let result = [];
+    if (posts.length - 5 < 0) {
+      return [
+        <div className={styles.parent}>
+          {setPosts(posts, 0, posts.length, 25)}
+        </div>,
+      ];
+    }
+    for (let i = 0; i < posts.length; i = i + 5) {
+      if (i + 5 <= posts.length) {
+        result.push(setPosts(posts.slice(i, i + 5)));
+      } else {
+        result.push(
+          <div className={styles.parent}>
+            {setPosts(posts, i, posts.length, 25)}
+          </div>
+        );
+        return result;
+      }
+    }
+    return result;
+  };
+  return handlePosts(props.posts);
 };
 
 export default SelectedPosts;
