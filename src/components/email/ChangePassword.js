@@ -29,7 +29,7 @@ const ChangePassword = () => {
         event.preventDefault ();
         axios.post ( "https://hive.iran.liara.run/auth/users/reset_password_confirm/" , data )
             .then ( response => {
-                notify ( "رمز عبور با موفقیت عوض گردید" , "success" )
+                notify ( "رمز عبور با موفقیت تغییر گردید" , "success" )
                 setTimeout ( () => {
                     navigate ( "/" );
                 } , 3000 );

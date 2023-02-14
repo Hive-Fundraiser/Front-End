@@ -10,6 +10,7 @@ import post_2 from "./../../../images/LandingPage/SelectedPosts/post_2.svg";
 import post_3 from "./../../../images/LandingPage/SelectedPosts/post_3.svg";
 import post_4 from "./../../../images/LandingPage/SelectedPosts/post_4.svg";
 import { CharityContext } from "../../../context/CharityProvider";
+import { SearchContext } from "../../../context/SearchContext";
 
 const posts = [
   {
@@ -49,7 +50,9 @@ const posts = [
   },
 ];
 const PostsPage = () => {
+  const { search , setSearch } = useContext ( SearchContext )
   const charity = useContext(CharityContext);
+  const searchedCharity = charity.filter(post =>post.title.toLowerCase().includes(search.toLowerCase()) )
   const types = [
     "default",
     "search",
@@ -85,7 +88,7 @@ const PostsPage = () => {
         setIsMenuOpen={setIsMenuOpen}
         types={types}
       />
-      <Posts posts={charity} />
+      <Posts posts={searchedCharity} />
       <Footer />
     </Fragment>
   );

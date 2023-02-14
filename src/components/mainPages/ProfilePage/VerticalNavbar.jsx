@@ -4,15 +4,24 @@ import SampleProfile from "./../../../images/ProfilePage/sample_profile.png";
 import Pen from "./../../../images/ProfilePage/pen.svg";
 import { useState } from "react";
 import { validateFileType } from "../../../utils/Utils";
+import { useNavigate } from "react-router-dom";
 const VerticalNavbar = () => {
   const uploadProfilePicInput = useRef();
   const [active, setActive] = useState("my_info");
+  const navigate = useNavigate();
   const checkActive = (tag) => {
     return active === tag ? styles.active : "";
   };
   const clickHandler = (tag) => {
     setActive(tag);
   };
+  const goPage = ()=>{
+    navigate("/Myfundraise")
+  }
+  const logOutHandler = () => {
+    localStorage.removeItem ( "token" )
+    navigate ( "/" )
+  }
   return (
     <div className={styles.vertical_navbar}>
       <div className={styles.inner_parent}>
@@ -46,7 +55,8 @@ const VerticalNavbar = () => {
           <li
             className={styles.list + " " + checkActive("my_info")}
             onClick={() => {
-              clickHandler("my_info");
+              clickHandler("my_info")
+              goPage()
             }}
           >
             اطلاعات من
@@ -70,7 +80,8 @@ const VerticalNavbar = () => {
           <li
             className={styles.list + " " + checkActive("exit")}
             onClick={() => {
-              clickHandler("exit");
+              clickHandler("exit")
+              logOutHandler()
             }}
           >
             خروج{" "}

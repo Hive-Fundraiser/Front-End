@@ -4,8 +4,14 @@ import styles from "./NotFoundPage.module.css"
 const NotFoundPage = () => {
     return (
         <div className={styles.container}>
+            <div className={styles.textBigContainer}>
+                <div>
+                    <h1>404</h1>
+                </div>
             <div className={styles.textContainer}>
-                <p className={styles.text}>Page not found</p>
+
+                <p className={styles.text}>:/ Page not found </p>
+            </div>
             </div>
             <Link to="/" className={styles.button}>
                 برگشت به خانه

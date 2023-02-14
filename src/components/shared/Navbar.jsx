@@ -11,6 +11,7 @@ import { SignUpContext } from "../../context/SignUpContext";
 import { DakhelContext } from "../../context/DakhelContext";
 import { notify } from "../../helper/toast";
 import { ToastContainer } from "react-toastify";
+import axios from "axios";
 
 const BUTTON_WRAPPER_STYLES = {
   position: "relative",
@@ -22,16 +23,35 @@ const BUTTON_WRAPPER_LOGIN_STYLES = {
 };
 
 const Navbar = () => {
-  const navigate = useNavigate();
-  const { isOpen, setIsOpen } = useContext(SignUpContext);
-  const { isOpenLogin, setIsOpenLogin } = useContext(DataContext);
-  const { isIn, setIsIn } = useContext(DakhelContext);
-  const [logged, setLogged] = useState(true);
-  const name = localStorage.getItem("username");
-  useEffect(() => {
-    if (isIn) {
-      notify("ثبت نام موفقیت آمیز بود!" + " ایمیل خود را تایید کنید", "info");
-      setIsIn(false);
+    const navigate = useNavigate ();
+    const { isOpen , setIsOpen } = useContext ( SignUpContext );
+    const { isOpenLogin , setIsOpenLogin } = useContext ( DataContext );
+    const { isIn , setIsIn } = useContext ( DakhelContext );
+    const [ logged , setLogged ] = useState ( false )
+    const name = localStorage.getItem ( "username" )
+    const [ data , setData ] = useState ( {
+        username : "" ,
+        id : 0 ,
+        email : ""
+    } )
+
+    useEffect ( () => {
+        if ( isIn ) {
+            notify ( "ثبت نام موفقیت آمیز بود!" +
+                " ایمیل خود را تایید کنید" , "info" )
+            setIsIn ( false )
+        }
+        const token = localStorage.getItem ( "token" )
+
+        if ( token ) {
+            setLogged ( true )
+        }
+    } , [ isIn ] )
+    const clickHandler = () => {
+        navigate ( "/" );
+    };
+    const goProfileHandler = () => {
+        navigate ( "/profile" )
     }
     const token = localStorage.getItem("token");
     if (token) {
@@ -66,7 +86,7 @@ const Navbar = () => {
 
           <div style={BUTTON_WRAPPER_LOGIN_STYLES} className={styles.lists}>
             {logged ? (
-              <p className={styles.username}>amirreza1234</p>
+              <p className={styles.username}>{name}</p>
             ) : (
               <button
                 className={styles.p1}

@@ -65,6 +65,14 @@ const Login = ( { open , closeModal , closeLoginModel } ) => {
     } )
     const [ touch , setTouch ] = useState ( {} )
     const [ errors , setErrors ] = useState ( {} )
+    const [ output , setOutPut ] = useState ( {
+        first_name : "محمد" ,
+        last_name : "nas" ,
+        account_number : "62738" ,
+        birth_date : "1999-03-24" ,
+        identity_card_number : "0590403338"
+
+    } )
     useEffect ( () => {
         if ( inIn ) {
 
@@ -78,8 +86,32 @@ const Login = ( { open , closeModal , closeLoginModel } ) => {
     const submitHandler = async ( event ) => {
         event.preventDefault ();
         await axios.post ( "https://hive.iran.liara.run/auth/jwt/create/" , data )
-            .then ( response => {
-                localStorage.setItem ( "token" , response.data.access )
+            .then ( async response => {
+                await localStorage.setItem ( "token" , response.data.access )
+                const token = localStorage.getItem ( "token" )
+
+                // const authorizationHeader = `JWT ${ token }`
+                // const headers = {
+                //     'Authorization' : authorizationHeader ,
+                //     'Content-Type' : 'application/json'
+                // };
+                // console.log ( token )
+                // console.log ( authorizationHeader )
+                // console.log ( data.email )
+               // await axios ( {
+               //      method : 'get' ,
+               //      url : 'https://hive.iran.liara.run/auth/users/me' ,
+               //      headers : {
+               //          'Authorization' : 'JWT ' + token ,
+               //          'Content-Type' : 'application/json'
+               //      }
+               //  } )
+               //      .then ( function ( response ) {
+               //          console.log ( response.data );
+               //      } )
+               //      .catch ( function ( error ) {
+               //          console.log ( error );
+               //      } )
                 setData ( {
                     email : "" ,
                     password : ""
@@ -90,6 +122,7 @@ const Login = ( { open , closeModal , closeLoginModel } ) => {
                 setIsPassOpen ( false )
                 setIsOpenLogin ( false )
                 isInIn ( true )
+
 
             } )
 
@@ -150,14 +183,14 @@ const Login = ( { open , closeModal , closeLoginModel } ) => {
                     <div className={ styles.formField }>
 
                         <input type="text" name="email"
-                               className={  styles.formInput }
+                               className={ styles.formInput }
                                onFocus={ focusHandler }
                                onChange={ changeHandler } value={ data.email } placeholder="ایمیل"/>
 
                     </div>
                     <div className={ styles.formField }>
                         <input type="password" name="password"
-                               className={  styles.formInput }
+                               className={ styles.formInput }
                                onFocus={ focusHandler }
                                onChange={ changeHandler } value={ data.password } placeholder="رمز عبور"/>
                     </div>

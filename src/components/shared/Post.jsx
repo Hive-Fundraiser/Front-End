@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const Post = ({ dataChar, width, height }) => {
   const navigate = useNavigate();
   const clickHandler = () => {
-    navigate("/page");
+    navigate(`/page/${dataChar.id}`);
   };
   const setHeight = () => {
     if (width === 100) {

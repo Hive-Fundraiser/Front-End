@@ -34,7 +34,7 @@ function App () {
 
                                     <Routes>
                                         <Route path="/" element={ <Landing/> }/>
-                                        <Route path="/page" element={ <Base/> }/>
+                                        <Route path="/page/:id" element={ <Base/> }/>
                                         <Route path="/Myfundraise" element={ <MyFundraise/> }/>
                                         <Route path="/profile" element={ <ProfilePage/> }/>
                                         <Route path="NewFundraise" element={ <NewFundraise/> }/>
