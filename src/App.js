@@ -36,7 +36,7 @@ function App () {
                                     <Route path="/profile" element={ <ProfilePage/> }/>
                                     <Route path="NewFundraise" element={ <NewFundraise/> }/>
                                     <Route path="/Posts" element={ <PostsPage/> }/>
-                                    <Route path="/EmailConfirmation" element={ <EmailConfiguration/> }/>
+                                    <Route path="/activation/*" element={ <EmailConfiguration/> }/>
                                     <Route path="/ChangePass" element={ <ChangePassword/> }/>
                                     <Route path="/*" element={ <BaseOfNotFound/> }/>
                                 </Routes>

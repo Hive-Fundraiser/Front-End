@@ -58,7 +58,7 @@ const Login = ( { open , closeModal , closeLoginModel } ) => {
     const { isOpenLogin , setIsOpenLogin } = useContext ( DataContext )
     const { isOpen , setIsOpen } = useContext ( SignUpContext );
     let login = "ورود"
-
+    const [ inIn , isInIn ] = useState ( false )
     const [ data , setData ] = useState ( {
         email : "" ,
         password : ""
@@ -66,8 +66,15 @@ const Login = ( { open , closeModal , closeLoginModel } ) => {
     const [ touch , setTouch ] = useState ( {} )
     const [ errors , setErrors ] = useState ( {} )
     useEffect ( () => {
+        if ( inIn ) {
 
-    } , [ data , touch ] )
+            setTimeout ( () => {
+                window.location.reload ();
+                isInIn ( true )
+
+            } , 3000 );
+        }
+    } , [ inIn ] )
     const submitHandler = async ( event ) => {
         event.preventDefault ();
         await axios.post ( "https://hive.iran.liara.run/auth/jwt/create/" , data )
@@ -77,17 +84,21 @@ const Login = ( { open , closeModal , closeLoginModel } ) => {
                     email : "" ,
                     password : ""
                 } )
-                notify("ورود موفقیت آمیز بود" , "success")
+                notify ( "ورود موفقیت آمیز بود" , "success" )
                 setErrors ( {} )
                 setIsOpen ( false )
                 setIsPassOpen ( false )
                 setIsOpenLogin ( false )
-                window.location.reload();
+                isInIn ( true )
+
             } )
 
             .catch ( error => {
                 setErrors ( error.response.data )
-                notify ( "ایمیل یا رمزعبور غلط میباشد" , "error" )
+                if ( isPassOpen === false ) {
+                    notify ( "ایمیل یا رمزعبور غلط میباشد" , "error" )
+                }
+
             } )
 
     }
