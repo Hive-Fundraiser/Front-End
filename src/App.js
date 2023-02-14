@@ -37,7 +37,7 @@ function App () {
                                     <Route path="NewFundraise" element={ <NewFundraise/> }/>
                                     <Route path="/Posts" element={ <PostsPage/> }/>
                                     <Route path="/activation/*" element={ <EmailConfiguration/> }/>
-                                    <Route path="/ChangePass" element={ <ChangePassword/> }/>
+                                    <Route path="/reset_password/*" element={ <ChangePassword/> }/>
                                     <Route path="/*" element={ <BaseOfNotFound/> }/>
                                 </Routes>
                             </Data2Provider>
