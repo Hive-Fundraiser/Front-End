@@ -1,4 +1,5 @@
 .post{
+    display: inline-block;
     padding: calc(0.7vw + 0.3rem);
     cursor: pointer;
     border-radius: 10px;
