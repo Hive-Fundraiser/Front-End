@@ -1,6 +1,14 @@
 import "./NewFundraisePanel.css";
 import src from "./../../../images/Fundraise/Create.svg";
+import { useState } from "react";
 const NewFundraisePanel = () => {
+  const [data, setData] = useState({
+    title: "",
+    description: "",
+    category: "",
+  });
+  const submitHandler = () => {};
+
   return (
     <div className="new-fundraise-panel">
       <div className="new-fundraise-title">
@@ -22,6 +30,7 @@ const NewFundraisePanel = () => {
               type="text"
               className="new-fundraise-form-info-input"
               placeholder="تومان"
+              value={data.title}
             />
           </div>
           <div className="new-fundraise-form-info-input-container">
@@ -40,7 +49,9 @@ const NewFundraisePanel = () => {
       </form>
       <div className="button-container">
         <button className="button">انصراف</button>
-        <button className="button">ارسال</button>
+        <button className="button" onClick={submitHandler}>
+          ارسال
+        </button>
       </div>
     </div>
   );
