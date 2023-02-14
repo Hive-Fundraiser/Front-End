@@ -11,6 +11,8 @@ import { CharityContext } from "../../../context/CharityProvider";
 
 const SelectedPosts = ( props ) => {
     const charity = useContext ( CharityContext );
+    const firstFiveData = charity.slice(0, 5);
+
     const set = ( posts , start , end , width ) => {
         return posts
             .slice ( start , end )
@@ -54,7 +56,7 @@ const SelectedPosts = ( props ) => {
         }
         return result;
     };
-    return handlePosts ( charity );
+    return handlePosts ( firstFiveData );
 };
 
 export default SelectedPosts;
