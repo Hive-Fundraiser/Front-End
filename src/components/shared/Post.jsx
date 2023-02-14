@@ -1,7 +1,7 @@
 import styles from "./Post.module.css";
 import { useNavigate } from "react-router-dom";
 
-const Post = ({ img, title, description, width }) => {
+const Post = ({ dataChar, width }) => {
     const navigate = useNavigate();
     const clickHandler = () =>{
         navigate("/page");
@@ -9,8 +9,8 @@ const Post = ({ img, title, description, width }) => {
   return (
     <div style={{ width: `${width}%` }} className={styles.post} onClick={clickHandler}>
       <div className={styles.parent}>
-        <img className={styles.image} src={img} alt={title}  />
-        <h3 className={styles.title}>{title}</h3>
+        <img className={styles.image} src={dataChar.image} alt={dataChar.title}  />
+        <h3 className={styles.title}>{dataChar.title}</h3>
 
       </div>
     </div>
