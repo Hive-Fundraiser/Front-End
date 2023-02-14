@@ -7,7 +7,7 @@ const NewFundraisePanel = () => {
 
     const [ data , setData ] = useState ( {
         title : "" ,
-        amount : "" ,
+        amount : 0 ,
         description : "" ,
         image : null
     } )
@@ -19,6 +19,9 @@ const NewFundraisePanel = () => {
         setData ( { ... data , [ event.target.name ] : event.target.value } )
         console.log ( data )
 
+    }
+    const amountHandler = ( event ) => {
+        setData ( { ... data , [ event.target.name ] : parseInt ( event.target.value ) } )
     }
 
 
@@ -75,9 +78,9 @@ const NewFundraisePanel = () => {
                             type="text"
                             className="new-fundraise-form-info-input"
                             placeholder="تومان"
-                            value={ data.amount }
+                            value={ data.amount.toString() }
                             name='amount'
-                            onChange={ changeHandler }
+                            onChange={ amountHandler }
                         />
                     </div>
                     <div className="new-fundraise-form-info-input-container">
