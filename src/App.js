@@ -13,6 +13,9 @@ import { SigunUpProvider } from "./context/SignUpContext"
 import { DakhelProvider } from "./context/DakhelContext";
 import MyFundraise from "./components/mainPages/Fundraise/MyFundraise";
 import NewFundraise from "./components/mainPages/Fundraise/NewFundraise";
+import EmailConfiguration from "./components/email/EmailConfiguration"
+import ChangePassword from "./components/email/ChangePassword";
+import { SearchProvider } from "./context/SearchContext";
 
 function App () {
     return (
@@ -26,17 +29,21 @@ function App () {
 
                         <DataProvider>
                             <Data2Provider>
+                                <SearchProvider>
 
 
-                                <Routes>
-                                    <Route path="/" element={ <Landing/> }/>
-                                    <Route path="/page" element={ <Base/> }/>
-                                    <Route path="/Myfundraise" element={ <MyFundraise/> }/>
-                                    <Route path="/profile" element={ <ProfilePage/> }/>
-                                    <Route path="NewFundraise" element={ <NewFundraise/> }/>
-                                    <Route path="/Posts" element={ <PostsPage/> }/>
-                                    <Route path="/*" element={ <BaseOfNotFound/> }/>
-                                </Routes>
+                                    <Routes>
+                                        <Route path="/" element={ <Landing/> }/>
+                                        <Route path="/page" element={ <Base/> }/>
+                                        <Route path="/Myfundraise" element={ <MyFundraise/> }/>
+                                        <Route path="/profile" element={ <ProfilePage/> }/>
+                                        <Route path="NewFundraise" element={ <NewFundraise/> }/>
+                                        <Route path="/Posts" element={ <PostsPage/> }/>
+                                        <Route path="/activation/*" element={ <EmailConfiguration/> }/>
+                                        <Route path="/reset_password/*" element={ <ChangePassword/> }/>
+                                        <Route path="/*" element={ <BaseOfNotFound/> }/>
+                                    </Routes>
+                                </SearchProvider>
                             </Data2Provider>
                         </DataProvider>
                     </DakhelProvider>

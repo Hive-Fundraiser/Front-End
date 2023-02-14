@@ -7,6 +7,8 @@ import { notify } from "../../../helper/toast";
 import styles from "./Email.module.css";
 import { Data2Context } from "../../../context/forgetPassContext";
 import { DataContext } from "../../../helper/test";
+import { SignUpContext } from "../../../context/SignUpContext";
+import axios from "axios";
 
 const MODAL_STYLES = {
     position : "fixed" ,
@@ -36,6 +38,8 @@ const Email = ( open , closePassModal ) => {
     const navigate = useNavigate ();
     const { isPassOpen , setIsPassOpen } = useContext ( Data2Context )
     const { isOpenLogin , setIsOpenLogin } = useContext ( DataContext )
+    const { isOpen , setIsOpen } = useContext ( SignUpContext );
+    const [errorChecker,setErrorChecker] = useState(false)
     const [ data , setData ] = useState ( {
         email : "" ,
 
@@ -43,24 +47,33 @@ const Email = ( open , closePassModal ) => {
     const [ touch , setTouch ] = useState ( {} )
     const [ errors , setErrors ] = useState ( {} )
     useEffect ( () => {
-        setErrors ( validate ( data , "login" ) )
+
 
     } , [ data , touch ] )
     const submitHandler = ( event ) => {
         event.preventDefault ();
-        if ( ! Object.keys ( errors ).length ) {
-            notify ( "ورود با موفقیت انجام شد!" , "success" )
-            setTimeout ( () => {
-                navigate ( "/" );
-            } , 2000 );
+        axios.post("https://hive.iran.liara.run/auth/users/reset_password/",data)
+            .then(response => {
+                setData ( {
+                    email : ""
 
-        } else {
-            notify ( "نام کاربری یا رمز عبور غلط میباشد." , "error" )
-            setTouch ( {
-                email : true ,
+                } )
+                notify("ایمیل ارسال شد." , "info")
+                setErrors ( {} )
+                setIsOpen ( false )
+                setIsPassOpen ( false )
+                setIsOpenLogin ( false )
+                setErrorChecker(false)
+            })
+            .catch(error => {
+                setErrors(error.response.data)
+                setErrorChecker(true)
+                if ( errorChecker ){
+                    notify("ایمیل وارد شده غلط میباشد." , "error")
+                    setErrorChecker(false)
+                }
+            })
 
-            } )
-        }
     }
     const focusHandler = ( event ) => {
 
@@ -74,18 +87,23 @@ const Email = ( open , closePassModal ) => {
    const closeHandler = () => {
     setIsPassOpen(false)
     setIsOpenLogin(false)
+       setIsOpen(false)
+       setData({
+           email : ""
+       })
+       setErrors({})
     }
     if ( ! open ) {
         return null
     }
     return createPortal (
         <>
-            <div style={ OVERLAY_STYLES }/>
+            <div style={ OVERLAY_STYLES } onClick={closeHandler}/>
             <div style={ MODAL_STYLES }>
                 <form onSubmit={ submitHandler } className={ styles.formContainer }>
                     <div>
                         <img className={ styles.closeButton } src={ cancel } onClick={ closeHandler }
-                             alt="che khabar?"/>
+                             alt="cancel"/>
                     </div>
 
                     <h2 className={ styles.header }>فراموشی رمزعبور</h2>
