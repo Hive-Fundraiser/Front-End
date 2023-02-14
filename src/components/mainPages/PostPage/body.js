@@ -1,14 +1,20 @@
-import React, { PureComponent } from 'react';
+import React , { PureComponent , useContext } from 'react';
 import './body.css';
-import help from "../../../images/PostPage/help.jpg"
-function Body()
+import help from "../../../images/PostPage/help.png"
+import { useParams } from "react-router-dom";
+import { CharityContext } from "../../../context/CharityProvider";
+function Body(props)
 {
+    let { id } = useParams();
+    const charity = useContext(CharityContext);
+    const post = charity[id -1]
+    const {image,title,description,category} = post;
     return(
 
         <div className='div-main'>
-                <h3>کمک برای خرید C200 برای کودکان کار</h3>
+                <h3 className='title'>{title}</h3>
                 <div className='div-help'>
-                    <img alt='help-img' className='help-img' src={help}/>
+                    <img alt='help-img' className='help-img' src={image}/>
                 </div>
                 
                 <div className='description-div'>
@@ -16,7 +22,7 @@ function Body()
                         <h2>50 تومان </h2><sub>از 100 تومان هدف جمع شده است . </sub>
                         <br/>
                         <input className='range' type='range' readOnly />
-                       <p className='p'>12 هزار بخشش</p>
+                       <p className='p'>12 هزار بخش</p>
                        <div className='button-controll'>
                        <a href='#'><button className='button-1'>اشتراک گذاری</button></a>
                        <br/>
@@ -26,20 +32,20 @@ function Body()
                         
                     </div>
                     <div className='description'>
+                    <div className='span_parent'>
                     <span className='s1'>گروه آگهی:</span>
-                    <span className='s2'>پزشکی</span>
-                    <br/>
-                    <span className='s3'>ناشر:</span>
-                    <span className='s4'>عباس نورانی </span>
+                    <span className='s2'>{category}</span>
+                    </div>
+                    <div className='span_parent'>
+                    <span className='s1'>ناشر:</span>
+                    <span className='s2'>عباس نورانی </span>   
+                    </div>
+                    
                    </div>
                 </div>
             <div className='content'>
-            <p>والدین گرامی فرزندان محک</p>
-            <p>امروز،همه در کنار هم روز های سختی را سپری می کنیم. شیوع بیماری کرونا شرایط سخت و پیچیده ای را به جهان و کشور عزیزمان تحمیل نموده است.</p>
-            <p>این شرایط برای کادر درمانی و حمایتی و خانواده های بیماران پیچیدگی و سختی چند برابر ایجاد نموده است.نگرانی بیماران و خانواده های آنها از یک سو و فشار کاری حاکم بر مراکز درمانی و فعالیت بی وقفه و شبانه روزی کادر درمانی و حمایتی از سوی دیگر و افزون بر همه آنها نگرانی فزاینده از ابتلا به بیماری کرونا شرایط سختی را برای همه ما ایجاد نمودهاست.در این شرایطهمکاران فداکار و دلسوز محک تمام تلاش خود را برای تسهیل این شرایط و حفظ و تداوم ارایه خدمت به فرزندان محک انجام می دهند.با سعه صدر و درک بالایی که از شما خانواده های عزیز و فرزندان محک سراغ داریم،مطمعن هستیم که هر قصور احتمالی و سهوی را که ممکن است رخ دهد،بر ما خواهید بخشید و برای مرتفع نمودن  فرزندانتان دغدغه زیادی دارید.واحد خدماتی حمایتی محک تلاش کرده است به منظور حفظ سلامتی کودکان،شما و همه جامعه،برای کاهش رفت و آمد های غیر ضروری و تسهیل در پیگیری های مربوط به پرداخت هزینه ها در این روز ها با توجه به روند زیر انجام میشود.</p>
-            <p>1.پرداخت هزینه های درمانی و دریافت فاکتور از مرکز درمانی توسط خانواده بیمار</p>
-            <p>2.ارسال فاکتور های پرداختی و فاکتور هزینه پست با درج یک شماره موبایل در دسترس،کدپستی و کپی کارت محک از طریق پست برای محک</p>
-            <p>3.کنترل فاکتورها توسط واحد های مددکاری و مالی و پرداخت هزینه در 10 روز کاری</p>
+            <p>{description}</p>
+
             </div>
         </div>
     );

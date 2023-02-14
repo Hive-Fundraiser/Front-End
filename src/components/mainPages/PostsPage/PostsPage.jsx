@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useContext, useState } from "react";
 import Filter from "./Filter";
 import Posts from "./Posts";
 import Footer from "./../../shared/Footer";
@@ -9,6 +9,7 @@ import post_1 from "./../../../images/LandingPage/SelectedPosts/post_1.svg";
 import post_2 from "./../../../images/LandingPage/SelectedPosts/post_2.svg";
 import post_3 from "./../../../images/LandingPage/SelectedPosts/post_3.svg";
 import post_4 from "./../../../images/LandingPage/SelectedPosts/post_4.svg";
+import { CharityContext } from "../../../context/CharityProvider";
 
 const posts = [
   {
@@ -48,6 +49,7 @@ const posts = [
   },
 ];
 const PostsPage = () => {
+  const charity = useContext(CharityContext);
   const types = [
     "default",
     "search",
@@ -83,7 +85,7 @@ const PostsPage = () => {
         setIsMenuOpen={setIsMenuOpen}
         types={types}
       />
-      <Posts posts={posts} />
+      <Posts posts={charity} />
       <Footer />
     </Fragment>
   );

@@ -1,8 +1,8 @@
 
 .formContainer{
     border: 1px solid #000000;
-    width: fit-content;
-    padding: 10px 40px 45px 40px;
+    width: calc(24vw + 4.5rem);
+    padding: calc(1.3vw + 0.2rem) calc(3vw + 0.3rem) calc(3.5vw + 0.6rem) calc(3vw + 0.3rem);
     margin: 50px;
     border-radius: 20px;
     height: fit-content;
@@ -16,24 +16,24 @@
 .header{
     text-align: center;
     margin-bottom: 40px;
-    font-size: 1.6rem;
+    font-size: calc(1.8vw + 0.55rem);
     color: #000000;
     padding-top: 5px;
 }
 .formField{
     display: flex;
     flex-direction: column;
-    margin-bottom: 2px;
-    height: 50px;
+    margin-bottom: calc(0.8vw + 0.1rem);    
+    gap: calc(0.5vw + 0.1rem);
 }
 .formInput{
-    width: 300px;
-    height: 30px;
+    width: calc(17vw + 4.5rem);
     border-radius: 14px;
-    padding: 12px 10px;
+    padding: calc(0.7vw + 0.05rem);
     transition: all 0.2s ease-in;
     background-color: #F3F2F2;
     border: none;
+    font-size: calc(1vw + 0.1rem);
 }
 .formInput::placeholder{
     color: #A3A3A3;
@@ -41,7 +41,7 @@
 .ParEmail{
     font-weight: 400;
     font-style: normal;
-    font-size: 15px;
+    font-size: calc(1.2vw + 0.25rem);
     line-height: 15px;
     color: black;
     text-align: right;
@@ -50,11 +50,8 @@
 .formInput:focus,
 .uncompleted:focus {
     outline: none;
-    line-height: 30px;
-    height: 30px;
     border: none;
     background-color: #F3F2F2;
-    padding: 12px 10px;
 
 }
 
@@ -67,20 +64,17 @@
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
-    padding: 4px 0 25px 0;
+    padding: calc(0.6vw + 0.1rem) 0 calc(2vw + 0.5rem) 0;
 }
 .formButtons button {
     background-color: #00A1B5;
-    padding: 5px 30px;
+    padding: calc(0.7vw + 0.15rem) calc(2vw + 0.3rem);
     color: #fff;
     border-radius: 8px;
     border: none;
-    font-size: 1.3rem;
-    margin-top: 40px;
+    font-size: calc(1.2vw + 0.25rem);
     transition: all 0.1s ease-in;
     cursor: pointer;
-    width: 164px;
-    height: 48px;
 }
 .formButtons button:hover {
     background-color: #004aaa;

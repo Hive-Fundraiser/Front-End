@@ -1,15 +1,12 @@
-@font-face {
-  font-family: 'byekan';
-
-  font-weight: normal;
-  font-style: normal;
-}
 .div-main {
   height: auto;
   width: 80%;
   position: relative;
   margin: 3% auto;
-  font-family: "byekan";
+}
+.title{
+  font-size: 28px;
+  margin-bottom: 24px;
 }
 .help-img {
   width: 100%;
@@ -28,16 +25,25 @@ h2 {
   margin-top: 10px;
   width: 90%;
   position: relative;
+  direction: ltr;
+  accent-color: green;
+  
 }
+
 .style {
   text-align: right;
   width: 90%;
-box-shadow: 0px 2px 4px 4px rgb(184, 182, 182);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   margin: auto auto;
   position: relative;
-  padding-top: 30px;
-  padding-right: 20px;
-  border-radius: 5px;
+  padding: 30px 25px 30px 10px;
+  border-radius: 20px;
+}
+.style h2{
+  font-size: 22px;
+}
+.style sub{
+  font-size: 16px;
 }
 a {
   text-decoration: none;
@@ -47,29 +53,27 @@ a {
     position: relative;
     margin-top: -8px;
     font-size: 18px;
-    
 }
 button
 {
-    background-color: rgb(0, 179, 255);
+    background-color: #32BEEB;
     border: none;
-    border-radius: 10px;
+    border-radius: 15px;
     color: white;
     font-size: 17px;
    
-}
+}   
 .button-1
 {
-    width: 80%;
-    height: 50px;
-    margin-top: 20px;
+  margin-top: 20px;
+  padding: 5px 30px;
+  font-size: 24px;
 }
 .button-2
 {
-    width: 60%;
-    height: 50px;
-    margin-top: 20px;
-    margin-bottom: 40px;
+  margin-top: 20px;
+  padding: 5px 30px;
+  font-size: 24px;
 }
 .button-controll
 {
@@ -88,38 +92,31 @@ button
     width: 100%;
     text-align: center;
     padding-top:30px ;
-padding-bottom: 50px;
+padding-bottom: 40px;
 position: relative;
+}
+.span_parent{
+  display: flex;
+  gap: 60px;
 }
 .s1
 {
-position: absolute;
-right: 17%;
+  flex: 1;
+  text-align: left;
 }
-.s3
-{
-position: absolute;
-right: 27.5%;
+.s2{
+  flex: 1;
+  text-align: right;
 }
-.s2
-{
-position: absolute;
-right: 60%;
-}
-.s4
-{
-position: absolute;
-right: 60%;
-}
+
 p
 {
-font-size: 25px;
-font-weight: 500;
+font-size: 25px;     
 text-align: justify;
 }
 .content
 {
     height: auto;
     padding-bottom: 150px;
-    padding-top: 20px;
+    padding-top: 500px;
 }

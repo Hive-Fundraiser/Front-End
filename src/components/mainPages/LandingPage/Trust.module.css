@@ -1,24 +1,24 @@
 .trust{
-    background-color: #00A671
-    ;
+    background-color: #00A671;
     color: white;
-    padding: calc(3vw + 0.5rem);
+    padding: calc(5.5vw + 1rem) calc(5vw + 0.5rem);
 
 }
 .head{
-    padding-right: calc(0.4vw + 0.1rem);
     display: flex;
     align-items: center;
     gap: calc(0.3vw + 0.05rem);
+    margin-bottom: calc(0.5vw + 0.05rem);
 }
 .head span{
     font-size: calc(0.9vw + 0.2rem);
     font-weight: 400;
 }
 .title{
-    font-size: calc(1.2vw + 0.3rem);
-    font-weight: bold;
-    margin-bottom: calc(1.2vw + 0.3rem);
+    font-size: calc(1.3vw + 0.4rem);
+    margin-bottom: calc(0.3vw + 0.05rem);
+    display: block;
+    word-spacing: calc(0.1vw + 0.05rem);
 }
 .title img{
     width: calc(2vw + 0.5rem);
@@ -28,4 +28,5 @@
 }
 .text{
     font-size: calc(1vw + 0.3rem);
+    font-weight: lighter;
 }

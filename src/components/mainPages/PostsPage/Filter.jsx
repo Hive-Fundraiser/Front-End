@@ -1,9 +1,11 @@
 import styles from "./Filter.module.css";
-import { useState } from "react";
+import { useContext , useState } from "react";
 
 import SearchIcon from "../../../images/PostsPage/search.svg";
+import { SearchContext } from "../../../context/SearchContext";
 const Filter = (props) => {
   const [value, setValue] = useState("");
+  const { search , setSearch } = useContext ( SearchContext )
   let typingTimer; //timer identifier
   const doneTypingInterval = 5000; //time in ms, 5 seconds for example
 
@@ -17,12 +19,12 @@ const Filter = (props) => {
   };
 
   function doneTyping() {
-    if (value.length > 3) {
+    if (search.length > 3) {
       props.handler();
     }
   }
   const valueHandler = (e) => {
-    setValue(e.target.value.trim());
+    setSearch(e.target.value.trim());
   };
   return (
     <div className={styles.parent}>
@@ -30,7 +32,7 @@ const Filter = (props) => {
         <img src={SearchIcon} alt="search icon" className={styles.search_btn} />
         <input
           type="text"
-          value={value}
+          value={search}
           placeholder={"جست و جو در درخواست ها"}
           onChange={valueHandler}
           onKeyUp={keyUpHandler}

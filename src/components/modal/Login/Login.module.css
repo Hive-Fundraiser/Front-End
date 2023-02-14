@@ -12,10 +12,10 @@
 }
 .formContainer{
     border: 1px solid #000000;
-    width: fit-content;
+    width: calc(24vw + 4.5rem);
     display: flex;
     flex-direction: column;
-    padding: 20px 40px;
+    padding: calc(1.3vw + 0.2rem) calc(3vw + 0.3rem) calc(3.5vw + 0.6rem) calc(3vw + 0.3rem);
     margin: 50px;
     border-radius: 20px;
     height: fit-content;
@@ -27,24 +27,23 @@
 .header{
     text-align: center;
     margin-bottom: 60px;
-    font-size: 1.8rem;
+    font-size: calc(1.9vw + 0.6rem);
     color: #000000;
     padding-top: 5px;
 }
 .formField{
     display: flex;
     flex-direction: column;
-    margin-bottom: 10px;
-    height: 44px;
+    margin-bottom: calc(0.8vw + 0.1rem);
 }
 .formInput{
-    width: 300px;
-    height: 30px;
+    width: calc(17vw + 4.5rem);
     border-radius: 14px;
-    padding: 5px 10px;
+    padding: calc(0.7vw + 0.05rem);
     transition: all 0.2s ease-in;
     background-color: #F3F2F2;
     border: none;
+    font-size: calc(1vw + 0.1rem);
 }
 .formInput::placeholder{
 
@@ -54,12 +53,9 @@
 .formInput:focus,
 .uncompleted:focus {
     outline: none;
-    line-height: 30px;
-    height: 30px;
     border: none;
     background-color: #F3F2F2;
-    padding: 5px 10px;
-
+    padding: calc(0.7vw + 0.05rem);
 }
 .formField span {
     height: 10px;
@@ -83,16 +79,15 @@
     align-items: center;
     flex-direction: column;
     padding: 4px 0 25px 0;
-
 }
+
 .formButtons button {
     background-color: #00A1B5;
-    padding: 10px 40px;
+    padding: calc(0.7vw + 0.15rem) calc(2vw + 0.3rem);
     color: #fff;
     border-radius: 8px;
     border: none;
-    font-size: 1.3rem;
-
+    font-size: calc(1.2vw + 0.25rem);
     transition: all 0.1s ease-in;
     cursor: pointer;
 }
@@ -109,10 +104,10 @@
 }
 .lists:hover{
     color: #3c85ce;
-
 }
 .listContainer{
-    margin-top: 12px;
+    margin-top: calc(0.7vw + 0.1rem);
+    display: flex;
 }
 .uncompleted{
     width: 300px;
@@ -131,12 +126,12 @@
 .loginP{
     cursor: pointer;
     transition: all 0.3s ease-out;
+    font-size: calc(0.9vw + 0.15rem);
+    border-bottom: 1px solid black;
+    padding-bottom: calc(0.1vw + 0.05rem);
+    color: black;
 }
-.loginP:hover{
-    border-bottom: 1px solid #004aaa;
-    color: #004aaa;
-    transition: all 0.6s ease-out;
-}
+
 .closeButton{
     background-color: transparent;
     border: none;
