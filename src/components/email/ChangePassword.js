@@ -59,6 +59,13 @@ const ChangePassword = () => {
     // const mapErrorHandler2 = errors.map ( ( error , index ) => {
     //     return <span key={ index } className={ styles.errorSpan }>{ error.confirmPassword }</span>
     // } )
+    const error_margin = (error) => {
+        console.log('in error margin function: ', error)
+        if (error === undefined ) {
+            return {marginBottom: 'calc(0.8vw + 0.1rem)'}
+        }
+        return null
+    }
     return (
         <div className={ styles.container }>
             <form onSubmit={ submitHandler } className={ styles.formContainer }>
@@ -67,6 +74,7 @@ const ChangePassword = () => {
 
                     <input type="password" name="new_password"
                            className={  styles.formInput }
+                           style={error_margin(errors.new_password)}
                            onFocus={ focusHandler }
                            onChange={ changeHandler } value={ data.new_password } placeholder="رمزعبور جدید"/>
                     { errors.new_password && <span className={ styles.errorSpan }>{ errors.new_password }</span> }
@@ -74,6 +82,7 @@ const ChangePassword = () => {
                 <div className={ styles.formField }>
                     <input type="password" name="re_new_password"
                            className={  styles.formInput }
+                           style={error_margin(errors.re_new_password)}
                            onFocus={ focusHandler }
                            onChange={ changeHandler } value={ data.re_new_password } placeholder="تکرار رمزعبور"/>
                     { errors.re_new_password && <span className={ styles.errorSpan }>{ errors.re_new_password }</span> }

@@ -88,7 +88,8 @@ const SignUp = ( { open , closeModal } ) => {
                 } )
                 setErrors({})
             } )
-            .catch ( error => setErrors ( error.response.data ) )
+            .catch ( error => {console.log('the errorrr:', error)
+                setErrors ( error.response.data )} )
 
 
     }
@@ -127,6 +128,13 @@ const SignUp = ( { open , closeModal } ) => {
        } )
        setErrors({})
     }
+    const error_margin = (error) => {
+        console.log('in error margin function: ', error)
+        if (error === undefined ) {
+            return {marginBottom: 'calc(0.8vw + 0.1rem)'}
+        }
+        return null
+    }
     if ( ! open ) {
         return null
     }
@@ -147,12 +155,13 @@ const SignUp = ( { open , closeModal } ) => {
 
                         <input type="text" name="username"
                                className={  styles.formInput }
+                               style={error_margin(errors.username)}
                                onFocus={ focusHandler }
                                onChange={ changeHandler } value={ data.username } placeholder="نام کاربری"/>
                         { errors.username && <span>{ errors.username }</span> }
 
                     </div>
-                    <div className={ styles.formField }>
+                    <div className={ styles.formField } style={error_margin(errors.email)}>
                         <input type="email" name="email"
                                className={ styles.formInput }
                                onFocus={ focusHandler }
@@ -164,6 +173,7 @@ const SignUp = ( { open , closeModal } ) => {
                     <div className={ styles.formField }>
                         <input type="password" name="password"
                                className={  styles.formInput }
+                               style={error_margin(errors.password)}
                                onFocus={ focusHandler }
                                onChange={ changeHandler } value={ data.password } placeholder="رمز عبور"/>
                         { errors.password && <span>{ errors.password }</span> }
