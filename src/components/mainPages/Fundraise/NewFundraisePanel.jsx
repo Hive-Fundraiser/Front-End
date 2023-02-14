@@ -75,7 +75,7 @@ const NewFundraisePanel = () => {
                     <div className="new-fundraise-form-info-input-container">
                         <label>مبلغ:</label>
                         <input
-                            type="text"
+                            type="number"
                             className="new-fundraise-form-info-input"
                             placeholder="تومان"
                             value={ data.amount.toString() }
