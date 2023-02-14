@@ -23,9 +23,13 @@ const Form = () => {
         </div>
 
         <div className={styles.inner_parent}>
-          <div className={styles.input_parent + " " + styles.username_parent}>
+          <div className={styles.input_parent}>
             <label htmlFor="">نام کاربری</label>
             <input type="text" />
+          </div>
+          <div className={styles.change_password_parent}>
+            <label htmlFor="">تغییر رمز عبور</label>
+            <img src={Pen} alt="" />
           </div>
         </div>
         <div className={styles.inner_parent}>
@@ -86,12 +90,12 @@ const Form = () => {
         </div>
         <input type="submit" value={"ذخیره"} className={styles.submit_button} />
       </form>
-      <div className={styles.change_password_outer_parent}>
+      {/* <div className={styles.change_password_outer_parent}>
         <div className={styles.change_password_parent}>
           <label htmlFor="">تغییر رمز عبور</label>
           <img src={Pen} alt="" />
         </div>
-      </div>
+      </div> */}
 
       {/* <ToastContainer/> */}
     </div>

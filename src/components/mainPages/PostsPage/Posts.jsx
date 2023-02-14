@@ -5,7 +5,7 @@ import { SearchContext } from "../../../context/SearchContext";
 
 const Posts = (props) => {
   const { search, setSearch } = useContext(SearchContext);
-  // const searchedCharity = text.filter(post =>post.title.toLowerCase().includes(search.toLowerCase()) )
+
   const setPosts = (posts, start, end, width, height) => {
     //searchedCharity.map
     return posts

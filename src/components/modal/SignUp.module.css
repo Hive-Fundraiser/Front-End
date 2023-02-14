@@ -34,7 +34,6 @@
 .formField{
     display: flex;
     flex-direction: column;
-    margin-bottom: calc(0.8vw + 0.1rem);
 }
 .formInput{
     width: calc(17vw + 4.5rem);
@@ -58,16 +57,13 @@
     padding: calc(0.7vw + 0.05rem);
 }
 .formField span {
-    height: 10px;
+    min-height: calc(0.8vw + 0.1rem);
     text-align: left;
     margin-top: 3px;
     width: fit-content;
-    font-size: 0.7rem;
+    font-size: calc(0.7vw + 0.08rem);
     color: red;
-    line-height: 7px;
     padding: 0px 3px;
-
-
 }
 .formField::placeholder{
 

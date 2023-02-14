@@ -44,6 +44,7 @@ const Navbar = () => {
             setIsIn ( false )
         }
         const token = localStorage.getItem ( "token" )
+
         if ( token ) {
             setLogged ( true )
         }
