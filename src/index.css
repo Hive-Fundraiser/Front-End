@@ -1,9 +1,31 @@
+@font-face {
+    font-family: "IRANSansXFaNum";
+    src: URL("./fonts/IRANSansXFaNum-Regular.woff") format("woff");
+    font-weight: 400;
+  }
+  
+  @font-face {
+    font-family: "IRANSansXFaNum";
+    src: URL("./fonts/IRANSansXFaNum-Bold.woff") format("woff");
+    font-weight: 500;
+  }
+
+@font-face {
+    font-family: "BYekan";
+    src: URL("./fonts/BYekan.woff") format("woff");
+    font-weight: 400;
+  }
+
+  @font-face {
+    font-family: "BYekan";
+    src: URL("./fonts/B\ YEKAN\ LIGHT.ttf") format("ttf");
+    font-weight: 300;
+  }
 *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: "B Yekan", serif;
+    font-weight: 400;
+    font-family: "BYekan", sans-serif;
 }
-body {
-    line-height: 1.5em;
-}
+

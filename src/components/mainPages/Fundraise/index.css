@@ -44,6 +44,12 @@
   /* width: 100%; */
   padding: 38px 0 22.3px 0;
 }
+.header-text a{
+  color: black;
+}
+.header-text a:focus-visible{
+  outline: none;
+}
 .main {
   border: 1px solid #a8faff;
   /* filter: blur(2px); */
