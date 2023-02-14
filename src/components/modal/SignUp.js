@@ -146,7 +146,7 @@ const SignUp = ( { open , closeModal } ) => {
                     <div className={ styles.formField }>
 
                         <input type="text" name="username"
-                               className={ ( errors.username && touch.username ) ? styles.uncompleted : styles.formInput }
+                               className={  styles.formInput }
                                onFocus={ focusHandler }
                                onChange={ changeHandler } value={ data.username } placeholder="نام کاربری"/>
                         { errors.username && <span>{ errors.username }</span> }
@@ -154,7 +154,7 @@ const SignUp = ( { open , closeModal } ) => {
                     </div>
                     <div className={ styles.formField }>
                         <input type="email" name="email"
-                               className={ ( errors.email && touch.email ) ? styles.uncompleted : styles.formInput }
+                               className={ styles.formInput }
                                onFocus={ focusHandler }
                                onChange={ changeHandler } value={ data.email } placeholder="ایمیل"/>
                         { errors.email && <span>{ errors.email }</span> }
@@ -163,7 +163,7 @@ const SignUp = ( { open , closeModal } ) => {
 
                     <div className={ styles.formField }>
                         <input type="password" name="password"
-                               className={ ( errors.password && touch.password ) ? styles.uncompleted : styles.formInput }
+                               className={  styles.formInput }
                                onFocus={ focusHandler }
                                onChange={ changeHandler } value={ data.password } placeholder="رمز عبور"/>
                         { errors.password && <span>{ errors.password }</span> }

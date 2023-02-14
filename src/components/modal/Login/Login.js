@@ -150,14 +150,14 @@ const Login = ( { open , closeModal , closeLoginModel } ) => {
                     <div className={ styles.formField }>
 
                         <input type="text" name="email"
-                               className={ ( errors.email && touch.email ) ? styles.uncompleted : styles.formInput }
+                               className={  styles.formInput }
                                onFocus={ focusHandler }
                                onChange={ changeHandler } value={ data.email } placeholder="ایمیل"/>
 
                     </div>
                     <div className={ styles.formField }>
                         <input type="password" name="password"
-                               className={ ( errors.password && touch.password ) ? styles.uncompleted : styles.formInput }
+                               className={  styles.formInput }
                                onFocus={ focusHandler }
                                onChange={ changeHandler } value={ data.password } placeholder="رمز عبور"/>
                     </div>

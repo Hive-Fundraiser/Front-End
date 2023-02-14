@@ -66,14 +66,14 @@ const ChangePassword = () => {
                 <div className={ styles.formField }>
 
                     <input type="password" name="new_password"
-                           className={ ( errors.new_password && touch.new_password ) ? styles.uncompleted : styles.formInput }
+                           className={  styles.formInput }
                            onFocus={ focusHandler }
                            onChange={ changeHandler } value={ data.new_password } placeholder="رمزعبور جدید"/>
                     { errors.new_password && <span className={ styles.errorSpan }>{ errors.new_password }</span> }
                 </div>
                 <div className={ styles.formField }>
                     <input type="password" name="re_new_password"
-                           className={ ( errors.re_new_password && touch.re_new_password ) ? styles.uncompleted : styles.formInput }
+                           className={  styles.formInput }
                            onFocus={ focusHandler }
                            onChange={ changeHandler } value={ data.re_new_password } placeholder="تکرار رمزعبور"/>
                     { errors.re_new_password && <span className={ styles.errorSpan }>{ errors.re_new_password }</span> }

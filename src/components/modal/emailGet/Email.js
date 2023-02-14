@@ -110,7 +110,7 @@ const Email = ( open , closePassModal ) => {
                     <div className={ styles.formField }>
                         <p className={ styles.ParEmail }>ایمیل خود را وارد کنید</p>
                         <input type="text" name="email"
-                               className={ ( errors.name && touch.name ) ? styles.uncompleted : styles.formInput }
+                               className={ styles.formInput }
                                onFocus={ focusHandler }
                                onChange={ changeHandler } value={ data.name } placeholder="ایمیل"/>
 
