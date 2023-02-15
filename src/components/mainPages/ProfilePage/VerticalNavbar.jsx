@@ -4,15 +4,14 @@ import SampleProfile from "./../../../images/ProfilePage/sample_profile.png";
 import Pen from "./../../../images/ProfilePage/pen.svg";
 import { useState } from "react";
 import { validateFileType } from "../../../utils/Utils";
-const VerticalNavbar = () => {
+import { useNavigate } from "react-router-dom";
+const VerticalNavbar = ({ tabs, active }) => {
   const uploadProfilePicInput = useRef();
-  const [active, setActive] = useState("my_info");
+
   const checkActive = (tag) => {
     return active === tag ? styles.active : "";
   };
-  const clickHandler = (tag) => {
-    setActive(tag);
-  };
+
   return (
     <div className={styles.vertical_navbar}>
       <div className={styles.inner_parent}>
@@ -43,15 +42,17 @@ const VerticalNavbar = () => {
 
         <ul>
           <li className={styles.list + " " + styles.title}>صفحه کاربری</li>
-          <li
-            className={styles.list + " " + checkActive("my_info")}
-            onClick={() => {
-              clickHandler("my_info");
-            }}
-          >
-            اطلاعات من
-          </li>
-          <li
+          {tabs.map((tab) => (
+            <li
+              className={styles.list + " " + checkActive(tab.tag)}
+              onClick={() => {
+                tab.onClick();
+              }}
+            >
+              {tab.name}
+            </li>
+          ))}
+          {/* <li
             className={styles.list + " " + checkActive("my_posts")}
             onClick={() => {
               clickHandler("my_posts");
@@ -71,10 +72,11 @@ const VerticalNavbar = () => {
             className={styles.list + " " + checkActive("exit")}
             onClick={() => {
               clickHandler("exit");
+              logOutHandler();
             }}
           >
             خروج{" "}
-          </li>
+          </li> */}
         </ul>
       </div>
     </div>

@@ -1,47 +1,56 @@
 .new-fundraise-panel {
   display: flex;
-  flex-direction: column;
-  padding-right: 94px;
-  row-gap: 10px;
-  padding-left: 68px;
-  background-color: #ffffff;
-  width: calc(100% - 272px);
-  border-radius: 10px 0 0 10px;
+  height: calc(38vw + 13rem);
+    flex-direction: column;
+    row-gap: calc(1vw + 0.3rem);
+    padding: 0 calc(4vw + 1rem);
+    background-color: #ffffff;
+    /* width: calc(100% - 272px); */
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border: solid rgb(18 198 238 / 40%) calc(0.15vw + 0.01rem);
+    border-right: none;
 }
 .new-fundraise-title {
-  margin-top: 73px;
-  margin-bottom: 27px;
-  display: flex;
-  flex-direction: row;
-  column-gap: 20px;
-  font-weight: 400;
-  font-size: 32px;
-  text-align: center;
-  color: #000000;
-  align-items: flex-end;
+  margin-top: calc(2vw + 1rem);
+    margin-bottom: calc(1vw + 0.5rem);
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+    font-weight: 400;
+    font-size: calc(1.4vw + 0.55rem);
+    text-align: center;
+    color: #000000;
+    align-items: flex-end
+}
+.new-fundraise-title img{
+  width: calc(2vw + 0.5rem);
+}
+.the-title{
+  font-size: calc(1.5vw + 0.6rem)
 }
 .new-fundraise-form {
-  padding: 12px 24px;
-  background: #ffffff;
-  border: 0.5px solid rgba(0, 0, 0, 0.5);
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  row-gap: 24px;
-  height: 568px;
+  padding: calc(1.3vw + 0.6rem) calc(2.5vw + 1rem);
+    background: #ffffff;
+    border: 0.5px solid rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    row-gap: calc(1.3vw + 0.6rem);
+    /* height: 568px;*/
 }
 .upload-container {
   display: flex;
-  flex-direction: row;
-  column-gap: 18px;
-  align-items: center;
-  font-weight: 400;
-  font-size: 32px;
-  text-align: center;
-  color: #000000;
+    flex-direction: row;
+    column-gap: 18px;
+    align-items: center;
+    font-weight: 400;
+    font-size: calc(1.4vw + 0.55rem);
+    text-align: center;
+    color: #000000;
 }
 .upload {
-  background: #6bc2ff;
+  /* background: #6bc2ff;
   border: 0.25px solid #000000;
   color: white;
   width: 190px;
@@ -54,24 +63,34 @@
   color: #ffffff;
   font-weight: 400;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
+    padding: calc(0.5vw + 0.1rem) calc(2vw + 0.5rem);
+    background: #6bc2ff;
+    border-radius: 15px;
+    border-radius: 8px;
+    font-weight: 400;
+    font-size: calc(1.15vw + 0.5rem);
+    text-align: center;
+    color: #ffffff;
+    cursor: pointer;
+    border: none;
 }
 .new-fundraise-form-info {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  column-gap: 42px;
+    flex-direction: row;
+    align-items: center;
+    column-gap: calc(1vw + 0.3rem);
 }
 .button-container {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  column-gap: 10px;
+  column-gap: calc(1vw + 0.3rem);
   width: 100%;
   margin-bottom: 16px;
 }
 .button {
-  background: #6bc2ff;
+  /* background: #6bc2ff;
   border: 0.25px solid #000000;
   color: white;
   width: 190px;
@@ -84,32 +103,50 @@
   color: #ffffff;
   font-weight: 400;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
+    padding: calc(0.5vw + 0.1rem) calc(2vw + 0.5rem);
+    background: #6bc2ff;
+    border-radius: 15px;
+    border-radius: 8px;
+    font-weight: 400;
+    font-size: calc(1.15vw + 0.5rem);
+    text-align: center;
+    color: #ffffff;
+    cursor: pointer;
+    border: none;
 }
 .new-fundraise-form-info-input-container {
   display: flex;
-  flex-direction: column;
-  row-gap: 10px;
-  font-weight: 400;
-  font-size: 32px;
-  color: #000000;
+    flex-direction: column;
+    row-gap: 10px;
+    font-weight: 400;
+    font-size: calc(1.4vw + 0.55rem);
+    color: #000000;
 }
 .new-fundraise-form-info-input {
-  width: 241px;
-  height: 48px;
+  width: calc(10vw + 3rem);
+  /* height: 48px; */
   background: #f2f6ff;
   border: 0.25px solid #000000;
   border-radius: 8px;
   font-weight: 400;
-  font-size: 32px;
+  font-size: 28px;
   color: #949494;
-  padding: 10px;
+  padding: 5px 10px;
   text-align: left;
 }
 .new-fundraise-form-text-area {
-  width: 752.97px;
-  height: 203.53px;
-  background: #f2f6ff;
-  border: 0.25px solid #000000;
-  border-radius: 8px;
+  width: calc(35vw + 9rem) ;
+    height: calc(12vw + 1rem);
+    background: #f2f6ff;
+    border: 0.25px solid #000000;
+    border-radius: 8px;
+    font-size: calc(1vw + 0.5rem);
+    padding: 15px;
+}
+.new-fundraise-form-info-input{
+  font-size: calc(1vw + 0.5rem);
+}
+.label{
+  font-size: calc(1.4vw + 0.55rem);
 }

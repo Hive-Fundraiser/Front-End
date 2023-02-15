@@ -3,8 +3,9 @@
     justify-content: center;
 }
 .title{
-    position: fixed;
+    position: absolute;
     top: calc(1vw + 0.1rem);
-    left: calc(19.3vw + 4rem);
+    left: calc(10.3vw + 4rem);
     font-size: calc(2vw + 0.7rem);
+    cursor: pointer;
 }

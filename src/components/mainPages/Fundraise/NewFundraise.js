@@ -12,10 +12,10 @@ const NewFundraise = () => {
             <div className="root">
                 <div className="blue"/>
                 <div className="white"/>
-                <Link to="/">
+                
 
-                <div className="header-text">Hive</div>
-                   </Link>
+                <div className="header-text"><Link to="/">Hive</Link></div>
+                   
                 <div className="main">
                     <ProfilePart/>
                     <NewFundraisePanel/>

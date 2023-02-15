@@ -7,11 +7,10 @@
 }
 .top h5{
     font-size: calc(0.9vw + 0.2rem);
-    font-weight: 400;
+    color: #595959;
 }
 .top h2{
     font-size: calc(1.2vw + 0.3rem);
-    font-weight: bold;
 }
 .steps_numbers{
     width: calc(65vw + 5rem);
@@ -22,8 +21,4 @@
 }
 .step{
     font-size: calc(1vw + 0.3rem);
-    font-weight: bold;
-}
-.bottom{
-
 }

@@ -11,6 +11,7 @@ import { SignUpContext } from "../../context/SignUpContext";
 import { DakhelContext } from "../../context/DakhelContext";
 import { notify } from "../../helper/toast";
 import { ToastContainer } from "react-toastify";
+import axios from "axios";
 
 const BUTTON_WRAPPER_STYLES = {
     position : "relative" ,
@@ -28,6 +29,14 @@ const Navbar = () => {
     const { isIn , setIsIn } = useContext ( DakhelContext );
     const [ logged , setLogged ] = useState ( false )
     const name = localStorage.getItem ( "username" )
+    const [ token , setToken ] = useState ( "" )
+
+    const [ data , setData ] = useState ( {
+        username : "" ,
+        id : 0 ,
+        email : ""
+    } )
+
     useEffect ( () => {
         if ( isIn ) {
             notify ( "ثبت نام موفقیت آمیز بود!" +
@@ -35,6 +44,7 @@ const Navbar = () => {
             setIsIn ( false )
         }
         const token = localStorage.getItem ( "token" )
+
         if ( token ) {
             setLogged ( true )
         }
