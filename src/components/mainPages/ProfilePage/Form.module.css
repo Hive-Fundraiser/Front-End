@@ -2,7 +2,7 @@
     padding-top: calc(5vw + 0.5rem);
     display: flex;
     background: linear-gradient(45deg, #B3E9FF, #E3E9FF);
-    flex: 2 1;
+    flex: 3;
     min-height: 100vh;
     padding-bottom: calc(5vw + 2rem)
 }
@@ -20,7 +20,7 @@
 }
 .inner_parent{
    display: flex;
-   width: calc(30vw + 7rem);
+   width: calc(38.5vw + 9rem);
 }
 .input_parent{
     display: flex;
@@ -78,8 +78,8 @@
     justify-content: center;
 }
 .change_password_parent label{
-    font-size: calc(1vw + 0.3rem);
-    font-weight: bold;
+    font-size: calc(1.15vw + 0.5rem);
+    /* font-weight: bold; */
     width: max-content;
 }
 .change_password_parent img{
