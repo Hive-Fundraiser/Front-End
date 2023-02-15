@@ -92,7 +92,7 @@ const Login = ( { open , closeModal , closeLoginModel } ) => {
                 setIsOpen ( false )
                 setIsPassOpen ( false )
                 setIsOpenLogin ( false )
-                // isInIn ( true )
+                isInIn ( true )
 
 
             } )
