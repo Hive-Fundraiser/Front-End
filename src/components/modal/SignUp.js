@@ -75,10 +75,8 @@ const SignUp = ( { open , closeModal } ) => {
         console.log ( data )
         await axios.post ( "https://hive.iran.liara.run/auth/users/" , data )
             .then ( response => {
-                console.log ( response )
-                console.log ( response.status )
-                localStorage.setItem ( "username" , response.data.username )
-                localStorage.setItem ( "id" , response.data.id )
+
+
                 setIsOpen ( false )
                 setIsIn ( true )
                 setData ( {
