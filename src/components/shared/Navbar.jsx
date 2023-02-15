@@ -58,7 +58,7 @@ const Navbar = () => {
             .then ( function ( r ) {
 
                 console.log(r.data[0].username)
-                console.log(output)
+
                 localStorage.setItem ( "username" , r.data[0].username )
                 localStorage.setItem ( "id" , r.data[0].id )
             } )

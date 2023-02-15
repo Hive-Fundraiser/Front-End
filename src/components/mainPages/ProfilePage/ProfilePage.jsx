@@ -33,7 +33,7 @@ const ProfilePage = () => {
       },
     },
     {
-      name: "خروح",
+      name: "خروج",
       tag: "exit",
       onClick: () => {
         logOutHandler("exit");
