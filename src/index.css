@@ -28,4 +28,8 @@
     font-weight: 400;
     font-family: "BYekan", sans-serif;
 }
-
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
