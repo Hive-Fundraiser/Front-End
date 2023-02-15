@@ -88,8 +88,8 @@ const Login = ( { open , closeModal , closeLoginModel } ) => {
         await axios.post ( "https://hive.iran.liara.run/auth/jwt/create/" , data )
             .then ( async response => {
                 await localStorage.setItem ( "token" , response.data.access )
-                // const token = localStorage.getItem ( "token" )
-                //
+                const token = localStorage.getItem ( "token" )
+
                 // const authorizationHeader = `JWT ${ token }`
                 // const headers = {
                 //     'Authorization' : authorizationHeader ,
@@ -97,17 +97,21 @@ const Login = ( { open , closeModal , closeLoginModel } ) => {
                 // };
                 // console.log ( token )
                 // console.log ( authorizationHeader )
-                // await axios.get ( "https://hive.iran.liara.run/auth/users/me" ,  { headers } )
-                //     .then ( response => {
-                //         console.log ()
-                //
-                //         console.log ( token )
-                //         console.log ( response.data.id )
-                //         console.log("salam man sepehr hastam")
-                //     } )
-                //     .catch ( error => {
-                //         console.log ( error.response.data )
-                //     } )
+                // console.log ( data.email )
+               // await axios ( {
+               //      method : 'get' ,
+               //      url : 'https://hive.iran.liara.run/auth/users/me' ,
+               //      headers : {
+               //          'Authorization' : 'JWT ' + token ,
+               //          'Content-Type' : 'application/json'
+               //      }
+               //  } )
+               //      .then ( function ( response ) {
+               //          console.log ( response.data );
+               //      } )
+               //      .catch ( function ( error ) {
+               //          console.log ( error );
+               //      } )
                 setData ( {
                     email : "" ,
                     password : ""
