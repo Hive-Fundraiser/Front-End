@@ -1,4 +1,4 @@
-import React from 'react';
+import React , { useEffect } from 'react';
 
 import { Route , Routes } from "react-router-dom";
 import Landing from "./components/mainPages/LandingPage/Landing";
@@ -18,6 +18,10 @@ import ChangePassword from "./components/email/ChangePassword";
 import { SearchProvider } from "./context/SearchContext";
 
 function App () {
+    useEffect(()=>{
+        document.title = "Hive";
+
+    },[])
     return (
         <CharityProvider>
 
