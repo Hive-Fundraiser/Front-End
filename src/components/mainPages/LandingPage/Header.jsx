@@ -22,7 +22,7 @@ const Header = () => {
     let start = "شروع کنید";
     return (
 <>
-    <div onClick={()=>setIsOpen(false)}/>
+
 
         <div className={ styles.header_parent } >
             <div className={ styles.right }>
