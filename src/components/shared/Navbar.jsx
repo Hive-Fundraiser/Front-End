@@ -92,7 +92,7 @@ const Navbar = () => {
                     </div>
 
                     <div style={ BUTTON_WRAPPER_LOGIN_STYLES } className={ styles.lists }>
-                        { logged ? <p>{ name }</p> :
+                        { logged ? <p className={styles.username}>{ name }</p> :
                             <button className={ styles.p1 } onClick={ () => setIsOpenLogin ( true ) }>
                                 ورود
                             </button> }
