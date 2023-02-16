@@ -10,11 +10,12 @@ import { DakhelContext } from "../../context/DakhelContext";
 import { ForgetModalContext } from "../../context/forgetPassContext";
 
 
-const SignUp = ( { open , closeModal } ) => {
-    const { isOpen , setIsOpen } = useContext ( SignUpContext );
+const SignUp = ( { open  } ) => {
+    // CONTEXTS
+    const { setIsOpen } = useContext ( SignUpContext );
     const { isOpenLogin , setIsOpenLogin } = useContext ( LoginModalContext )
-    const { isIn , setIsIn } = useContext ( DakhelContext );
-    const { isPassOpen , setIsPassOpen } = useContext ( ForgetModalContext )
+    const { setIsIn } = useContext ( DakhelContext );
+    const { setIsPassOpen } = useContext ( ForgetModalContext )
     // MAIN DATA
     const [ data , setData ] = useState ( {
         username : "" ,

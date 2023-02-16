@@ -12,11 +12,11 @@ import 'react-toastify/dist/ReactToastify.css';
 import { SignUpContext } from "../../../context/SignUpContext";
 
 
-const Login = ( { open , closeModal , closeLoginModel } ) => {
+const Login = ( { open } ) => {
     const navigate = useNavigate ();
     const { isPassOpen , setIsPassOpen } = useContext ( ForgetModalContext )
-    const { isOpenLogin , setIsOpenLogin } = useContext ( LoginModalContext )
-    const { isOpen , setIsOpen } = useContext ( SignUpContext );
+    const { setIsOpenLogin } = useContext ( LoginModalContext )
+    const { setIsOpen } = useContext ( SignUpContext );
     let login = "ورود"
     const [ inIn , isInIn ] = useState ( false )
 
