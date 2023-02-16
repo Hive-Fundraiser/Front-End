@@ -3,7 +3,7 @@ import styles from "./VerticalNavbar.module.css";
 import SampleProfile from "./../../../images/ProfilePage/sample_profile.png";
 import Pen from "./../../../images/ProfilePage/pen.svg";
 import { useState } from "react";
-import { validateFileType } from "../../../utils/Utils";
+import { validateFileType } from "../../../helper/Utils";
 import { useNavigate } from "react-router-dom";
 const VerticalNavbar = ({ tabs, active }) => {
   const uploadProfilePicInput = useRef();

@@ -1,64 +1,21 @@
 import React , { useContext , useEffect , useState } from 'react';
-import ReactDOM from "react-dom/client";
 import { createPortal } from 'react-dom';
 import styles from "../../components/modal/SignUp.module.css";
-import { Link } from "react-router-dom";
-import { validate } from "../../helper/validate";
-import { notify } from "../../helper/toast";
 import axios from "axios";
-import { ToastContainer } from "react-toastify";
 import Login from "./Login/Login";
-import cancel from "../../images/close.svg"
-import { DataContext } from "../../helper/test";
-import { DataProvider } from "../../helper/test";
+import cancel from "../../images/modal/close.svg"
+import { LoginModalContext } from "../../context/LoginContext";
 import { SignUpContext } from "../../context/SignUpContext";
-
 import { DakhelContext } from "../../context/DakhelContext";
-import { Data2Context } from "../../context/forgetPassContext";
+import { ForgetModalContext } from "../../context/forgetPassContext";
 
-const MODAL_STYLES = {
-    position : "fixed" ,
-    top : "50%" ,
-    left : "50%" ,
-    bottom : "50%" ,
-    transform : "translate(-50%, 50%)" ,
-    backgroundColor : "#FFF" ,
-    zIndex : 10000 ,
-    display : "flex" ,
-    alignItems : "center" ,
-    justifyContent : "center" ,
 
-}
-const MODAL_STYLES_HIDDEN = {
-    display : "none"
-}
-const OVERLAY_STYLES = {
-    position : "fixed" ,
-    top : 0 ,
-    left : 0 ,
-    right : 0 ,
-    bottom : 0 ,
-    backgroundColor : "rgba(0,0,0,.7)" ,
-    zIndex : 10000
-}
-const OVERLAY_STYLE_LOGIN_CLICKED = {
-    position : "fixed" ,
-    top : 0 ,
-    left : 0 ,
-    right : 0 ,
-    bottom : 0 ,
-    backgroundColor : "transparent" ,
-    zIndex : 10000
-}
-const BUTTON_WRAPPER_LOGIN_STYLES = {
-    position : "relative" ,
-    zIndex : 1
-}
-const SignUp = ( { open , closeModal } ) => {
-    const { isOpen , setIsOpen } = useContext ( SignUpContext );
-    const { isOpenLogin , setIsOpenLogin } = useContext ( DataContext )
-    const { isIn , setIsIn } = useContext ( DakhelContext );
-    const { isPassOpen , setIsPassOpen } = useContext ( Data2Context )
+const SignUp = ( { open  } ) => {
+    // CONTEXTS
+    const { setIsOpen } = useContext ( SignUpContext );
+    const { isOpenLogin , setIsOpenLogin } = useContext ( LoginModalContext )
+    const { setIsIn } = useContext ( DakhelContext );
+    const { setIsPassOpen } = useContext ( ForgetModalContext )
     // MAIN DATA
     const [ data , setData ] = useState ( {
         username : "" ,
@@ -84,10 +41,12 @@ const SignUp = ( { open , closeModal } ) => {
                     email : "" ,
                     password : ""
                 } )
-                setErrors({})
+                setErrors ( {} )
             } )
-            .catch ( error => {console.log('the errorrr:', error)
-                setErrors ( error.response.data )} )
+            .catch ( error => {
+                console.log ( 'the errorrr:' , error )
+                setErrors ( error.response.data )
+            } )
 
 
     }
@@ -109,27 +68,27 @@ const SignUp = ( { open , closeModal } ) => {
             email : "" ,
             password : ""
         } )
-        setErrors({})
-        setIsOpen(false)
-        setIsOpenLogin(false)
-        setIsPassOpen(false)
+        setErrors ( {} )
+        setIsOpen ( false )
+        setIsOpenLogin ( false )
+        setIsPassOpen ( false )
 
     }
-   const cancelImageHandler = ()=>{
-        setIsOpen(false)
-       setIsOpenLogin(false)
-       setIsPassOpen(false)
-       setData ( {
-           username : "" ,
-           email : "" ,
-           password : ""
-       } )
-       setErrors({})
+    const cancelImageHandler = () => {
+        setIsOpen ( false )
+        setIsOpenLogin ( false )
+        setIsPassOpen ( false )
+        setData ( {
+            username : "" ,
+            email : "" ,
+            password : ""
+        } )
+        setErrors ( {} )
     }
-    const error_margin = (error) => {
-        console.log('in error margin function: ', error)
-        if (error === undefined ) {
-            return {marginBottom: 'calc(0.8vw + 0.1rem)'}
+    const error_margin = ( error ) => {
+        console.log ( 'in error margin function: ' , error )
+        if ( error === undefined ) {
+            return { marginBottom : 'calc(0.8vw + 0.1rem)' }
         }
         return null
     }
@@ -140,9 +99,10 @@ const SignUp = ( { open , closeModal } ) => {
         <>
 
 
-            <div style={ isOpenLogin ? OVERLAY_STYLE_LOGIN_CLICKED : OVERLAY_STYLES }
-                 onClick={ overlayHandler }/>
-            <div style={ isOpenLogin ? MODAL_STYLES_HIDDEN : MODAL_STYLES }>
+            <div
+                onClick={ overlayHandler }
+                className={ isOpenLogin ? styles.OVERLAY_STYLE_LOGIN_CLICKED : styles.OVERLAY_STYLES }/>
+            <div className={ isOpenLogin ? styles.MODAL_STYLES_HIDDEN : styles.MODAL_STYLES }>
                 <form onSubmit={ submitHandler } className={ styles.formContainer }>
 
                     <img className={ styles.closeButton } src={ cancel }
@@ -152,14 +112,14 @@ const SignUp = ( { open , closeModal } ) => {
                     <div className={ styles.formField }>
 
                         <input type="text" name="username"
-                               className={  styles.formInput }
-                               style={error_margin(errors.username)}
+                               className={ styles.formInput }
+                               style={ error_margin ( errors.username ) }
                                onFocus={ focusHandler }
                                onChange={ changeHandler } value={ data.username } placeholder="نام کاربری"/>
                         { errors.username && <span>{ errors.username }</span> }
 
                     </div>
-                    <div className={ styles.formField } style={error_margin(errors.email)}>
+                    <div className={ styles.formField } style={ error_margin ( errors.email ) }>
                         <input type="email" name="email"
                                className={ styles.formInput }
                                onFocus={ focusHandler }
@@ -170,8 +130,8 @@ const SignUp = ( { open , closeModal } ) => {
 
                     <div className={ styles.formField }>
                         <input type="password" name="password"
-                               className={  styles.formInput }
-                               style={error_margin(errors.password)}
+                               className={ styles.formInput }
+                               style={ error_margin ( errors.password ) }
                                onFocus={ focusHandler }
                                onChange={ changeHandler } value={ data.password } placeholder="رمز عبور"/>
                         { errors.password && <span>{ errors.password }</span> }
@@ -179,7 +139,7 @@ const SignUp = ( { open , closeModal } ) => {
                     </div>
                     <div className={ styles.formButtons }>
                         <button type="submit">ثبت نام</button>
-                        <div className={ styles.listContainer } style={ BUTTON_WRAPPER_LOGIN_STYLES }>
+                        <div className={ styles.listContainer }>
 
 
 

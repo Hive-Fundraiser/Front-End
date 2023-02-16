@@ -12,8 +12,7 @@ const ChangePassword = () => {
     const navigate = useNavigate ();
     const { pathname } = location;
     const segments = pathname.split ( '/' );
-    const firstSegment = segments[ 2 ];
-    const secondSegment = segments[ 3 ];
+
     const [ data , setData ] = useState ( {
         uid : segments[ 2 ] ,
         token : segments[ 3 ] ,
@@ -53,12 +52,7 @@ const ChangePassword = () => {
         setData ( { ... data , [ event.target.name ] : event.target.value } )
 
     }
-    // const mapErrorHandler = errors.map ( ( error , index ) => {
-    //     return <span key={ index } className={ styles.errorSpan }>{ error.password }</span>
-    // } )
-    // const mapErrorHandler2 = errors.map ( ( error , index ) => {
-    //     return <span key={ index } className={ styles.errorSpan }>{ error.confirmPassword }</span>
-    // } )
+
     const error_margin = (error) => {
         console.log('in error margin function: ', error)
         if (error === undefined ) {

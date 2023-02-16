@@ -6,7 +6,7 @@ import Search from "./../../images/Navbar/search.svg";
 import Logo from "./../../images/Navbar/logo.svg";
 import SignUp from "../modal/SignUp";
 import Login from "../modal/Login/Login";
-import { DataContext , DataProvider } from "../../helper/test";
+import { LoginModalContext , LoginModalProvider } from "../../context/LoginContext";
 import { SignUpContext } from "../../context/SignUpContext";
 import { DakhelContext } from "../../context/DakhelContext";
 import { notify } from "../../helper/toast";
@@ -25,7 +25,7 @@ const BUTTON_WRAPPER_LOGIN_STYLES = {
 const Navbar = () => {
     const navigate = useNavigate ();
     const { isOpen , setIsOpen } = useContext ( SignUpContext );
-    const { isOpenLogin , setIsOpenLogin } = useContext ( DataContext );
+    const { isOpenLogin , setIsOpenLogin } = useContext ( LoginModalContext );
     const { isIn , setIsIn } = useContext ( DakhelContext );
     const [ logged , setLogged ] = useState ( false )
     const name = localStorage.getItem ( "username" )

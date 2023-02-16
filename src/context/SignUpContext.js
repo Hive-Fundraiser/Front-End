@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState,createContext } from "react";
 
-const SignUpContext = React.createContext();
+const SignUpContext = createContext();
 
 const SigunUpProvider = ( { children }) => {
     const [isOpen, setIsOpen] = useState(false);

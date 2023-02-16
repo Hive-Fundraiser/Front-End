@@ -5,8 +5,8 @@ import Landing from "./components/mainPages/LandingPage/Landing";
 import PostsPage from "./components/mainPages/PostsPage/PostsPage";
 import ProfilePage from './components/mainPages/ProfilePage/ProfilePage';
 import Base from "./components/mainPages/PostPage/Base";
-import { DataProvider } from "./helper/test";
-import { Data2Provider } from "./context/forgetPassContext";
+import { LoginModalProvider } from "./context/LoginContext";
+import { ForgetModalProvider } from "./context/forgetPassContext";
 import BaseOfNotFound from "./components/PageNotFound/BaseOfNotFound";
 import CharityProvider from "./context/CharityProvider"
 import { SigunUpProvider } from "./context/SignUpContext"
@@ -31,8 +31,8 @@ function App () {
                     <DakhelProvider>
 
 
-                        <DataProvider>
-                            <Data2Provider>
+                        <LoginModalProvider>
+                            <ForgetModalProvider>
                                 <SearchProvider>
 
 
@@ -48,8 +48,8 @@ function App () {
                                         <Route path="/*" element={ <BaseOfNotFound/> }/>
                                     </Routes>
                                 </SearchProvider>
-                            </Data2Provider>
-                        </DataProvider>
+                            </ForgetModalProvider>
+                        </LoginModalProvider>
                     </DakhelProvider>
                 </SigunUpProvider>
             </div>

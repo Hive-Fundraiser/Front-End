@@ -1,45 +1,24 @@
 import React , { useContext , useEffect , useState } from 'react';
 import { createPortal } from 'react-dom';
-import cancel from "../../../images/close.svg";
+import cancel from "../../../images/modal/close.svg";
 import { Link , useNavigate } from "react-router-dom";
-import { validate } from "../../../helper/validate";
 import { notify } from "../../../helper/toast";
 import styles from "./Email.module.css";
-import { Data2Context } from "../../../context/forgetPassContext";
-import { DataContext } from "../../../helper/test";
+import { ForgetModalContext } from "../../../context/forgetPassContext";
+import { LoginModalContext } from "../../../context/LoginContext";
 import { SignUpContext } from "../../../context/SignUpContext";
 import axios from "axios";
 
-const MODAL_STYLES = {
-    position : "fixed" ,
-    top : "50%" ,
-    left : "50%" ,
-    bottom : "50%" ,
-    transform : "translate(-50%, 50%)" ,
-    backgroundColor : "#FFF" ,
-    zIndex : 10000 ,
-    display : "flex" ,
-    alignItems : "center" ,
-    justifyContent : "center" ,
 
-}
-
-const OVERLAY_STYLES = {
-    position : "fixed" ,
-    top : 0 ,
-    left : 0 ,
-    right : 0 ,
-    bottom : 0 ,
-    backgroundColor : "rgba(0,0,0,.7)" ,
-    zIndex : 89
-}
-
-const Email = ( open , closePassModal ) => {
+const Email = ( open ) => {
     const navigate = useNavigate ();
-    const { isPassOpen , setIsPassOpen } = useContext ( Data2Context )
-    const { isOpenLogin , setIsOpenLogin } = useContext ( DataContext )
-    const { isOpen , setIsOpen } = useContext ( SignUpContext );
+    // CONTEXTS
+    const { setIsPassOpen } = useContext ( ForgetModalContext )
+    const { setIsOpenLogin } = useContext ( LoginModalContext )
+    const { setIsOpen } = useContext ( SignUpContext );
+    // ERRORS
     const [errorChecker,setErrorChecker] = useState(false)
+    // MAIN DATA
     const [ data , setData ] = useState ( {
         email : "" ,
 
@@ -98,8 +77,8 @@ const Email = ( open , closePassModal ) => {
     }
     return createPortal (
         <>
-            <div style={ OVERLAY_STYLES } onClick={closeHandler}/>
-            <div style={ MODAL_STYLES }>
+            <div  onClick={closeHandler} className={styles.OVERLAY_STYLES}/>
+            <div className={styles.MODAL_STYLES}>
                 <form onSubmit={ submitHandler } className={ styles.formContainer }>
                     <div>
                         <img className={ styles.closeButton } src={ cancel } onClick={ closeHandler }

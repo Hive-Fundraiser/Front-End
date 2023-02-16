@@ -8,8 +8,7 @@ const EmailConfiguration = () => {
     const navigate = useNavigate ();
     const { pathname } = location;
     const segments = pathname.split ( '/' );
-    const firstSegment = segments[ 2 ];
-    const secondSegment = segments[ 3 ];
+
     const data = {
         uid : segments[ 2 ] ,
         token : segments[ 3 ]
