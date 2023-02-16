@@ -1,21 +1,19 @@
 import React , { useEffect } from 'react';
 
 import { Route , Routes } from "react-router-dom";
-import Landing from "./components/mainPages/LandingPage/Landing";
-import PostsPage from "./components/mainPages/PostsPage/PostsPage";
-import ProfilePage from './components/mainPages/ProfilePage/ProfilePage';
-import Base from "./components/mainPages/PostPage/Base";
+import LandingPage from "./pages/LandingPage";
+import PostsPage from "./pages/PostsPage";
 import { LoginModalProvider } from "./context/LoginContext";
 import { ForgetModalProvider } from "./context/forgetPassContext";
-import BaseOfNotFound from "./components/PageNotFound/BaseOfNotFound";
 import CharityProvider from "./context/CharityProvider"
 import { SigunUpProvider } from "./context/SignUpContext"
 import { DakhelProvider } from "./context/DakhelContext";
-import MyFundraise from "./components/mainPages/Fundraise/MyFundraise";
-import NewFundraise from "./components/mainPages/Fundraise/NewFundraise";
-import EmailConfiguration from "./components/email/EmailConfiguration"
-import ChangePassword from "./components/email/ChangePassword";
 import { SearchProvider } from "./context/SearchContext";
+import ProfilePage from './pages/ProfilePage';
+import PostPage from './pages/PostPage';
+import NotFoundPage from './pages/NotFoundPage';
+import EmailConfigurationPage from './pages/EmailConfigurationPage';
+import ChangePasswordPage from './pages/ChangePasswordPage';
 
 function App () {
     useEffect(()=>{
@@ -37,15 +35,13 @@ function App () {
 
 
                                     <Routes>
-                                        <Route path="/" element={ <Landing/> }/>
-                                        <Route path="/page/:id" element={ <Base/> }/>
-                                        <Route path="/Myfundraise" element={ <MyFundraise/> }/>
+                                        <Route path="/" element={ <LandingPage/> }/>
+                                        <Route path="/page/:id" element={ <PostPage/> }/>
                                         <Route path="/profile" element={ <ProfilePage/> }/>
-                                        <Route path="NewFundraise" element={ <NewFundraise/> }/>
                                         <Route path="/Posts" element={ <PostsPage/> }/>
-                                        <Route path="/activation/*" element={ <EmailConfiguration/> }/>
-                                        <Route path="/reset_password/*" element={ <ChangePassword/> }/>
-                                        <Route path="/*" element={ <BaseOfNotFound/> }/>
+                                        <Route path="/activation/*" element={ <EmailConfigurationPage/> }/>
+                                        <Route path="/reset_password/*" element={ <ChangePasswordPage/> }/>
+                                        <Route path="/*" element={ <NotFoundPage/> }/>
                                     </Routes>
                                 </SearchProvider>
                             </ForgetModalProvider>

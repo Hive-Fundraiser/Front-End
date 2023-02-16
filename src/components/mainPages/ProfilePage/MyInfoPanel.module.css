@@ -1,0 +1,91 @@
+.form {
+    position: relative;
+    height: calc(38vw + 13rem);
+    background-color: white;
+    padding-top: calc(4vw + 1rem);
+    padding-left: calc(5vw + 2rem);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border: solid rgb(18 198 238 / 40%) calc(0.15vw + 0.01rem);
+    border-right: none;
+    padding-right: calc(6vw + 1rem);
+}
+.inner_parent{
+   display: flex;
+   width: calc(38.5vw + 9rem);
+}
+.input_parent{
+    display: flex;
+    flex-direction: column;
+    padding: calc(0.3vw + 0.03rem);
+    gap: calc(0.3vw + 0.05rem);
+    flex: 1;
+}
+.input_parent label{
+    font-size: calc(1.15vw + 0.5rem);
+}
+.input_parent input{
+    border: 0;
+    background-color: #E1EAFF;
+    padding: calc(0.4vw + 0.15rem);
+    border-radius: 5px;
+    font-size: calc(0.85vw + 0.3rem);
+}
+.username_parent{
+    flex: none;
+}
+.input_parent input:focus-visible{
+    outline: 0;
+}
+.profile_pic_parent{
+    display: flex;
+    align-items: center;
+    gap: calc(1vw + 0.3rem);
+    padding: calc(1vw + 0.1rem);
+}
+.profile_pic_parent label{
+    font-size: calc(1.15vw + 0.5rem);
+}
+/* B3E9FF    E3E9FF */
+.upload_button{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: calc(0.3vw + 0.04rem);
+}
+.upload_button span{
+    font-size: calc(1vw + 0.3rem);
+}
+.upload_button img{
+    width: calc(2vw + 0.3rem);
+}
+.change_password_outer_parent{
+    padding-top: calc(8.5vw + 1.5rem);
+}
+.change_password_parent {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    gap: calc(0.3vw + 0.05rem);
+    justify-content: center;
+}
+.change_password_parent label{
+    font-size: calc(1.15vw + 0.5rem);
+    /* font-weight: bold; */
+    width: max-content;
+}
+.change_password_parent img{
+    width: calc(1.5vw + 0.2rem);
+}
+.submit_button{
+    position: absolute;
+    left: calc(1vw + 0.1rem);
+    bottom: calc(-5vw - 0.5rem);
+    width: calc(6vw + 0.9rem);
+    font-size: calc(1.3vw + 0.4rem);
+    padding: calc(0.6vw + 0.05rem);
+    border-radius: 10px;
+    border: 0;
+    background-color: #00B4E3;
+    color: white;
+}

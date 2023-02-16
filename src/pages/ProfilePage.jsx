@@ -1,6 +1,6 @@
 import styles from "./ProfilePage.module.css";
-import VerticalNavbar from "./VerticalNavbar";
-import Form from "./Form";
+import VerticalNavbar from "./../components/mainPages/ProfilePage/VerticalNavbar";
+import Form from "./../components/mainPages/ProfilePage/Form";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
