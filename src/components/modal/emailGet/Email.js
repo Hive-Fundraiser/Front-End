@@ -1,6 +1,6 @@
 import React , { useContext , useEffect , useState } from 'react';
 import { createPortal } from 'react-dom';
-import cancel from "../../../images/close.svg";
+import cancel from "../../../images/modal/close.svg";
 import { Link , useNavigate } from "react-router-dom";
 import { notify } from "../../../helper/toast";
 import styles from "./Email.module.css";

@@ -2,7 +2,7 @@ import { useRef } from "react";
 import styles from "./Form.module.css";
 import Pen from "./../../../images/ProfilePage/pen.svg";
 import Upload from "./../../../images/ProfilePage/upload.svg";
-import { validateFileType } from "../../../utils/Utils";
+import { validateFileType } from "../../../helper/Utils";
 import MyFundraise from "../Fundraise/MyFundraise";
 import MyFundraisePanel from "./../Fundraise/MyFundraisePanel";
 const Form = ({ active }) => {

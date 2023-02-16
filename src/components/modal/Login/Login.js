@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { notify } from "../../../helper/toast";
 import { createPortal } from 'react-dom';
 import styles from "../Login/Login.module.css";
-import cancel from "../../../images/close.svg";
+import cancel from "../../../images/modal/close.svg";
 import Email from "../emailGet/Email";
 import { LoginModalContext } from "../../../context/LoginContext";
 import { ForgetModalContext } from "../../../context/forgetPassContext"

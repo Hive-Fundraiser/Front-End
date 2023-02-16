@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 import styles from "../../components/modal/SignUp.module.css";
 import axios from "axios";
 import Login from "./Login/Login";
-import cancel from "../../images/close.svg"
+import cancel from "../../images/modal/close.svg"
 import { LoginModalContext } from "../../context/LoginContext";
 import { SignUpContext } from "../../context/SignUpContext";
 import { DakhelContext } from "../../context/DakhelContext";
