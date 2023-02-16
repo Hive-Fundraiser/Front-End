@@ -59,7 +59,7 @@
     list-style: none;
     padding: calc(1vw + 0.1rem);
     color: #CECECE;
-    cursor: default;
+    cursor: pointer;
 }
 .active{
     color: white;

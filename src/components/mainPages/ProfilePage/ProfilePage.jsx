@@ -12,7 +12,7 @@ const ProfilePage = () => {
   };
   const tabs = [
     {
-      name: "صفحه کاربری",
+      name: "اطلاعات من",
       tag: "my_info",
       onClick: () => {
         clickHandler("my_info");
