@@ -10,7 +10,7 @@ import { DakhelContext } from "../../context/DakhelContext";
 import { ForgetModalContext } from "../../context/forgetPassContext";
 
 
-const SignUp = ( { open  } ) => {
+const SignUp = ( { open,closeModal  } ) => {
     // CONTEXTS
     const { setIsOpen } = useContext ( SignUpContext );
     const { isOpenLogin , setIsOpenLogin } = useContext ( LoginModalContext )
@@ -72,6 +72,7 @@ const SignUp = ( { open  } ) => {
         setIsOpen ( false )
         setIsOpenLogin ( false )
         setIsPassOpen ( false )
+        closeModal(false)
 
     }
     const cancelImageHandler = () => {
@@ -84,6 +85,7 @@ const SignUp = ( { open  } ) => {
             password : ""
         } )
         setErrors ( {} )
+        closeModal(false)
     }
     const error_margin = ( error ) => {
         console.log ( 'in error margin function: ' , error )
