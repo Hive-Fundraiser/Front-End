@@ -9,12 +9,12 @@ import axios from "axios";
 import { ToastContainer } from "react-toastify";
 import Login from "./Login/Login";
 import cancel from "../../images/close.svg"
-import { DataContext } from "../../helper/test";
-import { DataProvider } from "../../helper/test";
+import { LoginModalContext } from "../../context/LoginContext";
+import { LoginModalProvider } from "../../context/LoginContext";
 import { SignUpContext } from "../../context/SignUpContext";
 
 import { DakhelContext } from "../../context/DakhelContext";
-import { Data2Context } from "../../context/forgetPassContext";
+import { ForgetModalContext } from "../../context/forgetPassContext";
 
 const MODAL_STYLES = {
     position : "fixed" ,
@@ -56,9 +56,9 @@ const BUTTON_WRAPPER_LOGIN_STYLES = {
 }
 const SignUp = ( { open , closeModal } ) => {
     const { isOpen , setIsOpen } = useContext ( SignUpContext );
-    const { isOpenLogin , setIsOpenLogin } = useContext ( DataContext )
+    const { isOpenLogin , setIsOpenLogin } = useContext ( LoginModalContext )
     const { isIn , setIsIn } = useContext ( DakhelContext );
-    const { isPassOpen , setIsPassOpen } = useContext ( Data2Context )
+    const { isPassOpen , setIsPassOpen } = useContext ( ForgetModalContext )
     // MAIN DATA
     const [ data , setData ] = useState ( {
         username : "" ,

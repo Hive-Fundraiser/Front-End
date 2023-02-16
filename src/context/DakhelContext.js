@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState,createContext } from "react";
 
-const DakhelContext = React.createContext();
+const DakhelContext = createContext();
 
 const DakhelProvider = ( { children }) => {
     const [isIn, setIsIn] = useState(false);

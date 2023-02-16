@@ -5,8 +5,8 @@ import { Link , useNavigate } from "react-router-dom";
 import { validate } from "../../../helper/validate";
 import { notify } from "../../../helper/toast";
 import styles from "./Email.module.css";
-import { Data2Context } from "../../../context/forgetPassContext";
-import { DataContext } from "../../../helper/test";
+import { ForgetModalContext } from "../../../context/forgetPassContext";
+import { LoginModalContext } from "../../../context/LoginContext";
 import { SignUpContext } from "../../../context/SignUpContext";
 import axios from "axios";
 
@@ -36,8 +36,8 @@ const OVERLAY_STYLES = {
 
 const Email = ( open , closePassModal ) => {
     const navigate = useNavigate ();
-    const { isPassOpen , setIsPassOpen } = useContext ( Data2Context )
-    const { isOpenLogin , setIsOpenLogin } = useContext ( DataContext )
+    const { isPassOpen , setIsPassOpen } = useContext ( ForgetModalContext )
+    const { isOpenLogin , setIsOpenLogin } = useContext ( LoginModalContext )
     const { isOpen , setIsOpen } = useContext ( SignUpContext );
     const [errorChecker,setErrorChecker] = useState(false)
     const [ data , setData ] = useState ( {

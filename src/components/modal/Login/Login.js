@@ -7,8 +7,8 @@ import styles from "../Login/Login.module.css";
 import { ToastContainer } from "react-toastify";
 import cancel from "../../../images/close.svg";
 import Email from "../emailGet/Email";
-import { DataContext } from "../../../helper/test";
-import { Data2Context } from "../../../context/forgetPassContext"
+import { LoginModalContext } from "../../../context/LoginContext";
+import { ForgetModalContext } from "../../../context/forgetPassContext"
 import axios from "axios";
 import 'react-toastify/dist/ReactToastify.css';
 import { SignUpContext } from "../../../context/SignUpContext";
@@ -54,8 +54,8 @@ const MODAL_STYLES_HIDDEN = {
 
 const Login = ( { open , closeModal , closeLoginModel } ) => {
     const navigate = useNavigate ();
-    const { isPassOpen , setIsPassOpen } = useContext ( Data2Context )
-    const { isOpenLogin , setIsOpenLogin } = useContext ( DataContext )
+    const { isPassOpen , setIsPassOpen } = useContext ( ForgetModalContext )
+    const { isOpenLogin , setIsOpenLogin } = useContext ( LoginModalContext )
     const { isOpen , setIsOpen } = useContext ( SignUpContext );
     let login = "ورود"
     const [ inIn , isInIn ] = useState ( false )

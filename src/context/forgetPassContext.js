@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 
-const Data2Context = React.createContext();
+const ForgetModalContext = React.createContext();
 
-const Data2Provider = ( { children }) => {
+const ForgetModalProvider = ( { children }) => {
     const [ isPassOpen , setIsPassOpen ] = useState ( false );
 
     return (
-        <Data2Context.Provider value={{isPassOpen , setIsPassOpen }}>
+        <ForgetModalContext.Provider value={{isPassOpen , setIsPassOpen }}>
             {children}
-        </Data2Context.Provider>
+        </ForgetModalContext.Provider>
     );
 };
 
-export { Data2Provider, Data2Context };
+export { ForgetModalProvider, ForgetModalContext };
