@@ -85,6 +85,7 @@ const SignUp = ( { open,closeModal  } ) => {
             password : ""
         } )
         setErrors ( {} )
+        closeModal(false)
     }
     const error_margin = ( error ) => {
         console.log ( 'in error margin function: ' , error )
