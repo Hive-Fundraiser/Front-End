@@ -10,6 +10,44 @@
     background-color : white;
     z-index : 10000
 }
+.MODAL_STYLES{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    bottom: 50%;
+    right: 50%;
+    transform: translate(-50%,50%);
+    background-color: white;
+    z-index:10000 ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.MODAL_STYLES_HIDDEN{
+    display: none;
+}
+.OVERLAY_STYLES{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color:rgba(0,0,0,.7) ;
+    z-index:10000 ;
+}
+.OVERLAY_FORGET_PASSWORD_CLICKED{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color:transparent ;
+    z-index:89 ;
+}
+.BUTTON_WRAPPER_FORGET_PASSWORD_STYLES{
+    position: relative;
+    z-index: 1;
+}
 .formContainer{
     border: 1px solid #000000;
     width: calc(24vw + 4.5rem);
@@ -108,6 +146,8 @@
 .listContainer{
     margin-top: calc(0.7vw + 0.1rem);
     display: flex;
+    position: relative;
+    z-index: 1;
 }
 .uncompleted{
     width: 300px;
@@ -130,6 +170,8 @@
     border-bottom: 1px solid black;
     padding-bottom: calc(0.1vw + 0.05rem);
     color: black;
+    position: relative;
+    z-index: 1;
 }
 
 .closeButton{

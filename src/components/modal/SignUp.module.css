@@ -141,6 +141,8 @@
 .listContainer{
     margin-top: calc(0.7vw + 0.1rem);
     display: flex;
+    position: relative;
+    z-index: 1;
 }
 .uncompleted{
     width: 300px;
