@@ -1,59 +1,15 @@
 import React , { useContext , useEffect , useState } from 'react';
-import ReactDOM from "react-dom/client";
 import { createPortal } from 'react-dom';
 import styles from "../../components/modal/SignUp.module.css";
-import { Link } from "react-router-dom";
-import { validate } from "../../helper/validate";
-import { notify } from "../../helper/toast";
 import axios from "axios";
-import { ToastContainer } from "react-toastify";
 import Login from "./Login/Login";
 import cancel from "../../images/close.svg"
 import { LoginModalContext } from "../../context/LoginContext";
-import { LoginModalProvider } from "../../context/LoginContext";
 import { SignUpContext } from "../../context/SignUpContext";
-
 import { DakhelContext } from "../../context/DakhelContext";
 import { ForgetModalContext } from "../../context/forgetPassContext";
 
-const MODAL_STYLES = {
-    position : "fixed" ,
-    top : "50%" ,
-    left : "50%" ,
-    bottom : "50%" ,
-    transform : "translate(-50%, 50%)" ,
-    backgroundColor : "#FFF" ,
-    zIndex : 10000 ,
-    display : "flex" ,
-    alignItems : "center" ,
-    justifyContent : "center" ,
 
-}
-const MODAL_STYLES_HIDDEN = {
-    display : "none"
-}
-const OVERLAY_STYLES = {
-    position : "fixed" ,
-    top : 0 ,
-    left : 0 ,
-    right : 0 ,
-    bottom : 0 ,
-    backgroundColor : "rgba(0,0,0,.7)" ,
-    zIndex : 10000
-}
-const OVERLAY_STYLE_LOGIN_CLICKED = {
-    position : "fixed" ,
-    top : 0 ,
-    left : 0 ,
-    right : 0 ,
-    bottom : 0 ,
-    backgroundColor : "transparent" ,
-    zIndex : 10000
-}
-const BUTTON_WRAPPER_LOGIN_STYLES = {
-    position : "relative" ,
-    zIndex : 1
-}
 const SignUp = ( { open , closeModal } ) => {
     const { isOpen , setIsOpen } = useContext ( SignUpContext );
     const { isOpenLogin , setIsOpenLogin } = useContext ( LoginModalContext )
@@ -140,9 +96,9 @@ const SignUp = ( { open , closeModal } ) => {
         <>
 
 
-            <div style={ isOpenLogin ? OVERLAY_STYLE_LOGIN_CLICKED : OVERLAY_STYLES }
+            <div style={ isOpenLogin ? styles.OVERLAY_STYLE_LOGIN_CLICKED : styles.OVERLAY_STYLES }
                  onClick={ overlayHandler }/>
-            <div style={ isOpenLogin ? MODAL_STYLES_HIDDEN : MODAL_STYLES }>
+            <div style={ isOpenLogin ? styles.MODAL_STYLES_HIDDEN : styles.MODAL_STYLES }>
                 <form onSubmit={ submitHandler } className={ styles.formContainer }>
 
                     <img className={ styles.closeButton } src={ cancel }
@@ -179,7 +135,7 @@ const SignUp = ( { open , closeModal } ) => {
                     </div>
                     <div className={ styles.formButtons }>
                         <button type="submit">ثبت نام</button>
-                        <div className={ styles.listContainer } style={ BUTTON_WRAPPER_LOGIN_STYLES }>
+                        <div className={ styles.listContainer } style={ styles.BUTTON_WRAPPER_LOGIN_STYLES }>
 
 
 
