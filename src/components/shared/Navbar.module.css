@@ -89,3 +89,9 @@
     border: 1px black solid;
     cursor: pointer;
 }
+.img_navbar_logged:hover{
+    border: 1px rgba(249,175,27,255) solid;
+}
+.username:hover{
+    color: rgba(249,175,27,255);
+}

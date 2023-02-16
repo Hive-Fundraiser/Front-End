@@ -59,20 +59,14 @@ const Login = ( { open , closeModal , closeLoginModel } ) => {
     const { isOpen , setIsOpen } = useContext ( SignUpContext );
     let login = "ورود"
     const [ inIn , isInIn ] = useState ( false )
+
     const [ data , setData ] = useState ( {
         email : "" ,
         password : ""
     } )
     const [ touch , setTouch ] = useState ( {} )
     const [ errors , setErrors ] = useState ( {} )
-    const [ output , setOutPut ] = useState ( {
-        first_name : "محمد" ,
-        last_name : "nas" ,
-        account_number : "62738" ,
-        birth_date : "1999-03-24" ,
-        identity_card_number : "0590403338"
 
-    } )
     useEffect ( () => {
         if ( inIn ) {
 
@@ -86,32 +80,9 @@ const Login = ( { open , closeModal , closeLoginModel } ) => {
     const submitHandler = async ( event ) => {
         event.preventDefault ();
         await axios.post ( "https://hive.iran.liara.run/auth/jwt/create/" , data )
-            .then ( async response => {
-                await localStorage.setItem ( "token" , response.data.access )
-                const token = localStorage.getItem ( "token" )
+            .then (  async response => {
+                localStorage.setItem ( "token" , response.data.access )
 
-                // const authorizationHeader = `JWT ${ token }`
-                // const headers = {
-                //     'Authorization' : authorizationHeader ,
-                //     'Content-Type' : 'application/json'
-                // };
-                // console.log ( token )
-                // console.log ( authorizationHeader )
-                // console.log ( data.email )
-               // await axios ( {
-               //      method : 'get' ,
-               //      url : 'https://hive.iran.liara.run/auth/users/me' ,
-               //      headers : {
-               //          'Authorization' : 'JWT ' + token ,
-               //          'Content-Type' : 'application/json'
-               //      }
-               //  } )
-               //      .then ( function ( response ) {
-               //          console.log ( response.data );
-               //      } )
-               //      .catch ( function ( error ) {
-               //          console.log ( error );
-               //      } )
                 setData ( {
                     email : "" ,
                     password : ""
@@ -134,6 +105,7 @@ const Login = ( { open , closeModal , closeLoginModel } ) => {
 
             } )
 
+
     }
     const focusHandler = ( event ) => {
         setTouch ( { ... touch , [ event.target.name ] : true } )
@@ -141,7 +113,7 @@ const Login = ( { open , closeModal , closeLoginModel } ) => {
     }
     const changeHandler = ( event ) => {
         setData ( { ... data , [ event.target.name ] : event.target.value } )
-        console.log ( data.name )
+
     }
     const closeHandler = () => {
         setData ( {

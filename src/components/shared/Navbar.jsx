@@ -30,7 +30,7 @@ const Navbar = () => {
     const [ logged , setLogged ] = useState ( false )
     const name = localStorage.getItem ( "username" )
     const [ token , setToken ] = useState ( "" )
-
+    const [output,setOutPut]=useState({})
     const [ data , setData ] = useState ( {
         username : "" ,
         id : 0 ,
@@ -44,6 +44,27 @@ const Navbar = () => {
             setIsIn ( false )
         }
         const token = localStorage.getItem ( "token" )
+
+        const authorizationHeader = `JWT ${ token }`
+         axios ( {
+            method : 'get' ,
+            url : 'https://hive.iran.liara.run/auth/users/' ,
+            headers : {
+                'Content-Type' : 'application/json' ,
+                'Authorization' : 'JWT ' + token
+
+            }
+        } )
+            .then ( function ( r ) {
+
+                console.log(r.data[0].username)
+
+                localStorage.setItem ( "username" , r.data[0].username )
+                localStorage.setItem ( "id" , r.data[0].id )
+            } )
+            .catch ( function ( error ) {
+                console.log ( error );
+            } )
 
         if ( token ) {
             setLogged ( true )
@@ -71,7 +92,7 @@ const Navbar = () => {
                     </div>
 
                     <div style={ BUTTON_WRAPPER_LOGIN_STYLES } className={ styles.lists }>
-                        { logged ? <p>{ name }</p> :
+                        { logged ? <p className={styles.username}>{ name }</p> :
                             <button className={ styles.p1 } onClick={ () => setIsOpenLogin ( true ) }>
                                 ورود
                             </button> }
