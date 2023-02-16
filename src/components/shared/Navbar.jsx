@@ -39,8 +39,7 @@ const Navbar = () => {
 
     useEffect ( () => {
         if ( isIn ) {
-            notify ( "ثبت نام موفقیت آمیز بود!" +
-                " ایمیل خود را تایید کنید" , "info" )
+
             setIsIn ( false )
         }
         const token = localStorage.getItem ( "token" )
