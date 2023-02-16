@@ -1,7 +1,7 @@
 import React , { useEffect } from 'react';
 
 import { Route , Routes } from "react-router-dom";
-import LandingPage from "./components/mainPages/LandingPage/Landing";
+import LandingPage from "./pages/LandingPage";
 import PostsPage from "./pages/PostsPage";
 import { LoginModalProvider } from "./context/LoginContext";
 import { ForgetModalProvider } from "./context/forgetPassContext";
