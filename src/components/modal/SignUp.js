@@ -8,6 +8,7 @@ import { LoginModalContext } from "../../context/LoginContext";
 import { SignUpContext } from "../../context/SignUpContext";
 import { DakhelContext } from "../../context/DakhelContext";
 import { ForgetModalContext } from "../../context/forgetPassContext";
+import { notify } from "../../helper/toast";
 
 
 const SignUp = ( { open,closeModal  } ) => {
@@ -32,7 +33,8 @@ const SignUp = ( { open,closeModal  } ) => {
         console.log ( data )
         await axios.post ( "https://hive.iran.liara.run/auth/users/" , data )
             .then ( response => {
-
+                notify ( "ثبت نام موفقیت آمیز بود!" +
+                    " ایمیل خود را تایید کنید" , "info" )
 
                 setIsOpen ( false )
                 setIsIn ( true )
