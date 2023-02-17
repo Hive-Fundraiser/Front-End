@@ -80,6 +80,7 @@
     border-radius: 10px;
     border: rgba(0,0,0,0.5) solid calc(0.05vw + 0.005rem);
     background-color: white;
+    color: black;
 }
 .see_result_btn{
     width: calc(5vw + 0.8rem);
