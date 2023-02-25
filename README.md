@@ -3,13 +3,13 @@ Welcome to the Hive project, an Iranian crowdfunding platform designed to help p
 
 ## Table of Contents
 
-- [Features](https://github.com/mohammadalimojtahedsoleimani/Hive-Project#features)
-- [Technologies Used](https://github.com/mohammadalimojtahedsoleimani/Hive-Project#Technologies Used)
-- [Installation and Setup](https://github.com/mohammadalimojtahedsoleimani/Hive-Project#Installation and Setup)
-- [Usage](https://github.com/mohammadalimojtahedsoleimani/Hive-Project#Usage)
-- [UI/UX Design](https://github.com/mohammadalimojtahedsoleimani/Hive-Project#UI/UX Design)
-- [Contributing](https://github.com/mohammadalimojtahedsoleimani/Hive-Project#Contributing)
-- [License](https://github.com/mohammadalimojtahedsoleimani/Hive-Project#License)
+- [Features](https://github.com/mohammadalimojtahedsoleimani/Hive-Project#-features)
+- [Technologies Used](https://github.com/mohammadalimojtahedsoleimani/Hive-Project#-technologies-used)
+- [Installation and Setup](https://github.com/mohammadalimojtahedsoleimani/Hive-Project#-Installation-and-Setup)
+- [Usage](https://github.com/mohammadalimojtahedsoleimani/Hive-Project#-Usage)
+- [UI/UX Design](https://github.com/mohammadalimojtahedsoleimani/Hive-Project#-UI/UX-Design)
+- [Contributing](https://github.com/mohammadalimojtahedsoleimani/Hive-Project#-Contributing)
+- [License](https://github.com/mohammadalimojtahedsoleimani/Hive-Project#-License)
 
 ## 🚀 Features
 Hive allows users to create campaigns for their causes and share them with others to raise funds. The main features of the platform include:
