@@ -34,7 +34,7 @@ The following technologies were used in the development of Hive:
 - 🐍 Mongoose
 - 🔑 JWT
 - 🔒 bcrypt
-- 🎨React Bootstrap
+- 🎨 React Bootstrap
 - 🎨 Figma
 
 ## 💿 Installation and Setup
