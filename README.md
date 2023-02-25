@@ -38,7 +38,7 @@ The following technologies were used in the development of Hive:
 To run Hive on your local machine, follow these steps:
 
 1. 🐝 Clone the repository to your local machine using the command ``` git clone https://github.com/mohammadalimojtahedsoleimani/Hive-Project.git ```.
-
+2. 📦 Install the necessary dependencies by running ```npm install``` in both the `client` and `server` directories.
 
 
 # Getting Started with Create React App
