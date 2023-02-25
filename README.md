@@ -10,6 +10,9 @@ Welcome to the Hive project, an Iranian crowdfunding platform designed to help p
 - [UI/UX Design](https://github.com/mohammadalimojtahedsoleimani/Hive-Project#-UI/UX-Design)
 - [Contributing](https://github.com/mohammadalimojtahedsoleimani/Hive-Project#-Contributing)
 - [License](https://github.com/mohammadalimojtahedsoleimani/Hive-Project#-License)
+- [About Hive](https://github.com/mohammadalimojtahedsoleimani/Hive-Project#-about-hive)
+- [Learn More](https://github.com/mohammadalimojtahedsoleimani/Hive-Project#%EF%B8%8F-learn-more)
+
 
 ## 🚀 Features
 Hive allows users to create campaigns for their causes and share them with others to raise funds. The main features of the platform include:
